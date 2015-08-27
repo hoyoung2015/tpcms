@@ -29,7 +29,6 @@ class EasyUI extends TagLib{
 			'fit'          => true,
 			'fitColumns'   => true,
 			'rownumbers'   => true,
-			'singleSelect' => true,
 			'striped'      => true,
 			'pagination'   => true,
 			'pageList'     => array(20,30,50,80,100),

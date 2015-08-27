@@ -1,6 +1,6 @@
 .textbox {
   position: relative;
-  border: 1px solid #D4D4D4;
+  border: 1px solid #c3d9e0;
   background-color: #fff;
   vertical-align: middle;
   display: inline-block;
@@ -8,9 +8,9 @@
   white-space: nowrap;
   margin: 0;
   padding: 0;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 .textbox .textbox-text {
   font-size: 12px;
@@ -21,12 +21,9 @@
   vertical-align: top;
   outline-style: none;
   resize: none;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-.textbox textarea.textbox-text {
-  white-space: pre-wrap;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 .textbox .textbox-prompt {
   font-size: 12px;
@@ -80,9 +77,9 @@
   filter: alpha(opacity=60);
 }
 .textbox-focused {
-  -moz-box-shadow: 0 0 3px 0 #D4D4D4;
-  -webkit-box-shadow: 0 0 3px 0 #D4D4D4;
-  box-shadow: 0 0 3px 0 #D4D4D4;
+  -moz-box-shadow: 0 0 3px 0 #c3d9e0;
+  -webkit-box-shadow: 0 0 3px 0 #c3d9e0;
+  box-shadow: 0 0 3px 0 #c3d9e0;
 }
 .textbox-invalid {
   border-color: #ffa8a8;
