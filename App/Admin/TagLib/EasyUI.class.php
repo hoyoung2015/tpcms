@@ -24,7 +24,7 @@ class EasyUI extends TagLib{
 		$id    = !empty($tag['id']) ? $tag['id'] : strtolower(CONTROLLER_NAME.'_'.ACTION_NAME.'_datagrid');
 		$style = !empty($tag['style']) ? $tag['style'] : '';
 		//默认参数
-		$dataOptions = array(
+            $dataOptions = array(
 			'border'       => false,
 			'fit'          => true,
 			'fitColumns'   => true,

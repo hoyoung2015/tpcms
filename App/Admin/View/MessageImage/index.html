@@ -1,0 +1,224 @@
+<style type="text/css">
+    .msg-image td{
+        border:none;
+        line-height: 20px;
+    }
+    #imageListModule .datagrid-body{
+        /*background: #F5F5F5*/
+    }
+</style>
+<div id="msgimage-datagrid-toolbar" style="padding:1px;height:auto">
+    <form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
+        名称:
+        <input type="text" name="search[name]" style="width:200px;"/>
+        <a href="javascript:;" onclick="msgImageListModule.search(this)" class="easyui-linkbutton" iconCls="icon-search">搜索</a>
+    </form>
+    <div>
+        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgImageListModule.add()">添加消息</a>
+        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgImageListModule.refresh()">刷新</a>
+    </div>
+</div>
+<div id="imageListModule" style="">
+
+
+</div>
+<script type="application/javascript">
+    var animal = $.extend({}, $.fn.datagrid.defaults.view, {
+        render : function (target, container, frozen) {
+            if(frozen) return;
+            var opts = $.data(target, 'datagrid').options;
+            var rows = $.data(target, 'datagrid').data.rows;
+            var fields = $(target).datagrid('getColumnFields', frozen);
+            var table = [];
+            for (var i = 0; i < rows.length; i++) {
+                table.push('<div class="msg-image" style="float:left;width:200px;margin: 5px">');
+                table.push(this.renderRow(target,i,rows[i]));
+                table.push('</div>');
+            }
+//            $(container).css('background','#F5F5F5');
+            $(container).prev().remove();
+            $(container).html(table.join(''));
+
+            $(container).find('.msg-image').each(function(index){
+                $(this).find('.img-button').each(function(idx){
+                    $(this).click(function(){
+                        opts.buttons[idx].onClick(rows[index]);
+                    });
+                });
+            });
+        },
+        renderRow : function (target, rowIndex, rowData) {
+            var opts = $.data(target, 'datagrid').options;
+            var div = [];
+            div.push('<div class="image-wrap" style="margin-bottom:4px;width: 200px;height: 150px;text-align: center"><span style="display: inline-block;vertical-align: middle;height: 100%"></span>');
+            div.push('<img style="vertical-align: middle;width:200px;" src="/wechat/timthumb.php?src='+rowData.image_url+'&w=200&h=150&q=90&zc=1&ct=1"/></div>');//图片部分结束
+
+            div.push('<table width="100%" cellspacing="0" border="0" cellpadding="0">');
+            div.push('<tr><td colspan="2">名称:'+rowData.name+'</td></tr>');
+            div.push('<tr><td><span style="color: #777">'+new Date(parseInt(rowData.create_time)).Format("yyyy-MM-dd hh:mm:ss")+'</span></td><td>');
+
+            $.each(opts.buttons,function(index,value){
+                div.push('<a href="javascript:;" class="img-button" style="float: right;margin-left: 5px;">'+value.name+'</a>');
+            });
+            div.push('</td></tr>');
+            div.push('</table>');
+            return div.join('');
+        }
+    });
+    var msgImageListModule = {
+        datagrid : '#imageListModule',
+        dialog:   '#globel-dialog-div',
+        addAction:"<{:U('MessageImage/add')}>",
+        listAction:"<{:U('MessageImage/index')}>",
+        editAction:"<{:U('MessageImage/edit')}>",
+        load : function(){
+            var that = this;
+            $(this.datagrid).datagrid({
+                toolbar:"#msgimage-datagrid-toolbar",
+                url:that.listAction,
+                fitColumns:true,
+                fit:true,
+                pagination:true,
+                pageSize:15,
+                pageList:[15,30,45,60],
+                buttons:[
+                    {
+                        name:'删除',
+                        onClick:function(row){
+                            that.delete(row);
+                        }
+                    },
+                    {
+                        name:'编辑',
+                        onClick:function(row){
+                            console.log(row);
+                            that.edit(parseInt(row.id));
+                        }
+                    }
+                ],
+                view: animal
+            });
+        },
+        //刷新
+        refresh: function(){
+            $(this.datagrid).datagrid('reload');
+        },
+        //搜索
+        search: function(that){
+            var queryParams = $(this.datagrid).datagrid('options').queryParams;
+            $.each($(that).parent('form').serializeArray(), function() {
+                queryParams[this['name']] = this['value'];
+            });
+            $(this.datagrid).datagrid({pageNumber: 1});
+        },
+        add:function(){
+            var that = this;
+            $(that.dialog).dialog({
+                title: '添加图片消息',
+                iconCls: 'icons-application-application_add',
+                width: 390,
+                height: 300,
+                cache: false,
+                href: that.addAction,
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
+
+                                $.messager.progress({text:'处理中，请稍候...'});
+                                $.post(that.addAction, $(this).serialize(), function(res){
+                                    $.messager.progress('close');
+                                    if(!res.status){
+                                        $.app.method.tip('提示信息', res.info, 'error');
+                                    }else{
+                                        $.app.method.tip('提示信息', res.info, 'info');
+                                        $(that.dialog).dialog('close');
+                                        that.refresh();
+                                    }
+                                }, 'json');
+
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                    }
+                }]
+            });
+        },
+        //编辑
+        edit: function(id){
+            if(typeof(id) !== 'number'){
+                $.app.method.tip('提示信息', '未选择消息', 'error');
+                return false;
+            }
+            var href = this.editAction;
+            href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+            var that = this;
+            $(that.dialog).dialog({
+                title: '编辑文本消息',
+                iconCls: 'icons-application-application_edit',
+                width: 390,
+                height: 350,
+                cache: false,
+                href: href,
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
+
+                                var action = that.editAction;
+                                action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+
+                                $.messager.progress({text:'处理中，请稍候...'});
+                                $.post(action, $(this).serialize(), function(res){
+                                    $.messager.progress('close');
+
+                                    if(!res.status){
+                                        $.app.method.tip('提示信息', res.info, 'error');
+                                    }else{
+                                        $.app.method.tip('提示信息', res.info, 'info');
+                                        $(that.dialog).dialog('close');
+                                        that.refresh();
+                                    }
+                                }, 'json');
+
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                        $(that.datagrid).datagrid('unselectAll');
+                    }
+                }]
+            });
+        }
+    };
+msgImageListModule.load();
+</script>

@@ -47,6 +47,7 @@ class IndexController extends CommonController {
 				$result = $geetest->validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
 				if ($result == TRUE) {
 					if($admin_db->login($username, $password)){
+                        $_SESSION['KCFINDER']['disabled'] = false;
 						$this->success('登录成功', U('Index/index'));
 					}else{
 						$this->error($admin_db->error, HTTP_REFERER);

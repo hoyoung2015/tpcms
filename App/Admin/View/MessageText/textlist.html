@@ -66,7 +66,7 @@ var msgTextListModule = {
 			maximizable: false,
 			buttons:[{
 				text:'确定',
-				iconCls:'icons-other-tick',
+				iconCls:'icon-ok',
 				handler: function(){
 					$(that.dialog).find('form').eq(0).form('submit', {
 						onSubmit: function(){
@@ -92,7 +92,7 @@ var msgTextListModule = {
 				}
 			},{
 				text:'取消',
-				iconCls:'icons-arrow-cross',
+				iconCls:'icon-no',
 				handler: function(){
 					$(that.dialog).dialog('close');
 				}
@@ -123,7 +123,7 @@ var msgTextListModule = {
 			maximizable: false,
 			buttons:[{
 				text:'确定',
-				iconCls:'icons-other-tick',
+				iconCls:'icon-ok',
 				handler: function(){
 					$(that.dialog).find('form').eq(0).form('submit', {
 						onSubmit: function(){
@@ -152,7 +152,7 @@ var msgTextListModule = {
 				}
 			},{
 				text:'取消',
-				iconCls:'icons-arrow-cross',
+				iconCls:'icon-no',
 				handler: function(){
 					$(that.dialog).dialog('close');
 					$(that.datagrid).datagrid('unselectAll');

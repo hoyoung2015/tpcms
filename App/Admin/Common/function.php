@@ -120,3 +120,7 @@ function url_upload($callback, $ext = 'jpg|jpeg|png|gif|bmp'){
 	$query['sign'] = sign($query);
 	return U('Storage/public_dialog', $query);
 }
+function p($a){
+    echo "<pre>";
+    print_r($a);
+}

@@ -14,17 +14,22 @@
 <link rel="stylesheet" href="/Public/static/js/croppic/croppic.css"/>
 <script type="text/javascript" src="/Public/static/js/croppic/croppic.min.js"></script>
 <script type="text/javascript" src="/Public/static/js/jquery.app.js"></script>
-<link rel="stylesheet" type="text/css" href="/Public/static/css/icons.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/Public/static/css/icons.css" /> -->
+<link rel="stylesheet" type="text/css" href="/Public/static/js/easyui/themes/icon.css" />
 <link rel="stylesheet" type="text/css" href="/Public/static/js/easyui/themes/default/easyui.css" title="default" />
 <link rel="stylesheet" type="text/css" href="/Public/static/js/easyui/themes/gray/easyui.css" title="gray" />
 <link rel="stylesheet" type="text/css" href="/Public/static/js/easyui/themes/bootstrap/easyui.css" title="bootstrap" />
 <link rel="stylesheet" type="text/css" href="/Public/static/js/easyui/themes/metro/easyui.css" title="metro" />
+<link rel="stylesheet" type="text/css" href="/Public/static/js/easyui/themes/metro-blue/easyui.css" title="metro-blue" />
+
+
 <link rel="stylesheet" type="text/css" href="/Public/static/css/admin/default.css" title="default" />
 <link rel="stylesheet" type="text/css" href="/Public/static/css/admin/gray.css" title="gray" />
 <link rel="stylesheet" type="text/css" href="/Public/static/css/admin/bootstrap.css" title="bootstrap" />
 <link rel="stylesheet" type="text/css" href="/Public/static/css/admin/metro.css" title="metro" />
+<link rel="stylesheet" type="text/css" href="/Public/static/css/admin/metro-blue.css" title="metro-blue" />
 <script type="text/javascript">
-var theme = $.cookie('theme') || 'default'; //全局变量
+var theme = $.cookie('theme') || 'bootstrap'; //全局变量
 $(document).ready(function(){
 	$('link[rel*=style][title]').each(function(i){
 		this.disabled = true;

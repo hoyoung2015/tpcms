@@ -1,0 +1,87 @@
+<style type="text/css">
+    #image {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #777;
+    }
+
+    #image img {
+        visibility: hidden;
+    }
+</style>
+<form>
+    <input type="hidden" name="info[id]" value="<{$info.id}>"/>
+    <input type="hidden" name="info[msg_type]" value="image"/>
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="90">名称：</td>
+            <td><input class="easyui-validatebox" data-options="required:true" type="text" value="<{$info.name}>" name="info[name]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td>消息图片：</td>
+            <td>
+                <input type="hidden" name="info[image_url]" value="<{$info.msg_image.image_url}>" id="msgImageUrl"/>
+                <div style="padding: 14px">
+                    <div id="image" onclick="msgImageOpenKCFinder(this)">
+                        <div style="margin:5px">
+                            <p style="vertical-align: middle;height: 180px;line-height:180px;text-align: center">点击这里选择图片</p>
+
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="application/javascript">
+    var kcfinderUrl = '/wechat/Public/static/js/kcfinder/browse.php';
+    function msgImageOpenKCFinder(div) {
+        window.KCFinder = {
+            callBack: function(url) {
+                msgImageRender(div,url);
+            }
+        };
+        window.open(kcfinderUrl,
+                'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+        );
+    }
+    function msgImageRender(div,url){
+        $('#msgImageUrl').val(url);
+        window.KCFinder = null;
+        div.innerHTML = '<div style="margin:5px">Loading...</div>';
+        var img = new Image();
+        img.src = url;
+        img.onload = function() {
+            div.innerHTML = '<img id="img" src="' + url + '" />';
+            var img = document.getElementById('img');
+            var o_w = img.offsetWidth;
+            var o_h = img.offsetHeight;
+            var f_w = div.offsetWidth;
+            var f_h = div.offsetHeight;
+            if ((o_w > f_w) || (o_h > f_h)) {
+                if ((f_w / f_h) > (o_w / o_h))
+                    f_w = parseInt((o_w * f_h) / o_h);
+                else if ((f_w / f_h) < (o_w / o_h))
+                    f_h = parseInt((o_h * f_w) / o_w);
+                img.style.width = f_w + "px";
+                img.style.height = f_h + "px";
+            } else {
+                f_w = o_w;
+                f_h = o_h;
+            }
+            img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+            img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+            img.style.visibility = "visible";
+        }
+    }
+    function msgImageEditInit(){
+        var url = $('#msgImageUrl').val();
+        msgImageRender(document.getElementById('image'),url);
+    };
+    msgImageEditInit();
+</script>

@@ -8,7 +8,7 @@ use Admin\Controller\CommonController;
  */
 class MessageTextController extends CommonController {
 
-	public function textlist($page = 1, $rows = 10, $search = array(), $sort = 'id', $order = 'asc'){
+	public function textlist($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
 		if(IS_POST){
 			$db      = M('msg_text');
 			//搜索
