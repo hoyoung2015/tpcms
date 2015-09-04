@@ -1,12 +1,3 @@
-<style type="text/css">
-    .msg-image td{
-        border:none;
-        line-height: 20px;
-    }
-    #imageListModule .datagrid-body{
-        /*background: #F5F5F5*/
-    }
-</style>
 <div id="msgimage-datagrid-toolbar" style="padding:1px;height:auto">
     <form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
         名称:
@@ -15,6 +6,7 @@
     </form>
     <div>
         <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgImageListModule.add()">添加消息</a>
+        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgImageListModule.delete()">批量删除</a>
         <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgImageListModule.refresh()">刷新</a>
     </div>
 </div>
@@ -23,54 +15,13 @@
 
 </div>
 <script type="application/javascript">
-    var animal = $.extend({}, $.fn.datagrid.defaults.view, {
-        render : function (target, container, frozen) {
-            if(frozen) return;
-            var opts = $.data(target, 'datagrid').options;
-            var rows = $.data(target, 'datagrid').data.rows;
-            var fields = $(target).datagrid('getColumnFields', frozen);
-            var table = [];
-            for (var i = 0; i < rows.length; i++) {
-                table.push('<div class="msg-image" style="float:left;width:200px;margin: 5px">');
-                table.push(this.renderRow(target,i,rows[i]));
-                table.push('</div>');
-            }
-//            $(container).css('background','#F5F5F5');
-            $(container).prev().remove();
-            $(container).html(table.join(''));
-
-            $(container).find('.msg-image').each(function(index){
-                $(this).find('.img-button').each(function(idx){
-                    $(this).click(function(){
-                        opts.buttons[idx].onClick(rows[index]);
-                    });
-                });
-            });
-        },
-        renderRow : function (target, rowIndex, rowData) {
-            var opts = $.data(target, 'datagrid').options;
-            var div = [];
-            div.push('<div class="image-wrap" style="margin-bottom:4px;width: 200px;height: 150px;text-align: center"><span style="display: inline-block;vertical-align: middle;height: 100%"></span>');
-            div.push('<img style="vertical-align: middle;width:200px;" src="/wechat/timthumb.php?src='+rowData.image_url+'&w=200&h=150&q=90&zc=1&ct=1"/></div>');//图片部分结束
-
-            div.push('<table width="100%" cellspacing="0" border="0" cellpadding="0">');
-            div.push('<tr><td colspan="2">名称:'+rowData.name+'</td></tr>');
-            div.push('<tr><td><span style="color: #777">'+new Date(parseInt(rowData.create_time)).Format("yyyy-MM-dd hh:mm:ss")+'</span></td><td>');
-
-            $.each(opts.buttons,function(index,value){
-                div.push('<a href="javascript:;" class="img-button" style="float: right;margin-left: 5px;">'+value.name+'</a>');
-            });
-            div.push('</td></tr>');
-            div.push('</table>');
-            return div.join('');
-        }
-    });
     var msgImageListModule = {
         datagrid : '#imageListModule',
         dialog:   '#globel-dialog-div',
         addAction:"<{:U('MessageImage/add')}>",
         listAction:"<{:U('MessageImage/index')}>",
         editAction:"<{:U('MessageImage/edit')}>",
+        deleteAction:"<{:U('MessageImage/delete')}>",
         load : function(){
             var that = this;
             $(this.datagrid).datagrid({
@@ -79,25 +30,24 @@
                 fitColumns:true,
                 fit:true,
                 pagination:true,
-                pageSize:15,
-                pageList:[15,30,45,60],
-                buttons:[
-                    {
-                        name:'删除',
-                        onClick:function(row){
-                            that.delete(row);
-                        }
-                    },
-                    {
-                        name:'编辑',
-                        onClick:function(row){
-                            console.log(row);
-                            that.edit(parseInt(row.id));
-                        }
-                    }
-                ],
-                view: animal
+//                rownumbers:true,
+                pageSize:20,
+                pageList:[20,40,60,100],
+                columns:[[
+                    {field:'id',checkbox:true},
+                    {field:'image_url',width:20,title:'图片',align:'center',formatter:function(value,row,index){
+                        return '<img src="/wechat/timthumb.php?w=100&h=75&q=90&zc=1&ct=1&src='+row.image_url+'"/>';
+                    }},
+                    {field:'name',width:100,title:'名称',sortable:true},
+                    {field:'create_time',title:'录入时间',width:20,sortable:true,formatter:function(value,row,index){
+                        return msgImageListModule.time(row.create_time);
+                    }},
+                    {field:'opt_id',width:30,title:'操作',formatter:msgImageListModule.operate}
+                ]]
             });
+        },
+        time: function(nS){
+            return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ").replace(/上午|下午/g, "");
         },
         //刷新
         refresh: function(){
@@ -110,6 +60,44 @@
                 queryParams[this['name']] = this['value'];
             });
             $(this.datagrid).datagrid({pageNumber: 1});
+        },
+        //操作格式化
+        operate: function(val){
+            var btn = [];
+            btn.push('<a href="javascript:;" onclick="msgImageListModule.edit('+val+')">编辑</a>');
+            btn.push('<a href="javascript:;" onclick="msgImageListModule.delete('+val+')">删除</a>');
+            return btn.join(' | ');
+        },
+        //批量删除
+        delete: function(id){
+            var rows = $(this.datagrid).datagrid('getSelections');
+            if(!id && rows.length==0){//多选情况下
+                $.app.method.tip('提示信息', '请选择要删除的行', 'error');
+                return;
+            }
+            var that = this;
+            $.messager.confirm('提示信息', '确定要删除吗？', function(result){
+                if(!result) return false;
+                var ids = [];
+                if(!id){
+                    rows.forEach(function(row){
+                        ids.push(row.id);
+                    });
+                }else{
+                    ids.push(id);
+                }
+                // console.log(ids);return;
+                $.messager.progress({text:'处理中，请稍候...'});
+                $.post(that.deleteAction,{"ids":ids},function(res){
+                    $.messager.progress('close');
+                    if(!res.status){
+                        $.app.method.tip('提示信息', res.info, 'error');
+                    }else{
+                        $.app.method.tip('提示信息', res.info, 'info');
+                        that.refresh();
+                    }
+                }, 'json');
+            });
         },
         add:function(){
             var that = this;

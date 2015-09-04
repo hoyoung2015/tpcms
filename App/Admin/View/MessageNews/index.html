@@ -1,0 +1,220 @@
+<div id="msgtext-datagrid-toolbar" style="padding:1px;height:auto">
+	<form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
+		名称:
+		<input type="text" name="search[name]" style="width:200px;"/>
+		标题:
+		<input type="text" name="search[title]" style="width:200px;"/>
+
+		<a href="javascript:;" onclick="msgNewsListModule.search(this)" class="easyui-linkbutton" iconCls="icon-search">搜索</a>
+	</form>
+	<div>
+		<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgNewsListModule.add()">添加消息</a>
+		<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgNewsListModule.delete()">批量删除</a>
+		<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgNewsListModule.refresh()">刷新</a>
+	</div>
+</div>
+<div id="msgnews_datagrid"></div>
+<script type="text/javascript">
+var msgNewsListModule = {
+    listAction:"<{:U('MessageNews/index')}>",
+    addAction:'<{:U('MessageNews/add')}>',
+	dialog:   '#globel-dialog-div',
+	datagrid: '#msgnews_datagrid',
+	//时间格式化
+	time: function(nS){
+		return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ").replace(/上午|下午/g, "");    
+	},
+	
+	//操作格式化
+	operate: function(val){
+		var btn = [];
+		btn.push('<a href="javascript:;" onclick="msgNewsListModule.edit('+val+')">编辑</a>');
+		btn.push('<a href="javascript:;" onclick="msgNewsListModule.delete('+val+')">删除</a>');
+		return btn.join(' | ');
+	},
+	load:function(){
+        var that = this;
+        $(this.datagrid).datagrid({
+            toolbar:"#msgtext-datagrid-toolbar",
+            url:that.listAction,
+            fitColumns:true,
+            fit:true,
+            pagination:true,
+            rownumbers:true,
+            pageSize:20,
+            pageList:[20,40,60,100],
+            columns:[[
+                {field:'id',checkbox:true},
+                {field:'name',width:20,title:'名称',sortable:true},
+                {field:'title',width:20,title:'标题',sortable:true},
+                {field:'intro',width:30,title:'简介',sortable:true},
+                {field:'create_time',title:'录入时间',width:15,sortable:true,formatter:function(value,row,index){
+                    return msgNewsListModule.time(row.create_time);
+                }},
+                {field:'opt_id',width:20,title:'操作',formatter:msgNewsListModule.operate}
+            ]]
+        });
+    },
+	//刷新
+	refresh: function(){
+		$(this.datagrid).datagrid('reload');
+	},
+
+	//搜索
+	search: function(that){
+		var queryParams = $(this.datagrid).datagrid('options').queryParams;
+		$.each($(that).parent('form').serializeArray(), function() {
+			queryParams[this['name']] = this['value'];
+		});
+		$(this.datagrid).datagrid({pageNumber: 1});
+	},
+	
+	//添加
+	add: function(){
+		var that = this;
+		$(that.dialog).dialog({
+			title: '添加图文消息',
+			iconCls: 'icons-application-application_add',
+			width: 900,
+			height: 600,
+			cache: false,
+			href: that.addAction,
+			modal: true,
+			collapsible: false,
+			minimizable: false,
+			resizable: false,
+			maximizable: false,
+			buttons:[{
+				text:'确定',
+				iconCls:'icon-ok',
+				handler: function(){
+					$(that.dialog).find('form').eq(0).form('submit', {
+						onSubmit: function(){
+							var isValid = $(this).form('validate');
+							if (!isValid) return false;
+							
+							$.messager.progress({text:'处理中，请稍候...'});
+
+                            for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
+							$.post('<{:U('MessageNews/add')}>', $(this).serialize(), function(res){
+								$.messager.progress('close');
+								
+								if(!res.status){
+									$.app.method.tip('提示信息', res.info, 'error');
+								}else{
+									$.app.method.tip('提示信息', res.info, 'info');
+									$(that.dialog).dialog('close');
+									that.refresh();
+								}
+							}, 'json');
+							
+							return false;
+						}
+					});
+				}
+			},{
+				text:'取消',
+				iconCls:'icon-no',
+				handler: function(){
+					$(that.dialog).dialog('close');
+				}
+			}]
+		});
+	},
+	
+	//编辑
+	edit: function(id){
+		if(typeof(id) !== 'number'){
+			$.app.method.tip('提示信息', '未选择消息', 'error');
+			return false;
+		}
+		var href = '<{:U('MessageNews/edit')}>';
+		href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+		var that = this;
+		$(that.dialog).dialog({
+			title: '编辑文本消息',
+			iconCls: 'icons-application-application_edit',
+			width: 900,
+			height: 600,
+			cache: false,
+			href: href,
+			modal: true,
+			collapsible: false,
+			minimizable: false,
+			resizable: false,
+			maximizable: false,
+			buttons:[{
+				text:'确定',
+				iconCls:'icon-ok',
+				handler: function(){
+					$(that.dialog).find('form').eq(0).form('submit', {
+						onSubmit: function(){
+							var isValid = $(this).form('validate');
+							if (!isValid) return false;
+							
+							var action = '<{:U('MessageNews/edit?dosubmit=1')}>';
+							action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+							
+							$.messager.progress({text:'处理中，请稍候...'});
+                            for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
+							$.post(action, $(this).serialize(), function(res){
+								$.messager.progress('close');
+								
+								if(!res.status){
+									$.app.method.tip('提示信息', res.info, 'error');
+								}else{
+									$.app.method.tip('提示信息', res.info, 'info');
+									$(that.dialog).dialog('close');
+									that.refresh();
+								}
+							}, 'json');
+							
+							return false;
+						}
+					});
+				}
+			},{
+				text:'取消',
+				iconCls:'icon-no',
+				handler: function(){
+					$(that.dialog).dialog('close');
+					$(that.datagrid).datagrid('unselectAll');
+				}
+			}]
+		});
+	},
+	
+	//批量删除
+	delete: function(id){
+		var rows = $(this.datagrid).datagrid('getSelections');
+		if(!id && rows.length==0){//多选情况下
+			$.app.method.tip('提示信息', '请选择要删除的行', 'error');
+			return;
+		}
+		var that = this;
+		$.messager.confirm('提示信息', '确定要删除吗？', function(result){
+			if(!result) return false;
+			var ids = [];
+			if(!id){
+				rows.forEach(function(row){
+					ids.push(row.id);
+				});
+			}else{
+				ids.push(id);
+			}
+			// console.log(ids);return;
+			$.messager.progress({text:'处理中，请稍候...'});
+			$.post('<{:U('MessageNews/delete')}>',{"ids":ids},function(res){
+				$.messager.progress('close');
+				if(!res.status){
+					$.app.method.tip('提示信息', res.info, 'error');
+				}else{
+					$.app.method.tip('提示信息', res.info, 'info');
+					that.refresh();
+				}
+			}, 'json');
+		});
+	}
+};
+msgNewsListModule.load();
+</script>

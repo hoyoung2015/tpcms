@@ -28,6 +28,7 @@ class MessageImageController extends CommonController {
             $msg = array(
                 'name'=>$data['name'],
                 'create_time'=>time(),
+                'msg_type'=>'image',
                 'msg_image'=>array(
                     'image_url'=>$data['image_url'],
                     'image_url_lt'=>str_replace('files/','thumbs/files/',$data['image_url'])
@@ -63,6 +64,15 @@ class MessageImageController extends CommonController {
 //            p($info);
             $this->assign('info', $info);
             $this->display();
+        }
+    }
+    public function delete($ids){
+        $db = D('MessageImage');
+        $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
+        if ($result){
+            $this->success('删除成功');
+        }else {
+            $this->error('删除失败');
         }
     }
 }

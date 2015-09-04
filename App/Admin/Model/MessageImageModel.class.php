@@ -39,6 +39,9 @@ class MessageImageModel extends RelationModel{
         $sql = 'select * from msg_base a,msg_image b where a.id=b.base_id'.$where.$order.' limit '.$limit;
 //        echo $sql;
         $list =$total ? $this->query($sql):array();
+        for($i=0;$i<count($list);$i++){
+            $list[$i]['opt_id'] = $list[$i]['id'];
+        }
         return array(
             'total'=>$total,
             'rows'=>$list

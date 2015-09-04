@@ -1,0 +1,46 @@
+<style type="text/css">
+    .verticle-from{
+
+    }
+    .verticle-from input,.verticle-from textarea{
+        width: 300px;
+    }
+    .verticle-from .verticle-from-line{
+        padding: 5px;
+    }
+</style>
+<form class="verticle-from">
+    <div style="padding: 10px">
+        <div class="verticle-from-line">
+            <label>名称</label>
+            <div><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="" /></div>
+        </div>
+        <div class="verticle-from-line">
+            <label>标题</label>
+            <div><input class="easyui-validatebox" data-options="required:true" type="text" name="info[title]" style="" /></div>
+        </div>
+        <div class="verticle-from-line">
+            <label>简介</label>
+            <div><textarea class="easyui-validatebox" data-options="required:true" name="info[intro]" style=";height:60px;font-size:12px"></textarea></div>
+        </div>
+        <div class="verticle-from-line">
+            <label>内容</label>
+            <div><textarea name="info[content]" id="msgNewsContent"></textarea></div>
+        </div>
+        <div class="verticle-from-line">
+            <label>外链</label>
+            <div><input class="easyui-validatebox" data-options="" type="text" name="info[jump_url]" style="" /></div>
+        </div>
+    </div>
+</form>
+<script type="application/javascript">
+    var msgNewsAdd = {
+        content:"msgNewsContent",
+        init:function(){
+            CKEDITOR.replace(this.content,{
+                height:'200',
+                width:'600'
+            });
+        }
+    }.init();
+</script>
