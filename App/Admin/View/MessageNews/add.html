@@ -8,8 +8,29 @@
     .verticle-from .verticle-from-line{
         padding: 5px;
     }
+    .pageContent{
+        overflow: auto;
+        padding-bottom: 30px;
+    }
+    .pageFooter{
+        position: absolute;
+        bottom: 0;
+        background: #F2F2F2;
+        width: 100%
+    }
+    .pageFooter ul{
+        float: right;
+        margin: 0;
+        padding: 2px 0;
+    }
+.pageFooter ul li{
+    float: left;
+    list-style-type: none;
+    padding: 0 5px;
+}
 </style>
-<form class="verticle-from">
+<div class="pageContent">
+<form class="verticle-from" id="msgNewsAddForm">
     <div style="padding: 10px">
         <div class="verticle-from-line">
             <label>名称</label>
@@ -33,14 +54,59 @@
         </div>
     </div>
 </form>
+</div>
+<div class="pageFooter">
+    <ul>
+        <li>
+            <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsAdd.save()">保存</a>
+        </li>
+        <li>
+            <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgNewsAdd.cancel()">取消</a>
+        </li>
+    </ul>
+</div>
 <script type="application/javascript">
     var msgNewsAdd = {
+        form:'#msgNewsAddForm',
         content:"msgNewsContent",
         init:function(){
             CKEDITOR.replace(this.content,{
                 height:'200',
                 width:'600'
             });
+        },
+        closeTab:function(){
+            var currentTab = $('#pagetabs').tabs('getSelected');
+            var index = $('#pagetabs').tabs('getTabIndex',currentTab);
+            $('#pagetabs').tabs('close',index);
+        },
+        save:function(){
+            var that = this;
+            $(this.form).form('submit', {
+                onSubmit: function(){
+                    var isValid = $(this).form('validate');
+                    if (!isValid) return false;
+
+                    $.messager.progress({text:'处理中，请稍候...'});
+
+                    for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
+                    $.post('<{:U('MessageNews/add')}>', $(this).serialize(), function(res){
+                        $.messager.progress('close');
+                        if(!res.status){
+                            $.app.method.tip('提示信息', res.info, 'error');
+                        }else{
+                            $.app.method.tip('提示信息', res.info, 'info');
+                            that.closeTab();
+                            msgNewsListModule.refresh();
+                        }
+                    }, 'json');
+                    return false;
+                }
+            });
+        },
+        cancel:function(){
+            this.closeTab();
         }
-    }.init();
+    };
+    msgNewsAdd.init();
 </script>

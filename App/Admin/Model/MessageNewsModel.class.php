@@ -31,9 +31,9 @@ class MessageNewsModel extends RelationModel{
             $where = ' and '.join(' and ',$arr);
         }
 
-        $sqlCount = 'select count(id) from msg_base a,msg_news b where a.id=b.base_id'.$where;
+        $sqlCount = 'select count(id) as total from msg_base a,msg_news b where a.id=b.base_id'.$where;
 
-        $total = $this->query($sqlCount)[0];//总数
+        $total = $this->query($sqlCount)[0]['total'];//总数
 //print_r($total);
         $order = ' order by '.$sort.' '.$order;
 //        echo $rows;
