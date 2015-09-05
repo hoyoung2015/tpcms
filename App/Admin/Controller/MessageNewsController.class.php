@@ -36,10 +36,33 @@ class MessageNewsController extends CommonController {
             for($i=0;$i<count($list);$i++){
                 $list[$i]['opt_id'] = $list[$i]['news_item_id'];
             }
-
-
             $data = array('total'=>$total, 'rows'=>$list);
             $this->ajaxReturn($data);
+        }else{
+            $this->display();
+        }
+    }
+    public function itemadd(){
+        if(IS_POST){
+            $data = I('post.info');
+            $msg = array(
+                'name'=>$data['name'],
+                'create_time'=>time(),
+                'msg_type'=>'news',
+                'msg_news'=>array(
+                    'title'=>$data['title'],
+                    'intro'=>$data['intro'],
+                    'content'=>$data['content'],
+                    'jump_url'=>$data['jump_url'],
+                    'cover'=>$data['cover']
+                )
+            );
+            $id = D('MessageNews')->relation(true)->add($msg);
+            if($id){
+                $this->success('添加成功');
+            }else{
+                $this->error('添加失败');
+            }
         }else{
             $this->display();
         }

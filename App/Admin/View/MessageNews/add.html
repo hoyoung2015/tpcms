@@ -71,6 +71,7 @@
 <script type="application/javascript">
     var msgNewsAdd = {
         newsItemTable:'#newsItemTable',
+        addAction:"<{:U('MessageNews/itemadd')}>",
         init:function(){
             $(this.newsItemTable).datagrid({
                 title:'单图文列表',
@@ -110,7 +111,57 @@
             btn.push('<a href="javascript:;" onclick="msgNewsListModule.delete('+val+')">选择</a>');
             return btn.join(' | ');
         },
+        //添加
+        add: function(){
+            var that = this;
+            $(that.dialog).dialog({
+                title: '添加图文消息',
+                width: 900,
+                height: 600,
+                cache: false,
+                href: that.addAction,
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
 
+                                $.messager.progress({text:'处理中，请稍候...'});
+
+                                for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
+                                $.post('<{:U('MessageNews/add')}>', $(this).serialize(), function(res){
+                                    $.messager.progress('close');
+
+                                    if(!res.status){
+                                        $.app.method.tip('提示信息', res.info, 'error');
+                                    }else{
+                                        $.app.method.tip('提示信息', res.info, 'info');
+                                        $(that.dialog).dialog('close');
+                                        that.refresh();
+                                    }
+                                }, 'json');
+
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                    }
+                }]
+            });
+        },
         closeTab:function(){
             var currentTab = $('#pagetabs').tabs('getSelected');
             var index = $('#pagetabs').tabs('getTabIndex',currentTab);
