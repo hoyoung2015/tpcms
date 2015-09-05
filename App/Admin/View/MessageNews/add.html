@@ -1,47 +1,14 @@
 <style type="text/css">
-    .verticle-from{
-
-    }
-    .verticle-from input,.verticle-from textarea{
-        width: 300px;
-    }
-    .verticle-from .verticle-from-line{
-        padding: 5px;
-    }
-    .pageContent{
-        padding: 10px;
-    }
-    .pageContent{
-        overflow: auto;
-        padding-bottom: 30px;
-    }
-    .pageFooter{
-        position: absolute;
-        bottom: 0;
-        background: #F2F2F2;
-        width: 100%
-    }
-    .pageFooter ul{
-        float: right;
-        margin: 0;
-        padding: 2px 0;
-    }
-.pageFooter ul li{
-    float: left;
-    list-style-type: none;
-    padding: 0 5px;
-}
     .news-left{
         float: left;
         width: 550px;
-        /*height: 300px;*/
     }
     .news-right{
         float: left;
         margin-left: 10px;
     }
 </style>
-<div class="pageContent">
+<div class="easyui-panel" data-options="footer:'#pageFooter',fit:true}" style="padding: 10px">
     <div class="news-left">
 
         <div id="newsItemTable">
@@ -58,20 +25,15 @@
         </form>
     </div>
 </div>
-<div class="pageFooter">
-    <ul>
-        <li>
-            <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsAdd.save()">保存</a>
-        </li>
-        <li>
-            <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgNewsAdd.cancel()">取消</a>
-        </li>
-    </ul>
+<div id="pageFooter" style="padding: 5px;text-align: right">
+    <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsAdd.save()">保存</a>
+    <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgNewsAdd.cancel()">取消</a>
 </div>
 <script type="application/javascript">
     var msgNewsAdd = {
         newsItemTable:'#newsItemTable',
         addAction:"<{:U('MessageNews/itemadd')}>",
+        dialog:   '#globel-dialog-div',
         init:function(){
             $(this.newsItemTable).datagrid({
                 title:'单图文列表',
@@ -94,7 +56,9 @@
                     {
                         text:'添加',
                         iconCls:'icon-add',
-                        handler:function(){alert('add')}
+                        handler:function(){
+                            msgNewsAdd.add();
+                        }
                     },
                     {
                         text:'刷新',
