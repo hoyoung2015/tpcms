@@ -1,4 +1,4 @@
-<div id="msgtext-datagrid-toolbar" style="padding:1px;height:auto">
+<div id="msgnews-datagrid-toolbar" style="padding:1px;height:auto">
 	<form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
 		名称:
 		<input type="text" name="search[name]" style="width:200px;"/>
@@ -35,7 +35,7 @@ var msgNewsListModule = {
 	load:function(){
         var that = this;
         $(this.datagrid).datagrid({
-            toolbar:"#msgtext-datagrid-toolbar",
+            toolbar:"#msgnews-datagrid-toolbar",
             url:that.listAction,
             fitColumns:true,
             fit:true,

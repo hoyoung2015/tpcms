@@ -2,1027 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5369e444-b49b-471d-9df2-2492c33038bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/font/fontello.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/font/fontello.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/font/fontello.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/img/github-top.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/img/header-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/img/header-separator.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/img/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/assets/inlineall/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/img/navigation-tip.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.fla" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/assets/sample.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/images/spinner.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/CHANGES.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/Model/MessageNewsModel.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/Model/MessageTextModel.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/js/abstracttoolbarmodifier.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/View/MessageText/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/ajax.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/api.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/appendto.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/font/config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/datafiltering.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/dialog/dialog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/divreplace.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/edit.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/enterkey/enterkey.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/css/fontello.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/font/fontello.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/wysiwygarea/fullpage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/js/fulltoolbareditor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/inlineall.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/inlinebycode.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/inlinetextarea.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/javascript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/jquery.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ko.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/assets/uilanguages/languages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/magicline/magicline.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/dialog/assets/my_dialog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/htmlwriter/outputforflash.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/htmlwriter/outputhtml.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/assets/outputxhtml/outputxhtml.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/assets/posteddata.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/readonly.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/replacebyclass.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/replacebycode.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/sample.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/js/sample.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/sample.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/sample_posteddata.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/css/samples.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/js/sf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/htmlwriter/assets/outputforflash/swfobject.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/tabindex.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/toolbar/toolbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/js/toolbarmodifier.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/toolbarconfigurator/js/toolbartextmodifier.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/uicolor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/uilanguages.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/samples/old/xhtmlstyle.html" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\App\Admin\View\MessageNews\infoadd.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\App\Admin\View\MessageNews\infolist.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\colordialog\dialogs\colordialog.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\div\dialogs\div.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\find\dialogs\find.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\flash\dialogs\flash.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\flash\images\placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\button.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\checkbox.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\form.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\hiddenfield.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\radio.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\select.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\textarea.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\dialogs\textfield.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\forms\images\hiddenfield.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\iframe\dialogs\iframe.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\iframe\images\placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\liststyle\dialogs\liststyle.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\mediaembed\icons\hidpi\mediaembed.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\mediaembed\icons\mediaembed.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\mediaembed\lang\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\mediaembed\lang\es.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\mediaembed\lang\zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\mediaembed\plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\pagebreak\images\pagebreak.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\pasteupload\images\loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\pasteupload\plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\preview\preview.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_address.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_blockquote.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_div.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_h1.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_h2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_h3.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_h4.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_h5.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_h6.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_p.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\showblocks\images\block_pre.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\dialogs\smiley.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\angel_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\angel_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\angry_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\angry_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\broken_heart.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\broken_heart.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\confused_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\confused_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\cry_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\cry_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\devil_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\devil_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\embaressed_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\embarrassed_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\embarrassed_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\envelope.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\envelope.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\heart.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\heart.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\kiss.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\kiss.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\lightbulb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\lightbulb.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\omg_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\omg_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\regular_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\regular_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\sad_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\sad_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\shades_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\shades_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\teeth_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\teeth_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\thumbs_down.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\thumbs_down.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\thumbs_up.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\thumbs_up.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\tongue_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\tongue_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\tounge_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\wink_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\smiley\images\wink_smile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\templates\dialogs\templates.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\templates\dialogs\templates.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\templates\templates\default.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\templates\templates\images\template1.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\templates\templates\images\template2.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckeditor\plugins\templates\templates\images\template3.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\ckeditor.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\fckeditor.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\php\ckeditor.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\php\fckeditor.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\php\popup.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\php\popups.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\php\standalone.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\popup.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\popups.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\public_api.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\sample.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\standalone.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\_samples\standalone_v1.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\changelog.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\ckfinder.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\ckfinder.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\ckfinder.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\ckfinder_v1.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\config.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\config.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\ckfinder_php5.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\connector.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\constants.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\bg.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\ca.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\cs.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\cy.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\da.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\de.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\el.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\en.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\eo.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\es-mx.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\es.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\et.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\fa.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\fi.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\fr.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\gu.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\he.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\hi.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\hr.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\hu.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\it.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\ja.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\lt.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\lv.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\nb.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\nl.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\nn.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\no.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\pl.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\pt-br.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\ro.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\ru.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\sk.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\sl.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\sr.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\sv.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\tr.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\vi.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\zh-cn.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\lang\zh-tw.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\CommandHandlerBase.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\CopyFiles.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\CreateFolder.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\DeleteFiles.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\DeleteFolder.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\DownloadFile.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\FileUpload.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\GetFiles.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\GetFolders.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\Init.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\LoadCookies.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\MoveFiles.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\QuickUpload.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\RenameFile.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\RenameFolder.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\Thumbnail.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\CommandHandler\XmlCommandHandlerBase.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\AccessControlConfig.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\Config.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\Connector.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\Factory.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\FolderHandler.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\Hooks.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\ImagesConfig.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\Registry.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\ResourceTypeConfig.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\ThumbnailsConfig.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Core\Xml.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\ErrorHandler\Base.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\ErrorHandler\FileUpload.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\ErrorHandler\Http.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\ErrorHandler\QuickUpload.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Utils\FileSystem.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Utils\Misc.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Utils\Security.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\core\connector\php\php5\Utils\XmlNode.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\014.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\015.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\cs\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\014.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\015.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\en\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\001.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\002.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\003.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\004.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\005.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\006.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\007.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\008.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\009.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\010.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\011.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\012.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\013.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\014.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\015.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\016.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\017.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\018.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\019.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\images\020.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es-mx\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\001.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\002.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\003.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\004.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\005.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\006.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\007.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\008.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\009.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\010.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\011.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\012.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\013.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\014.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\015.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\016.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\017.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\018.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\019.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\images\020.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\es\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\001.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\002.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\003.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\004.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\005.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\006.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\007.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\008.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\009.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\010.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\011.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\012.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\013.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\014.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\015.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\016.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\017.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\018.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\019.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\images\020.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\fi\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\002.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\003.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_basket_clear.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_basket_drag.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_basket_empty.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_basket_file_menu.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_basket_remove.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_already_exists.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_copied.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_delete.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_display_01.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_display_02.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_display_03.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_display_04.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_drag_copy.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_drag_move.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_menu.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_moved.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_pane.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_rename.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_resize.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_resize_both.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_resize_new.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_resize_overwrite.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_resize_resized.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_resize_thumbnails.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_select_hovered.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_select_selected.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_select_unselected.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_view_list.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_file_view_thumbnails.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_collapse.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_copied_from_basket.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_delete.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_expand.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_loading.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_menu.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_moved_from_basket.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_new.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_pane.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_rename.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_folder_select.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_interface.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_menu_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_menu_arrows.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_resize_lock.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_resize_reset.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_resize_unlock.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_status_empty.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_status_file.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_status_folder.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_toolbar.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_toolbar_help.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_toolbar_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_upload_01.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_upload_03.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_upload_04.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_upload_09.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\images\CKFinder_upload_10.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\other\help.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\files\other\help.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\001.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\002.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\003.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\004.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\005.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\006.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\007.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\008.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\009.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\010.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\011.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\012.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\013.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\014.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\015.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\016.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\017.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\018.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\019.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\images\020.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\lt\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\001.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\002.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\003.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\004.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\005.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\006.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\007.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\008.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\009.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\010.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\011.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\012.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\013.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\014.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\015.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\header.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\license.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\suggestions.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\files\toc.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\help\pl\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\install.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\_translationstatus.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\bg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\ca.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\cs.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\cy.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\da.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\de.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\el.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\eo.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\es-mx.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\es.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\et.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\fa.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\fi.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\fr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\gu.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\he.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\hi.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\hr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\hu.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\it.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\ja.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\lt.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\lv.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\nb.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\nl.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\nn.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\no.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\pl.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\ro.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\ru.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\sk.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\sl.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\sr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\sv.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\tr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\vi.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\lang\zh-tw.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\license.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\dummy\lang\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\dummy\lang\pl.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\dummy\plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\lib\codemirror.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\lib\codemirror.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\mode\clike\clike.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\mode\css\css.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\mode\htmlmixed\htmlmixed.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\mode\javascript\javascript.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\mode\php\php.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\codemirror\mode\xml\xml.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\fileeditor\plugin.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\flashupload\Uploader.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\flashupload\flash\Uploader.swf" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\colorbox.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\border.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\controls.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderBottomCenter.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderBottomLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderBottomRight.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderMiddleLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderMiddleRight.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderTopCenter.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderTopLeft.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\ie6\borderTopRight.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\loading_background.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\images\overlay.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\jquery.colorbox-min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\gallery\colorbox\license.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\imageresize\images\mini.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\imageresize\plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\imageresize\plugin.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\watermark\logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\watermark\plugin.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\zip\images\zip.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\plugins\zip\plugin.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\app.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\host.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\ckffolder.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\ckffolderopened.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\ckfminus.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\ckfnothumb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\ckfplus.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\ai.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\avi.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\bmp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\cs.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\default.icon.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\dll.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\doc.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\docx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\exe.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\fla.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\gif.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\jpg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\js.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\mdb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\mp3.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\ogg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\pdf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\ppt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\pptx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\rdp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\swf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\swt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\txt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\vsd.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\xls.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\xlsx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\xml.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\16\zip.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\ai.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\avi.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\bmp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\cs.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\default.icon.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\dll.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\doc.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\docx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\exe.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\fla.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\gif.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\jpg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\js.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\mdb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\mp3.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\ogg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\ogg.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\pdf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\ppt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\pptx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\rdp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\swf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\swt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\txt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\vsd.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\xls.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\xlsx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\xml.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\icons\32\zip.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\loaders\16x16.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\loaders\32x32.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\spacer.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\sprites.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\sprites_ie6.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\add.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\clear_basket.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\delete.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\download.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\help.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\maximize.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\refresh.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\settings.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\images\toolbar\view.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\richcombo.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\skin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\kama\uipanel.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\app.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\host.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\ckffolder.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\ckffolderopened.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\ckfminus.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\ckfnothumb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\ckfplus.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\dialog_sides.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\dialog_sides.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\dialog_sides_rtl.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\ai.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\avi.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\bmp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\cs.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\default.icon.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\dll.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\doc.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\docx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\exe.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\fla.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\gif.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\jpg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\js.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\mdb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\mp3.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\pdf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\ppt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\pptx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\rdp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\swf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\swt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\txt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\vsd.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\xls.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\xlsx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\xml.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\16\zip.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\ai.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\avi.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\bmp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\cs.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\default.icon.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\dll.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\doc.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\docx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\exe.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\fla.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\gif.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\jpg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\js.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\mdb.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\mp3.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\pdf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\ppt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\pptx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\rdp.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\swf.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\swt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\txt.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\vsd.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\xls.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\xlsx.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\xml.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\icons\32\zip.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\loaders\16x16.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\loaders\32x32.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\spacer.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\sprites.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\sprites_ie6.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\add.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\clear_basket.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\delete.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\download.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\help.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\maximize.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\refresh.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\settings.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar\view.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\images\toolbar_start.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\richcombo.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\skin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\skins\v1\uipanel.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\translations.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\userfiles\.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\userfiles\_thumbs\Images\1_120512102347_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\userfiles\_thumbs\Images\47.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\userfiles\images\1_120512102347_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\userfiles\images\2166702_103826025_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\wechat\Public\static\js\ckfinder\userfiles\images\47.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/icons.png" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/icons.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/icons.png" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/icons.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/icons_hidpi.png" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/icons_hidpi.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/icons_hidpi.png" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/icons_hidpi.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/image/images/noimage.png" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/image/images/noimage.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/Controller/MessageImageController.class.php" afterPath="$PROJECT_DIR$/App/Admin/Controller/MessageImageController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/Model/MessageImageModel.class.php" afterPath="$PROJECT_DIR$/App/Admin/Model/MessageImageModel.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php" afterPath="$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/Controller/MessageTextController.class.php" afterPath="$PROJECT_DIR$/App/Admin/Controller/MessageTextController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/about/dialogs/about.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/about/dialogs/about.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/af.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/af.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/af.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/af.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/af.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/af.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/link/dialogs/anchor.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/link/dialogs/anchor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ar.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ar.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/bg.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/bg.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/bn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/bn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/bs.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/bs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/build-config.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/build-config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/ciframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/ckeditor.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/ckeditor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/config.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/contents.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/contents.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/cs.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/cs.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/cy.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/cy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/cy.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/cy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/da.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/da.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/de.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/de.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/pastefromword/filter/default.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/pastefromword/filter/default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/dialog/dialogDefinition.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/dialog/dialogDefinition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_ie.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_ie.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_ie7.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_ie7.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_ie8.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_ie8.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_iequirks.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/dialog_iequirks.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/easyui/themes/bootstrap/easyui.css" afterPath="$PROJECT_DIR$/Public/static/js/easyui/themes/bootstrap/easyui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageImage/edit.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageImage/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageText/edit.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageText/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_gecko.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_gecko.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_ie.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_ie.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_ie7.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_ie7.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_ie8.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_ie8.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_iequirks.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/editor_iequirks.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/el.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/el.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en-au.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en-au.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en-ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en-gb.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en-gb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/en-gb.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/en-gb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/en-gb.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/en-gb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/en.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/eo.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/eo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/eo.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/eo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/es.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/es.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/et.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/et.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/eu.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/eu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fa.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fa.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fo.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fr-ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fr-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/gl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/gl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/gu.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/gu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/he.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/he.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/Common/head.html" afterPath="$PROJECT_DIR$/App/Admin/View/Common/head.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/hi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/hi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/hr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/hr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/hu.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/hu.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/id.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/id.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/image/dialogs/image.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/image/dialogs/image.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/Index/index.html" afterPath="$PROJECT_DIR$/App/Admin/View/Index/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageImage/index.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageImage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/is.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/is.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/it.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/it.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ja.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ja.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/adapters/jquery.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/adapters/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ka.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ka.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/km.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/km.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/km.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/km.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ko.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ko.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ku.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ku.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ku.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ku.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/link/dialogs/link.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/link/dialogs/link.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/lt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/lt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/lv.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/lv.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/mk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/mk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/mn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/mn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ms.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/nb.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/nb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/nb.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/nb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/nl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/nl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/no.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/no.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/no.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/no.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/clipboard/dialogs/paste.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/clipboard/dialogs/paste.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/pl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/pl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/pt-br.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/pt-br.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/pt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/pt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/readme.md" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/skins/moono/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ro.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ru.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ru.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/si.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/si.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/si.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/si.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sl.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/specialchar.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/specialchar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sq.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sq.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sr-latn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sr-latn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/styles.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/styles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sv.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sv.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/table/dialogs/table.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/table/dialogs/table.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/tabletools/dialogs/tableCell.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/tabletools/dialogs/tableCell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/th.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/th.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/tr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/tr.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/tt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/tt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/tt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/tt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/tt.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/tt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ug.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/ug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ug.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/ug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/uk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/uk.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/vi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/vi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/vi.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/vi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageNews/index.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/wsc.css" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/wsc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/wsc.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/wsc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/wsc_ie.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/wsc/dialogs/wsc_ie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/zh-cn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/zh-cn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/zh.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/lang/zh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/zh.js" afterPath="$PROJECT_DIR$/Public/static/js/ckeditor/plugins/specialchar/dialogs/lang/zh.js" />
-      <change type="MOVED" beforePath="E:\workspace\PhpStorm\wechat\App\Admin\View\MessageText\textadd.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/add.html" />
-      <change type="MOVED" beforePath="E:\workspace\PhpStorm\wechat\App\Admin\View\MessageText\textlist.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageText/index.html" />
     </list>
     <ignored path="wechat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1050,8 +31,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23893805" vertical-offset="0" max-vertical-offset="4050">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.35840708" vertical-offset="162" max-vertical-offset="4050">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -1059,10 +40,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Admin/View/Index/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.4035087" vertical-offset="3406" max-vertical-offset="7794">
+              <caret line="200" column="24" selection-start-line="200" selection-start-column="15" selection-end-line="200" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="918">
+            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="918">
               <caret line="8" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
@@ -1075,7 +66,7 @@
       <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0740743" vertical-offset="304" max-vertical-offset="918">
+            <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="918">
               <caret line="23" column="100" selection-start-line="23" selection-start-column="100" selection-end-line="23" selection-end-column="100" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
@@ -1088,7 +79,7 @@
       <file leaf-file-name="head.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Admin/View/Common/head.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="324">
+            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="324">
               <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
               <folding />
             </state>
@@ -1098,7 +89,7 @@
       <file leaf-file-name="MessageNewsController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2222223" vertical-offset="777" max-vertical-offset="1512">
+            <state vertical-scroll-proportion="0.0" vertical-offset="777" max-vertical-offset="1512">
               <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
               <folding />
             </state>
@@ -1186,7 +177,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1335,56 +325,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MessageNews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="Index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1430,6 +377,9 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="6c43ec38-c017-4e5d-bbb9-860fb72bb761" server_name="xampp">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -1437,9 +387,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="6c43ec38-c017-4e5d-bbb9-860fb72bb761" server_name="xampp">
       <method />
     </configuration>
     <list size="1">
@@ -1482,13 +429,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1512,15 +459,58 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4050">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="918">
+          <caret line="8" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#2;n#div#0;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="918">
+          <caret line="23" column="100" selection-start-line="23" selection-start-column="100" selection-end-line="23" selection-end-column="100" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#2;n#div#0;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Admin/View/Common/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="324">
+          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="777" max-vertical-offset="1512">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageImage/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2466">
           <caret line="86" column="28" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1654,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44444445" vertical-offset="324" max-vertical-offset="1872">
           <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1676,7 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7777778" vertical-offset="207" max-vertical-offset="774">
           <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1684,7 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.605428" vertical-offset="25036" max-vertical-offset="51264">
           <caret line="1407" column="24" selection-start-line="1407" selection-start-column="24" selection-end-line="1407" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1692,11 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="19.25926" vertical-offset="736" max-vertical-offset="1188">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#!!top" expanded="true" />
-            <marker date="1441303974885" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1704,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49557522" vertical-offset="154" max-vertical-offset="1350">
           <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-          <folding>
-            <marker date="1441372624914" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1714,7 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5176991" vertical-offset="0" max-vertical-offset="540">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1722,9 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.82580644" vertical-offset="408" max-vertical-offset="900">
           <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
-          <folding>
-            <marker date="1441372000875" expanded="true" signature="-1:-1" placeholder="select * fro..msg_base..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1732,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2274882" vertical-offset="634" max-vertical-offset="8082">
           <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1740,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.783186" vertical-offset="2052" max-vertical-offset="4770">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1748,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4074073" vertical-offset="241" max-vertical-offset="3906">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1756,11 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4380531" vertical-offset="270" max-vertical-offset="954">
           <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <marker date="1441380564226" expanded="true" signature="-1:-1" placeholder="select count..msg_base..." />
-            <marker date="1441380564226" expanded="true" signature="-1:-1" placeholder="select * fro..msg_base..." />
-            <marker date="1441380564226" expanded="true" signature="-1:-1" placeholder="select * fro..msg_base..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1768,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="306">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1776,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5354839" vertical-offset="723" max-vertical-offset="1404">
           <caret line="59" column="49" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1784,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.6666665" vertical-offset="648" max-vertical-offset="1530">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1792,19 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6666667" vertical-offset="594" max-vertical-offset="3978">
           <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Admin/View/Index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.185185" vertical-offset="832" max-vertical-offset="7794">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1812,13 +763,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31858408" vertical-offset="0" max-vertical-offset="452">
           <caret line="8" column="188" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="188" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/Common/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="324">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="324">
           <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
           <folding />
         </state>
@@ -1828,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03757829" vertical-offset="0" max-vertical-offset="479">
           <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1836,16 +785,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27096775" vertical-offset="54" max-vertical-offset="954">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <marker date="1441385047809" expanded="true" signature="-1:-1" placeholder="select count..msg_base..." />
-            <marker date="1441385047809" expanded="true" signature="-1:-1" placeholder="select * fro..msg_base..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="918">
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="918">
           <caret line="8" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
@@ -1856,7 +801,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0740743" vertical-offset="304" max-vertical-offset="918">
+        <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="918">
           <caret line="23" column="100" selection-start-line="23" selection-start-column="100" selection-end-line="23" selection-end-column="100" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
@@ -1867,16 +812,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2222223" vertical-offset="777" max-vertical-offset="1512">
+        <state vertical-scroll-proportion="0.0" vertical-offset="777" max-vertical-offset="1512">
           <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Admin/View/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4035087" vertical-offset="3406" max-vertical-offset="7794">
+          <caret line="200" column="24" selection-start-line="200" selection-start-column="15" selection-end-line="200" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/MessageNews/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23893805" vertical-offset="0" max-vertical-offset="4050">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.35840708" vertical-offset="162" max-vertical-offset="4050">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
