@@ -19,8 +19,30 @@ class MessageNewsController extends CommonController {
             $this->display();
         }
     }
-    public function volist($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
-        $this->ajaxReturn(D('MessageNews')->search($page, $rows, $search, $sort, $order));
+    public function itemList($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
+        if(IS_POST){
+            //搜索
+            $where = array();
+            foreach ($search as $k=>$v){
+                if(!$v) continue;
+                $where[] = "`{$k}` like '%{$v}%'";
+            }
+            $where = implode(' and ', $where);
+            $db = M('news_item');
+            $total = $db->where($where)->count();
+            $order = $sort.' '.$order;
+            $limit = ($page - 1) * $rows . "," . $rows;
+            $list = $total ? $db->where($where)->order($order)->limit($limit)->select() : array();
+            for($i=0;$i<count($list);$i++){
+                $list[$i]['opt_id'] = $list[$i]['news_item_id'];
+            }
+
+
+            $data = array('total'=>$total, 'rows'=>$list);
+            $this->ajaxReturn($data);
+        }else{
+            $this->display();
+        }
     }
     public function add(){
         if(IS_POST){

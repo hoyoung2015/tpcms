@@ -28,7 +28,7 @@ input[type="file"],input[type="image"],input[type="submit"],input[type="reset"],
 #topmenu .nav-right li{float:left;margin:0 5px;padding:0;}
 
 #pagetabs .datagrid .panel-header{
-	background: none;
+	/*background: none;*/
 	border-bottom: 1px solid #ddd;
 }
 #pagetabs .datagrid .panel-header .panel-title{

@@ -9,6 +9,9 @@
         padding: 5px;
     }
     .pageContent{
+        padding: 10px;
+    }
+    .pageContent{
         overflow: auto;
         padding-bottom: 30px;
     }
@@ -28,32 +31,32 @@
     list-style-type: none;
     padding: 0 5px;
 }
+    .news-left{
+        float: left;
+        width: 550px;
+        /*height: 300px;*/
+    }
+    .news-right{
+        float: left;
+        margin-left: 10px;
+    }
 </style>
 <div class="pageContent">
-<form class="verticle-from" id="msgNewsAddForm">
-    <div style="padding: 10px">
-        <div class="verticle-from-line">
-            <label>名称</label>
-            <div><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="" /></div>
-        </div>
-        <div class="verticle-from-line">
-            <label>标题</label>
-            <div><input class="easyui-validatebox" data-options="required:true" type="text" name="info[title]" style="" /></div>
-        </div>
-        <div class="verticle-from-line">
-            <label>简介</label>
-            <div><textarea class="easyui-validatebox" data-options="required:true" name="info[intro]" style=";height:60px;font-size:12px"></textarea></div>
-        </div>
-        <div class="verticle-from-line">
-            <label>内容</label>
-            <div><textarea name="info[content]" id="msgNewsContent"></textarea></div>
-        </div>
-        <div class="verticle-from-line">
-            <label>外链</label>
-            <div><input class="easyui-validatebox" data-options="" type="text" name="info[jump_url]" style="" /></div>
+    <div class="news-left">
+
+        <div id="newsItemTable">
+
         </div>
     </div>
-</form>
+    <div class="news-right">
+        <form class="verticle-from" id="msgNewsAddForm">
+            <input type="hidden" name="info[item_ids]"/>
+            <tr>
+                <td width="90">名称：</td>
+                <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
+            </tr>
+        </form>
+    </div>
 </div>
 <div class="pageFooter">
     <ul>
@@ -67,14 +70,47 @@
 </div>
 <script type="application/javascript">
     var msgNewsAdd = {
-        form:'#msgNewsAddForm',
-        content:"msgNewsContent",
+        newsItemTable:'#newsItemTable',
         init:function(){
-            CKEDITOR.replace(this.content,{
-                height:'200',
-                width:'600'
+            $(this.newsItemTable).datagrid({
+                title:'单图文列表',
+                url:"<{:U('MessageNews/itemList')}>",
+                fitColumns:true,
+//                fit:true,
+                singleSelect:true,
+                pagination:true,
+                pageSize:10,
+                pageList:[10,20,40,100],
+                columns:[[
+//                    {field:'news_item_id',checkbox:true},
+                    {field:'title',width:30,title:'标题',sortable:true},
+                    {field:'cover',title:'封面',width:15,sortable:true,formatter:function(value,row,index){
+                        return '';
+                    }},
+                    {field:'opt_id',width:15,title:'操作',formatter:msgNewsAdd.operate}
+                ]],
+                toolbar:[
+                    {
+                        text:'添加',
+                        iconCls:'icon-add',
+                        handler:function(){alert('add')}
+                    },
+                    {
+                        text:'刷新',
+                        iconCls:'icon-reload',
+                        handler:function(){alert('add')}
+                    }
+                ]
             });
         },
+        operate: function(val){
+            var btn = [];
+            btn.push('<a href="javascript:;" onclick="msgNewsListModule.edit('+val+')">编辑</a>');
+            btn.push('<a href="javascript:;" onclick="msgNewsListModule.delete('+val+')">删除</a>');
+            btn.push('<a href="javascript:;" onclick="msgNewsListModule.delete('+val+')">选择</a>');
+            return btn.join(' | ');
+        },
+
         closeTab:function(){
             var currentTab = $('#pagetabs').tabs('getSelected');
             var index = $('#pagetabs').tabs('getTabIndex',currentTab);
