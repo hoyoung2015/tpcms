@@ -16,6 +16,7 @@
 var msgNewsListModule = {
     listAction:"<{:U('MessageNews/index')}>",
     addAction:'<{:U('MessageNews/add')}>',
+    editAction:'<{:U('MessageNews/edit')}>',
 	dialog:   '#globel-dialog-div',
 	datagrid: '#msgnews_datagrid',
     tab:'#pagetabs',
@@ -23,7 +24,9 @@ var msgNewsListModule = {
 	time: function(nS){
 		return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ").replace(/上午|下午/g, "");    
 	},
-	
+	refresh:function(){
+        $(this.datagrid).datagrid('reload');
+    },
 	//操作格式化
 	operate: function(val){
 		var btn = [];
@@ -52,10 +55,6 @@ var msgNewsListModule = {
             ]]
         });
     },
-	//刷新
-	refresh: function(){
-		$(this.datagrid).datagrid('reload');
-	},
 	//搜索
 	search: function(that){
 		var queryParams = $(this.datagrid).datagrid('options').queryParams;
@@ -71,71 +70,20 @@ var msgNewsListModule = {
 		$(that.tab).tabs('add',{
 			title: '添加图文消息',
             closable:true,
-            tools:'#tab-tools',
 			href: that.addAction
 		});
 	},
 	
 	//编辑
 	edit: function(id){
-		if(typeof(id) !== 'number'){
-			$.app.method.tip('提示信息', '未选择消息', 'error');
-			return false;
-		}
-		var href = '<{:U('MessageNews/edit')}>';
-		href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
-		var that = this;
-		$(that.dialog).dialog({
-			title: '编辑文本消息',
-			iconCls: 'icons-application-application_edit',
-			width: 900,
-			height: 600,
-			cache: false,
-			href: href,
-			modal: true,
-			collapsible: false,
-			minimizable: false,
-			resizable: false,
-			maximizable: false,
-			buttons:[{
-				text:'确定',
-				iconCls:'icon-ok',
-				handler: function(){
-					$(that.dialog).find('form').eq(0).form('submit', {
-						onSubmit: function(){
-							var isValid = $(this).form('validate');
-							if (!isValid) return false;
-							
-							var action = '<{:U('MessageNews/edit?dosubmit=1')}>';
-							action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
-							
-							$.messager.progress({text:'处理中，请稍候...'});
-                            for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
-							$.post(action, $(this).serialize(), function(res){
-								$.messager.progress('close');
-								
-								if(!res.status){
-									$.app.method.tip('提示信息', res.info, 'error');
-								}else{
-									$.app.method.tip('提示信息', res.info, 'info');
-									$(that.dialog).dialog('close');
-									that.refresh();
-								}
-							}, 'json');
-							
-							return false;
-						}
-					});
-				}
-			},{
-				text:'取消',
-				iconCls:'icon-no',
-				handler: function(){
-					$(that.dialog).dialog('close');
-					$(that.datagrid).datagrid('unselectAll');
-				}
-			}]
-		});
+        var that = this;
+        var href = that.editAction;
+        href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+        $(that.tab).tabs('add',{
+            title: '编辑图文消息',
+            closable:true,
+            href: href
+        });
 	},
 	
 	//批量删除

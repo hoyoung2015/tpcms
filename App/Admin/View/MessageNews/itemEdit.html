@@ -34,28 +34,28 @@
         <div style="padding: 10px">
             <div class="verticle-from-line">
                 <label>标题</label>
-                <div><input class="easyui-validatebox" data-options="required:true" type="text" name="info[title]" style="" /></div>
+                <div><input class="easyui-validatebox" data-options="required:true" value="<{$info.title}>" type="text" name="info[title]" style="" /></div>
             </div>
             <div class="verticle-from-line">
                 <label>简介</label>
-                <div><textarea class="easyui-validatebox" data-options="required:true" name="info[intro]" style=";height:60px;font-size:12px"></textarea></div>
+                <div><textarea class="easyui-validatebox" data-options="required:true" name="info[intro]" style=";height:60px;font-size:12px"><{$info.intro}></textarea></div>
             </div>
             <div class="verticle-from-line">
                 <label>封面图片</label>
                 <div>
-                    <input type="hidden" name="info[cover]"/>
+                    <input type="hidden" name="info[cover]" value="<{$info.cover}>"/>
                     <div onclick="msgNewsItemAdd.selectImg(this)" style="height: 125px;width: 200px;border: 1px solid #ccc;border-radius: 5px;padding: 5px;">
-                        <p style="line-height: 125px;text-align: center;padding: 0;margin: 0;color: #999;cursor: pointer">点击选择图片</p>
+                        <img style="height:100%;width:100%;cursor:pointer" src="/wechat/timthumb.php?src=<{$info.cover}>&amp;w=200&amp;h=125&amp;q=90&amp;zc=1&amp;ct=1">
                     </div>
                 </div>
             </div>
             <div class="verticle-from-line">
                 <label>内容</label>
-                <div><textarea name="info[content]" id="msgNewsContent"></textarea></div>
+                <div><textarea name="info[content]" id="msgNewsContent"><{$info.content}></textarea></div>
             </div>
             <div class="verticle-from-line">
                 <label>外链</label>
-                <div><input class="easyui-validatebox" data-options="" type="text" name="info[jump_url]" style="" /></div>
+                <div><input class="easyui-validatebox" data-options="" value="<{$info.jump_url}>" type="text" name="info[jump_url]" style="" /></div>
             </div>
         </div>
     </form>

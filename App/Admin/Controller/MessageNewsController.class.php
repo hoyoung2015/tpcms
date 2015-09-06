@@ -42,22 +42,11 @@ class MessageNewsController extends CommonController {
             $this->display();
         }
     }
-    public function itemadd(){
+    public function itemAdd(){
         if(IS_POST){
             $data = I('post.info');
-            $msg = array(
-                'name'=>$data['name'],
-                'create_time'=>time(),
-                'msg_type'=>'news',
-                'msg_news'=>array(
-                    'title'=>$data['title'],
-                    'intro'=>$data['intro'],
-                    'content'=>$data['content'],
-                    'jump_url'=>$data['jump_url'],
-                    'cover'=>$data['cover']
-                )
-            );
-            $id = D('MessageNews')->relation(true)->add($msg);
+            $data['create_time'] = time();
+            $id = M('news_item')->add($data);
             if($id){
                 $this->success('添加成功');
             }else{
@@ -65,6 +54,14 @@ class MessageNewsController extends CommonController {
             }
         }else{
             $this->display();
+        }
+    }
+    public function itemDelete($ids){
+        $result = M('news_item')->where(array('news_item_id'=>array('IN',$ids)))->delete();
+        if ($result){
+            $this->success('删除成功');
+        }else {
+            $this->error('删除失败');
         }
     }
     public function add(){
@@ -75,11 +72,7 @@ class MessageNewsController extends CommonController {
                 'create_time'=>time(),
                 'msg_type'=>'news',
                 'msg_news'=>array(
-                    'title'=>$data['title'],
-                    'intro'=>$data['intro'],
-                    'content'=>$data['content'],
-                    'jump_url'=>$data['jump_url'],
-                    'cover'=>$data['cover']
+                    'item_ids'=>$data['item_ids']
                 )
             );
             $id = D('MessageNews')->relation(true)->add($msg);
@@ -117,6 +110,24 @@ class MessageNewsController extends CommonController {
             $this->display();
         }
     }
+    public function find($ids){
+
+    }
+    public function itemEdit($id){
+        $m = M('news_item');
+        if(IS_POST){
+            $data = I('post.info');
+            $data['news_item_id'] = $id;
+            $rs = $m->save($data);
+            $this->success('修改成功');
+        }else{
+
+            $info = $m->find($id);
+//            p($info);
+            $this->assign('info', $info);
+            $this->display();
+        }
+    }
     public function delete($ids){
         $db = D('MessageNews');
         $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
@@ -125,5 +136,13 @@ class MessageNewsController extends CommonController {
         }else {
             $this->error('删除失败');
         }
+    }
+    public function findNewsItem($ids){
+        $m = M('news_item');
+        $list = array();
+        foreach($ids as $val){
+            $list[] = $m->find($val);
+        }
+        $this->ajaxReturn($list);
     }
 }

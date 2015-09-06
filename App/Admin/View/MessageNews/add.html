@@ -7,8 +7,21 @@
         float: left;
         margin-left: 10px;
     }
+    /* 多图文预览 */
+    ol,ul{
+        list-style-type: none;
+    }
+    .weixin-muti-preview{padding: 0; width:320px; margin:0 auto; border:1px solid #ccc; background-color:#fff; box-shadow:0 0 2px #ddd; border-radius:10px;}
+    .weixin-muti-preview li{ border-bottom:1px solid #ccc; padding:10px; list-style:none; height:60px; position:relative; z-index:10;}
+    .weixin-muti-preview p{ height:60px; line-height:30px; padding:0 70px 0 0;overflow:hidden;}
+    .weixin-muti-preview img{ width:60px; height:60px;position:absolute; top:10px; right:10px;}
+    .weixin-muti-preview .del{ position:absolute; left:0; bottom:0; right:0; top:0; background-color:RGBA(0,0,0,.2); text-align:center; line-height:80px; z-index:1001; color:#C00; display:none}
+    .weixin-muti-preview li:first-child{ height:150px;}
+    .weixin-muti-preview li:first-child p{ position:absolute; bottom:0; left:0; right:0; z-index:1000; background-color:RGBA(0,0,0,.6); color:#fff; line-height:30px; height:30px; margin:0 10px 10px 10px; padding:0 5px; white-space:nowrap; overflow:hidden;}
+    .weixin-muti-preview li:first-child img{ width:300px; height:150px;}
+    .weixin-muti-preview li:first-child .del{ line-height:160px;}
 </style>
-<div class="easyui-panel" data-options="footer:'#pageFooter',fit:true}" style="padding: 10px">
+<div class="easyui-panel" data-options="{footer:'#msgnews-add-tab-tools',fit:true}" style="padding: 10px">
     <div class="news-left">
 
         <div id="newsItemTable">
@@ -18,22 +31,69 @@
     <div class="news-right">
         <form class="verticle-from" id="msgNewsAddForm">
             <input type="hidden" name="info[item_ids]"/>
-            <tr>
-                <td width="90">名称：</td>
-                <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
-            </tr>
+            <h3>
+                消息名称：
+            </h3>
+            <input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:312px" />
         </form>
+        <h3>多图文消息预览：</h3>
+        <div id="msgNewsPreview"></div>
+
+        <!--
+        <ul class="weixin-muti-preview" id="select_news" data-listidx="0">
+            <li class="sltr select-item" rel="52" id="select_tr_52" style="cursor: pointer;">
+                <p>斯蒂芬斯蒂芬斯蒂芬森的                    <input type="hidden" value="52" name="ids[]"></p>
+                <div class="cover">
+                    <img class="list_img" src="http://localhost/weiphp/Uploads/Picture/2015-09-05/55e9d16ae6b54.jpg">
+                </div>
+                <a class="del" onclick="del_news(52)" href="javascript:void(0);">删除</a>
+            </li>
+            <li class="sltr select-item" rel="51" id="select_tr_51" style="cursor: pointer;">
+                <p>地方                    <input type="hidden" value="51" name="ids[]"></p>
+                <div class="cover">
+                    <img class="list_img" src="http://localhost/weiphp/Uploads/Picture/2015-09-05/55e9d1b03e3e0.jpg">
+                </div>
+                <a class="del" onclick="del_news(51)" href="javascript:void(0);">删除</a>
+            </li>
+        </ul>
+        -->
     </div>
 </div>
-<div id="pageFooter" style="padding: 5px;text-align: right">
+<div id="msgnews-add-tab-tools" style="padding: 5px;text-align: right">
     <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsAdd.save()">保存</a>
     <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgNewsAdd.cancel()">取消</a>
 </div>
 <script type="application/javascript">
+    function MsgNewsPreview(cid) {
+        var $c = $('#'+cid);
+        var ids = new Array();
+        var $ul = $('<ul></ul>')
+                .addClass('weixin-muti-preview');
+        $c.append($ul);
+        this.addItem = function(row){
+            //判断是否存在
+            if($.inArray(row.news_item_id,ids)>-1){//已存在
+                $.app.method.tip('提示信息', '请不要选择重复的消息', 'error');
+                return;
+            }
+            ids.push(row.news_item_id);
+            var $cover = $('<div></div>').append('<img src="'+row.cover+'"/>');
+            var $li = $('<li></li>')
+                    .append('<p>'+row.title+'</p>')
+                    .append($cover);
+            $ul.append($li);
+        }
+        this.get = function(){
+            return ids.join(',');
+        }
+    }
+
     var msgNewsAdd = {
+        form:'#msgNewsAddForm',
         newsItemTable:'#newsItemTable',
-        addAction:"<{:U('MessageNews/itemadd')}>",
+        addAction:"<{:U('MessageNews/itemAdd')}>",
         dialog:   '#globel-dialog-div',
+        preview:new MsgNewsPreview('msgNewsPreview'),
         init:function(){
             $(this.newsItemTable).datagrid({
                 title:'单图文列表',
@@ -46,11 +106,11 @@
                 pageList:[10,20,40,100],
                 columns:[[
 //                    {field:'news_item_id',checkbox:true},
-                    {field:'title',width:30,title:'标题',sortable:true},
-                    {field:'cover',title:'封面',width:15,sortable:true,formatter:function(value,row,index){
-                        return '';
+                    {field:'title',width:'48%',title:'标题',sortable:true},
+                    {field:'cover',title:'封面',align:'center',width:'30%',sortable:true,formatter:function(value,row,index){
+                        return '<img style="margin:5px 5px 0" src="/wechat/timthumb.php?src=' + row.cover + '&w=100&h=75&q=90&zc=1&ct=1" />';
                     }},
-                    {field:'opt_id',width:15,title:'操作',formatter:msgNewsAdd.operate}
+                    {field:'opt_id',width:'25%',title:'操作',formatter:msgNewsAdd.operate}
                 ]],
                 toolbar:[
                     {
@@ -63,25 +123,129 @@
                     {
                         text:'刷新',
                         iconCls:'icon-reload',
-                        handler:function(){alert('add')}
+                        handler:function(){$(newsItemTable).datagrid('reload');}
                     }
                 ]
             });
         },
+        addToNews:function(id){
+            var data = $(this.newsItemTable).datagrid('getData');
+            var row;
+            for(var i=0;i<data.rows.length;i++){
+                if(data.rows[i].news_item_id == id){
+                    row = data.rows[i];
+                    break;
+                }
+            }
+            if(row){
+                this.preview.addItem(row);
+            }
+        },
+        deleteItem:function(id){
+            var rows = $(this.newsItemTable).datagrid('getSelections');
+            if(!id && rows.length==0){//多选情况下
+                $.app.method.tip('提示信息', '请选择要删除的行', 'error');
+                return;
+            }
+            var that = this;
+            $.messager.confirm('提示信息', '确定要删除吗？', function(result){
+                if(!result) return false;
+                var ids = [];
+                if(!id){
+                    rows.forEach(function(row){
+                        ids.push(row.id);
+                    });
+                }else{
+                    ids.push(id);
+                }
+                // console.log(ids);return;
+                $.messager.progress({text:'处理中，请稍候...'});
+                $.post('<{:U('MessageNews/itemDelete')}>',{"ids":ids},function(res){
+                    $.messager.progress('close');
+                    if(!res.status){
+                        $.app.method.tip('提示信息', res.info, 'error');
+                    }else{
+                        $.app.method.tip('提示信息', res.info, 'info');
+                        $(newsItemTable).datagrid('reload');
+                    }
+                }, 'json');
+            });
+        },
+        itemEdit:function(id){
+            if(typeof(id) !== 'number'){
+                $.app.method.tip('提示信息', '未选择消息', 'error');
+                return false;
+            }
+            var href = '<{:U('MessageNews/itemEdit')}>';
+            href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+            var that = this;
+            $(that.dialog).dialog({
+                title: '编辑单图文',
+                iconCls: 'icons-application-application_edit',
+                width: 1000,
+                height: $(document).height(),
+                cache: false,
+                href: href,
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
+
+                                var action = '<{:U('MessageNews/itemEdit')}>';
+                                action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+
+                                $.messager.progress({text:'处理中，请稍候...'});
+                                for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
+                                $.post(action, $(this).serialize(), function(res){
+                                    $.messager.progress('close');
+
+                                    if(!res.status){
+                                        $.app.method.tip('提示信息', res.info, 'error');
+                                    }else{
+                                        $.app.method.tip('提示信息', res.info, 'info');
+                                        $(that.dialog).dialog('close');
+                                        $(newsItemTable).datagrid('reload');
+                                    }
+                                }, 'json');
+
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                        $(that.datagrid).datagrid('unselectAll');
+                    }
+                }]
+            });
+        },
         operate: function(val){
             var btn = [];
-            btn.push('<a href="javascript:;" onclick="msgNewsListModule.edit('+val+')">编辑</a>');
-            btn.push('<a href="javascript:;" onclick="msgNewsListModule.delete('+val+')">删除</a>');
-            btn.push('<a href="javascript:;" onclick="msgNewsListModule.delete('+val+')">选择</a>');
+            btn.push('<a href="javascript:;" onclick="msgNewsAdd.itemEdit('+val+')">编辑</a>');
+            btn.push('<a href="javascript:;" onclick="msgNewsAdd.deleteItem('+val+')">删除</a>');
+            btn.push('<a href="javascript:;" onclick="msgNewsAdd.addToNews('+val+')">选择</a>');
             return btn.join(' | ');
         },
+
         //添加
         add: function(){
             var that = this;
             $(that.dialog).dialog({
-                title: '添加图文消息',
-                width: 900,
-                height: 600,
+                title: '添加单图文消息',
+                width: 1000,
+                height: $(document).height(),
                 cache: false,
                 href: that.addAction,
                 modal: true,
@@ -101,7 +265,7 @@
                                 $.messager.progress({text:'处理中，请稍候...'});
 
                                 for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
-                                $.post('<{:U('MessageNews/add')}>', $(this).serialize(), function(res){
+                                $.post('<{:U('MessageNews/itemAdd')}>', $(this).serialize(), function(res){
                                     $.messager.progress('close');
 
                                     if(!res.status){
@@ -109,7 +273,7 @@
                                     }else{
                                         $.app.method.tip('提示信息', res.info, 'info');
                                         $(that.dialog).dialog('close');
-                                        that.refresh();
+                                        $(newsItemTable).datagrid('reload');
                                     }
                                 }, 'json');
 
@@ -139,8 +303,7 @@
                     if (!isValid) return false;
 
                     $.messager.progress({text:'处理中，请稍候...'});
-
-                    for( instance in CKEDITOR.instances ){ CKEDITOR.instances[instance].updateElement(); }//ajax提交表单触发ckeditor替换
+                    $(that.form).find("input[name='info[item_ids]']").val(that.preview.get());
                     $.post('<{:U('MessageNews/add')}>', $(this).serialize(), function(res){
                         $.messager.progress('close');
                         if(!res.status){
@@ -160,4 +323,5 @@
         }
     };
     msgNewsAdd.init();
+
 </script>
