@@ -20,8 +20,38 @@
     .weixin-muti-preview li:first-child p{ position:absolute; bottom:0; left:0; right:0; z-index:1000; background-color:RGBA(0,0,0,.6); color:#fff; line-height:30px; height:30px; margin:0 10px 10px 10px; padding:0 5px; white-space:nowrap; overflow:hidden;}
     .weixin-muti-preview li:first-child img{ width:300px; height:150px;}
     .weixin-muti-preview li:first-child .del{ line-height:160px;}
+    .weixin-muti-preview .hover-area{
+        position: absolute;
+        background: RGBA(0,0,0,.4);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+        line-height: 80px;
+        display: none;
+    }
+
+    .weixin-muti-preview .hover-area a{
+        color: #ffffff;
+        font-size: 16px;
+        border: 1px solid #ffffff;
+        padding: 5px;
+        text-decoration: none;
+    }
+    .weixin-muti-preview .hover-area a:hover{
+        background: #ffffff;
+        color: #000000;
+    }
+    .weixin-muti-preview li:first-child .hover-area{
+        border-radius: 5px 5px 0 0;
+        line-height: 170px;
+    }
+    .weixin-muti-preview li:last-child .hover-area{
+        border-radius: 0 0 5px 5px;
+    }
 </style>
-<div class="easyui-panel" data-options="{footer:'#pageFooter',fit:true}" style="padding: 10px">
+<div class="easyui-panel" data-options="{footer:'#msgnews-edit-tab-tools',fit:true}" style="padding: 10px">
     <div class="news-left">
 
         <div id="newsItemTable">
@@ -30,6 +60,7 @@
     </div>
     <div class="news-right">
         <form class="verticle-from" id="msgNewsEditForm">
+            <input type="hidden" name="info[id]" value="<{$info.id}>">
             <input type="hidden" name="info[item_ids]" value="<{$info.msg_news.item_ids}>"/>
             <h3>
                 消息名称：
@@ -38,29 +69,10 @@
         </form>
         <h3>多图文消息预览：</h3>
         <div id="msgNewsPreview"></div>
-
-        <!--
-        <ul class="weixin-muti-preview" id="select_news" data-listidx="0">
-            <li class="sltr select-item" rel="52" id="select_tr_52" style="cursor: pointer;">
-                <p>斯蒂芬斯蒂芬斯蒂芬森的                    <input type="hidden" value="52" name="ids[]"></p>
-                <div class="cover">
-                    <img class="list_img" src="http://localhost/weiphp/Uploads/Picture/2015-09-05/55e9d16ae6b54.jpg">
-                </div>
-                <a class="del" onclick="del_news(52)" href="javascript:void(0);">删除</a>
-            </li>
-            <li class="sltr select-item" rel="51" id="select_tr_51" style="cursor: pointer;">
-                <p>地方                    <input type="hidden" value="51" name="ids[]"></p>
-                <div class="cover">
-                    <img class="list_img" src="http://localhost/weiphp/Uploads/Picture/2015-09-05/55e9d1b03e3e0.jpg">
-                </div>
-                <a class="del" onclick="del_news(51)" href="javascript:void(0);">删除</a>
-            </li>
-        </ul>
-        -->
     </div>
 </div>
 <div id="msgnews-edit-tab-tools" style="padding: 5px;text-align: right">
-    <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsEdit.save()">保存</a>
+    <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsEdit.save(<{$info.id}>)">保存</a>
     <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgNewsEdit.cancel()">取消</a>
 </div>
 <script type="application/javascript">
@@ -79,13 +91,31 @@
             }
             ids.push(row.news_item_id);
             var $cover = $('<div></div>').append('<img src="'+row.cover+'"/>');
+            var $hover = $('<div class="hover-area"></div>')
+                    .append('<a href="javascript:" itemId="'+row.news_item_id+'">删除</a>');
+
+            $hover.find('a').click(function(){
+                var id = $(this).attr('itemId');
+                $(this).closest('li').remove();
+                ids.splice($.inArray(id,ids),1);
+            });
+
             var $li = $('<li></li>')
                     .append('<p>'+row.title+'</p>')
-                    .append($cover);
+                    .append($cover)
+                    .append($hover);
+            $li.hover(function(){
+                $(this).find('.hover-area').show();
+            },function(){
+                $(this).find('.hover-area').hide();
+            });
             $ul.append($li);
         }
         this.get = function(){
             return ids.join(',');
+        }
+        this.isEmpty = function(){
+            return !(ids.length>0);
         }
     }
 
@@ -307,16 +337,21 @@
             var index = $('#pagetabs').tabs('getTabIndex',currentTab);
             $('#pagetabs').tabs('close',index);
         },
-        save:function(){
+        save:function(id){
             var that = this;
             $(this.form).form('submit', {
                 onSubmit: function(){
                     var isValid = $(this).form('validate');
                     if (!isValid) return false;
-
+                    if(that.preview.isEmpty()){
+                        $.app.method.tip('提示信息', '请添加消息', 'error');
+                        return false;
+                    }
                     $.messager.progress({text:'处理中，请稍候...'});
                     $(that.form).find("input[name='info[item_ids]']").val(that.preview.get());
-                    $.post('<{:U('MessageNews/add')}>', $(this).serialize(), function(res){
+                    var action = "<{:U('MessageNews/edit')}>";
+                    action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+                    $.post(action, $(this).serialize(), function(res){
                         $.messager.progress('close');
                         if(!res.status){
                             $.app.method.tip('提示信息', res.info, 'error');

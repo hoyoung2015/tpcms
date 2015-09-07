@@ -47,6 +47,9 @@ var msgNewsListModule = {
             pageList:[20,40,60,100],
             columns:[[
                 {field:'id',checkbox:true},
+                {field:'cover',width:10,align:'center',title:'首个封面图片',formatter:function(value,row,index){
+                    return '<img style="margin-top:5px" src="/wechat/timthumb.php?w=100&h=75&q=90&zc=1&ct=1&src='+row.cover+'"/>';
+                }},
                 {field:'name',width:20,title:'名称',sortable:true},
                 {field:'create_time',title:'录入时间',width:15,sortable:true,formatter:function(value,row,index){
                     return msgNewsListModule.time(row.create_time);
@@ -84,6 +87,7 @@ var msgNewsListModule = {
             closable:true,
             href: href
         });
+        $(this.datagrid).datagrid('unselectAll');
 	},
 	
 	//批量删除

@@ -1,0 +1,38 @@
+<form style="padding: 5px">
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="90">名称：</td>
+            <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td>备注：</td>
+            <td><textarea class="easyui-validatebox" name="info[content]" style="width:220px;height:60px;font-size:12px"></textarea></td>
+        </tr>
+    </table>
+<table id="msgBagMsgTable" class="easyui-datagrid">
+
+</table>
+</form>
+<script type="application/javascript">
+    var msgBagAdd = {
+        datagrid:'#msgBagMsgTable',
+        init:function(){
+            $(this.datagrid).datagrid({
+                fit:true,
+               toolbar:[
+                   {
+                       text:'添加消息',
+                       iconCls:'icon-add',
+                       handler:function(){alert('add')}
+                   },
+                   {
+                       text:'移除',
+                       iconCls:'icon-remove',
+                       handler:function(){alert('add')}
+                   }
+               ]
+            });
+        }
+    };
+    msgBagAdd.init();
+</script>

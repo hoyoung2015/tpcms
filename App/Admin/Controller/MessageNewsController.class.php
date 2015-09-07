@@ -14,6 +14,12 @@ class MessageNewsController extends CommonController {
         if(IS_POST){
             $data = D('MessageNews')->search($page, $rows, $search, $sort, $order);
 
+            $m = M('news_item');
+            for($i=0;$i<count($data['rows']);$i++){
+                $id = explode(',',$data['rows'][$i]['item_ids'])[0];
+                $data['rows'][$i]['cover'] = $m->find($id)['cover'];
+            }
+
             $this->ajaxReturn($data);
         }else{
             $this->display();
@@ -90,15 +96,11 @@ class MessageNewsController extends CommonController {
         if(IS_POST){
             $data = I('post.info');
             $msg = array(
-                'id'=>$id,
+                'id'=>$data['id'],
                 'name'=>$data['name'],
                 'msg_news'=>array(
-                    'base_id'=>$id,
-                    'title'=>$data['title'],
-                    'intro'=>$data['intro'],
-                    'content'=>$data['content'],
-                    'jump_url'=>$data['jump_url'],
-                    'cover'=>$data['cover']
+                    'base_id'=>$data['id'],
+                    'item_ids'=>$data['item_ids']
                 )
             );
             $rs = $m->relation(true)->save($msg);
