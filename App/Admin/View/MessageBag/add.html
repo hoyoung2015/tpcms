@@ -1,0 +1,111 @@
+<form style="padding: 5px">
+    <div id="tb" style="padding:2px 5px;">
+        Date From: <input class="easyui-datebox" style="width:110px">
+        To: <input class="easyui-datebox" style="width:110px">
+        Language:
+        <select class="easyui-combobox" panelHeight="auto" style="width:100px">
+            <option value="java">Java</option>
+            <option value="c">C</option>
+            <option value="basic">Basic</option>
+            <option value="perl">Perl</option>
+            <option value="python">Python</option>
+        </select>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+    </div>
+
+    <table id="msgBagMsgTable" class="easyui-datagrid">
+
+    </table>
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="90">名称：</td>
+            <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td>备注：</td>
+            <td><textarea class="easyui-validatebox" name="info[content]" style="width:220px;height:60px;font-size:12px"></textarea></td>
+        </tr>
+    </table>
+</form>
+<script type="application/javascript">
+    var msgBagAdd = {
+        editRow:undefined,
+        datagrid:'#msgBagMsgTable',
+        isEditing: function () {
+            return this.editRow != undefined;
+        },
+        init:function(){
+            var that = this;
+            $(this.datagrid).datagrid({
+                fit:true,
+                fitColumns:true,
+                rownumbers:true,
+               toolbar:[
+                   {
+                       text:'添加消息',
+                       iconCls:'icon-add',
+                       handler:function(){
+                           if(that.isEditing()){//正在编辑
+                               $.app.method.tip('提示信息', '有正在编辑的行', 'error');
+                               return;
+                           }
+                           $(that.datagrid).datagrid('appendRow',{});
+                           var rows = $(that.datagrid).datagrid('getRows');
+                           that.editRow = rows.length-1;
+                           $(that.datagrid).datagrid('beginEdit',that.editRow);
+                       }
+                   },
+                   {
+                       text:'移除',
+                       iconCls:'icon-remove',
+                       handler:function(){alert('add')}
+                   }
+               ],
+                columns:[[
+                    {field:'msg_id',width:50,title:'消息',editor:{
+                        type:'combogrid',
+                        options:{
+                            toolbar:'#tb',
+                            width : 170,
+                            panelWidth : 700,
+                            panelHeight:308,
+                            pagination : true,// 是否分页
+                            pageSize:10,
+                            idField : 'id',
+                            textField : 'name',
+                            rownumbers:true,
+                            url:"<{:U('Message/index')}>",
+                            columns:[[
+                                {
+                                    field : 'name',
+                                    title : '消息名称',
+                                    width:'60%'
+                                },
+                                {
+                                    field : 'msg_type',
+                                    title : '消息类型',
+                                    width:'30%',
+                                    formatter:function(value,row,index){
+                                        switch (row.msg_type){
+                                            case 'news':
+                                                return '图文';
+                                            case 'text':
+                                                return '文本';
+                                            case 'image':
+                                                return '图片';
+                                        }
+                                    }
+                                }
+                            ]]
+                        }
+                    }},
+                    {field:'time',width:50,title:'间隔时间',editor:{
+                        type:'numberbox'
+                    }}
+                ]]
+            });
+
+        }
+    };
+    msgBagAdd.init();
+</script>
