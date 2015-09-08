@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5369e444-b49b-471d-9df2-2492c33038bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/Controller/MessageBagController.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/View/MessageBag/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Admin/View/MessageBag/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/static/js/easyui/plugins/jquery.portal.js" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\Controller\MemberController.class.php" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\member_add.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\member_edit.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\member_list.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\member_view.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\type_add.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\type_edit.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\PhpStorm\tpcms\App\Admin\View\Member\type_list.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php" afterPath="$PROJECT_DIR$/App/Admin/Controller/MessageNewsController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageNews/add.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageNews/edit.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/MessageNews/index.html" afterPath="$PROJECT_DIR$/App/Admin/View/MessageNews/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="5369e444-b49b-471d-9df2-2492c33038bc" name="Default" comment="" />
     <ignored path="wechat.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
