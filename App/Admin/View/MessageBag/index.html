@@ -22,6 +22,7 @@
         listAction:"<{:U('MessageBag/index')}>",
         editAction:"<{:U('MessageBag/edit')}>",
         deleteAction:"<{:U('MessageBag/delete')}>",
+        tab:'#pagetabs',
         load : function(){
             var that = this;
             $(this.datagrid).datagrid({
@@ -99,50 +100,10 @@
         },
         add:function(){
             var that = this;
-            $(that.dialog).dialog({
+            $(that.tab).tabs('add',{
                 title: '添加消息包',
-                iconCls: 'icons-application-application_add',
-                width: 700,
-                height: 500,
-                cache: false,
-                href: that.addAction,
-                modal: true,
-                collapsible: false,
-                minimizable: false,
-                resizable: false,
-                maximizable: false,
-                buttons:[{
-                    text:'确定',
-                    iconCls:'icon-ok',
-                    handler: function(){
-                        $(that.dialog).find('form').eq(0).form('submit', {
-                            onSubmit: function(){
-                                var isValid = $(this).form('validate');
-                                if (!isValid) return false;
-
-                                $.messager.progress({text:'处理中，请稍候...'});
-                                $.post(that.addAction, $(this).serialize(), function(res){
-                                    $.messager.progress('close');
-                                    if(!res.status){
-                                        $.app.method.tip('提示信息', res.info, 'error');
-                                    }else{
-                                        $.app.method.tip('提示信息', res.info, 'info');
-                                        $(that.dialog).dialog('close');
-                                        that.refresh();
-                                    }
-                                }, 'json');
-
-                                return false;
-                            }
-                        });
-                    }
-                },{
-                    text:'取消',
-                    iconCls:'icon-no',
-                    handler: function(){
-                        $(that.dialog).dialog('close');
-                    }
-                }]
+                closable:true,
+                href: that.addAction
             });
         },
         //编辑
