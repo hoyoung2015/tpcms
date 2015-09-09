@@ -46,7 +46,7 @@ var systemMenuModule = {
 			title: '添加菜单',
 			iconCls: 'icons-application-application_add',
 			width: 390,
-			height: 290,
+			height: 310,
 			cache: false,
 			href: href,
 			modal: true,
@@ -54,6 +54,17 @@ var systemMenuModule = {
 			minimizable: false,
 			resizable: false,
 			maximizable: false,
+            onLoad:function(){
+                $(that.dialog).find('form').eq(0).find("input[name='info[icon]']")
+                        .combobox({
+                            url:"<{:U('System/listIcon')}>",
+                            textField:'icon',
+                            valueField:'icon',
+                            formatter:function(row){
+                                return "<span class='"+row.icon+"'>&nbsp;</span>&nbsp;&nbsp;"+row.icon;
+                            }
+                        });
+            },
 			buttons:[{
 				text:'确定',
 				iconCls:'icons-other-tick',
@@ -103,7 +114,7 @@ var systemMenuModule = {
 			title: '编辑菜单',
 			iconCls: 'icons-application-application_edit',
 			width: 390,
-			height: 290,
+			height: 310,
 			cache: false,
 			href: href,
 			modal: true,
@@ -111,6 +122,17 @@ var systemMenuModule = {
 			minimizable: false,
 			resizable: false,
 			maximizable: false,
+            onLoad:function(){
+                $(that.dialog).find('form').eq(0).find("input[name='info[icon]']")
+                        .combobox({
+                            url:"<{:U('System/listIcon')}>",
+                            textField:'icon',
+                            valueField:'icon',
+                            formatter:function(row){
+                                return "<span class='"+row.icon+"'>&nbsp;</span>&nbsp;&nbsp;"+row.icon;
+                            }
+                        });
+            },
 			buttons:[{
 				text:'确定',
 				iconCls:'icons-other-tick',

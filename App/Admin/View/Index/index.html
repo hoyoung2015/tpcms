@@ -9,7 +9,7 @@
 <body class="easyui-layout" style="display: none">
 
 <!-- 头部 -->
-<div id="toparea" data-options="region:'north',border:false,height:38">
+<div id="toparea" data-options="region:'north',border:false" style="height: 45px">
 	<div id="topmenu" class="easyui-panel" data-options="fit:true,border:false">
 		<a class="logo"><{:C('SYSTEM_NAME')}></a>
 		
@@ -31,13 +31,13 @@
 					<div onclick="baseModule.clearCache()">更新缓存</div>
 					<div class="menu-sep"></div>
 					<div onclick="baseModule.systemInfo()">服务器信息</div>
-					<div onclick="$.messager.alert('关于', '版本号：<{:C('SYSTEM_VERSION')}><br /><br />联系QQ：531381545', 'info');">关于</div>
+					<div onclick="$.messager.alert('关于', '版本号：<{:C('SYSTEM_VERSION')}><br /><br />联系QQ：1052251022', 'info');">关于</div>
 				</div>
 			</li>
 		</ul>
 		<ul class="nav">
 			<foreach name="menuList" item="menu">
-				<li><a href="javascript:;" onclick="baseModule.getLeft(<{$menu.id}>,'<{$menu.name}>', this)"><{$menu.name}></a></li>
+				<li><a href="javascript:;" onclick="baseModule.getLeft(<{$menu.id}>,'<{$menu.name}>','<{$menu.icon}>', this)"><{$menu.name}></a></li>
 			</foreach>
 		</ul>
 		<div style="clear:both;border-bottom:none;border-left:none;border-right:none"></div>
@@ -54,6 +54,9 @@
 	<div id="pagetabs" class="easyui-tabs" data-options="tabPosition:'<{:C("TABLES_TOOLS_POSITION")}>',fit:true,border:false,plain:false">
 		<div title="后台首页" href="<{:U('Index/public_main')}>" data-options="cache:false"></div>
 	</div>
+</div>
+<div data-options="region:'south',split:true,collapsible:false,height:35">
+    <p class="footer">微信后台管理系统</p>
 </div>
 <div id="rcmenu" class="easyui-menu" style="">
     <div id="refreshcur" data-options="iconCls:'icons-arrow-arrow_refresh'">刷新</div>
@@ -122,7 +125,7 @@ window.baseModule = {
 	},
 	
 	//获取左侧栏目
-	getLeft: function(menuid, title, object){
+	getLeft: function(menuid, title,icon, object){
 		var that = this;
 		
 		//加个判断，防止多次点击重复加载
@@ -138,7 +141,10 @@ window.baseModule = {
 			beforeSend: function(){
 				that.removeLeft();
 				//更新标题名称
-				$('body').layout('panel', 'west').panel({title: title});
+				$('body').layout('panel', 'west').panel({
+                    title: title,
+                    iconCls:icon
+                });
 				var loading = '<div class="panel-loading">Loading...</div>';
 				$("#leftmenu").accordion("add", {content: loading});
 			},
@@ -151,7 +157,7 @@ window.baseModule = {
 						var treedata = $.toJSON(menu.son);
 						content = '<ul class="easyui-tree" data-options=\'data:' + treedata + ',animate:true,lines:true,onClick:function(node){baseModule.openUrl(node.url, node.text)}\'></ul>';
 					}
-					$("#leftmenu").accordion("add", {title: menu.name, content: content, iconCls:'icons-application-application_side_list'});
+					$("#leftmenu").accordion("add", {title: menu.name, content: content, iconCls:'icon '+menu.icon});
 				});
 			}
 		});

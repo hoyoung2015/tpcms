@@ -1,18 +1,4 @@
 <form style="padding: 5px">
-    <div id="tb" style="padding:2px 5px;">
-        Date From: <input class="easyui-datebox" style="width:110px">
-        To: <input class="easyui-datebox" style="width:110px">
-        Language:
-        <select class="easyui-combobox" panelHeight="auto" style="width:100px">
-            <option value="java">Java</option>
-            <option value="c">C</option>
-            <option value="basic">Basic</option>
-            <option value="perl">Perl</option>
-            <option value="python">Python</option>
-        </select>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
-    </div>
-
     <table id="msgBagMsgTable" class="easyui-datagrid">
 
     </table>
@@ -34,9 +20,10 @@
         isEditing: function () {
             return this.editRow != undefined;
         },
+        defaultMsgType:'text',
         init:function(){
             var that = this;
-            $(this.datagrid).datagrid({
+            $(that.datagrid).datagrid({
                 fit:true,
                 fitColumns:true,
                 rownumbers:true,
@@ -49,7 +36,10 @@
                                $.app.method.tip('提示信息', '有正在编辑的行', 'error');
                                return;
                            }
-                           $(that.datagrid).datagrid('appendRow',{});
+                           $(that.datagrid).datagrid('appendRow',{
+                               msg_type:that.defaultMsgType,
+                               interval:'00:00'
+                           });
                            var rows = $(that.datagrid).datagrid('getRows');
                            that.editRow = rows.length-1;
                            $(that.datagrid).datagrid('beginEdit',that.editRow);
@@ -61,12 +51,44 @@
                        handler:function(){alert('add')}
                    }
                ],
+                onSelect:function(index,row){
+
+                },
                 columns:[[
-                    {field:'msg_id',width:50,title:'消息',editor:{
+                    {
+                        field : 'msg_type',
+                        title : '消息类型',
+                        width:'8%',
+                        editor:{
+                            type:'combobox',
+                            options:{
+                                editable:false,
+                                valueField:'msg_type',
+                                textField:'msg_name',
+                                required:true,
+                                data:[{msg_type:'text',msg_name:'文本'},{msg_type:'image',msg_name:'图片'},{msg_type:'news',msg_name:'图文'}],
+                                onSelect : function (record){
+                                    var theIndex = $(msgBagAdd.datagrid).datagrid('getRows').length;
+                                    var ed = $(msgBagAdd.datagrid).datagrid('getEditor',{
+                                        index:theIndex-1,
+                                        field:'msg_id'
+                                    });
+                                    //更换搜索词重新加载
+                                    $(ed.target).combogrid({
+                                        queryParams:{
+                                            search:{
+                                                msg_type:record.msg_type
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    },
+                    {field:'msg_id',width:'30%',title:'消息',editor:{
                         type:'combogrid',
                         options:{
-                            toolbar:'#tb',
-                            width : 170,
+                            require:true,
                             panelWidth : 700,
                             panelHeight:308,
                             pagination : true,// 是否分页
@@ -74,7 +96,21 @@
                             idField : 'id',
                             textField : 'name',
                             rownumbers:true,
+                            hasDownArrow:true,
                             url:"<{:U('Message/index')}>",
+                            onBeforeLoad:function(){
+
+                            },
+                            queryParams:{
+                                search:{
+                                    msg_type:that.defaultMsgType
+                                }
+                            },
+//                            disabled:true,//初始不可编辑，选择消息类型后开启
+                            onSelect : function (index,row){
+                                console.log(index);
+                                console.log(row);
+                            },
                             columns:[[
                                 {
                                     field : 'name',
@@ -84,7 +120,7 @@
                                 {
                                     field : 'msg_type',
                                     title : '消息类型',
-                                    width:'30%',
+                                    width:'15%',
                                     formatter:function(value,row,index){
                                         switch (row.msg_type){
                                             case 'news':
@@ -95,12 +131,20 @@
                                                 return '图片';
                                         }
                                     }
+                                },
+                                {
+                                    field:'opt_id',
+                                    title:' ',
+                                    width:'15%'
                                 }
                             ]]
                         }
                     }},
-                    {field:'time',width:50,title:'间隔时间',editor:{
-                        type:'numberbox'
+                    {field:'interval',width:'8%',title:'间隔时间',editor:{
+                        type:'timespinner',
+                        options:{
+
+                        }
                     }}
                 ]]
             });

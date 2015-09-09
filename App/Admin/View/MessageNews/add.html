@@ -52,7 +52,7 @@
         border-radius: 0 0 5px 5px;
     }
 </style>
-<div class="easyui-panel" data-options="{footer:'#msgnews-add-tab-tools',fit:true}" style="padding: 10px">
+<div class="easyui-panel" data-options="{header:'#msgnews-add-tab-tools',fit:true}" style="padding: 10px">
     <div class="news-left">
 
         <div id="newsItemTable">
@@ -71,7 +71,7 @@
         <div id="msgNewsPreview"></div>
     </div>
 </div>
-<div id="msgnews-add-tab-tools" style="padding: 5px;text-align: right">
+<div id="msgnews-add-tab-tools" style="padding: 5px;text-align: right;background: #FAFAFA">
     <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgNewsAdd.save()">保存</a>
     <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgNewsAdd.cancel()">取消</a>
 </div>
@@ -126,7 +126,6 @@
         preview:new MsgNewsPreview('msgNewsPreview'),
         init:function(){
             $(this.newsItemTable).datagrid({
-                title:'单图文列表',
                 url:"<{:U('MessageNews/itemList')}>",
                 fitColumns:true,
                 fit:true,

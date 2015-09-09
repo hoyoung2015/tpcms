@@ -111,12 +111,13 @@ class IndexController extends CommonController {
 		$list = $menu_db->getMenu($menuid);
 		foreach ($list as $k=>$v){
 			$datas[$k]['name'] = $v['name'];
+            $datas[$k]['icon'] = $v['icon'];
 			$son_datas = $menu_db->getMenu($v['id']);
 			foreach ($son_datas as $k2=>$v2){
 				$datas[$k]['son'][$k2]['text'] = $v2['name'];
 				$datas[$k]['son'][$k2]['id']   = $v2['id'];
 				$datas[$k]['son'][$k2]['url'] = U($v2['c'].'/'.$v2['a'].'?menuid='.$v2['id'].'&'.$v2['data']);
-				$datas[$k]['son'][$k2]['iconCls'] = 'icons-application-application_go';
+				$datas[$k]['son'][$k2]['iconCls'] = $v2['icon'];
 			}
 		}
 		$this->ajaxReturn($datas);

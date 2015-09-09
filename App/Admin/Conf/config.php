@@ -39,4 +39,6 @@ return array(
 	'DATA_BACKUP_PART_SIZE'     => '20971520',  				//该值用于限制压缩后的分卷最大长度。单位：B；建议设置20M
 	'DATA_BACKUP_COMPRESS'     	=> '1',							//压缩备份文件需要PHP环境支持gzopen,gzwrite函数 0:不压缩 1:启用压缩
 	'DATA_BACKUP_COMPRESS_LEVEL'=> '9',							//压缩级别   1:普通   4:一般   9:最高
+
+    'ICON_DIR'=>'Public/static/plugins/icons/tabicons/',
 );

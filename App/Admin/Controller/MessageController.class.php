@@ -28,6 +28,9 @@ class MessageController extends CommonController {
             $limit = ($page - 1) * $rows . "," . $rows;
             $list = $total ? $db->where($where)->order($order)->limit($limit)->select() : array();
 
+            for($i=0;$i<count($list);$i++){
+                $list[$i]['opt_id'] = $list[$i]['id'];
+            }
             $data = array('total'=>$total, 'rows'=>$list);
             $this->ajaxReturn($data);
         }else{

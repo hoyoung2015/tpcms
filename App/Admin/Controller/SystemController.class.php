@@ -53,7 +53,22 @@ class SystemController extends CommonController{
 			$this->success('操作成功');
 		}
 	}
-	
+	public function listIcon(){
+        $dirPath = SITE_PATH.DS.C('ICON_DIR');
+        $dir = dir($dirPath);
+        $list = array();
+        while($file = $dir->read()){
+            if(!is_file("$dirPath/$file")){
+                continue;
+            }
+            $icon = "icon-".substr($file,0,strrpos($file,'.png'));
+            $list[] = array(
+                    'icon'=>$icon
+//                    'text'=>"<span class='$icon'>&nbsp;</span>&nbsp;&nbsp;$icon"
+            );
+        }
+        $this->ajaxReturn($list);
+    }
 	/**
 	 * 导出
 	 */

@@ -13,6 +13,8 @@ define('HTTP_REFERER', isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'
 //文件上传根目录
 define('UPLOAD_PATH', './Public/upload/');
 
+define('SITE_PATH', dirname(__FILE__));
+
 // ThinkPHP定义
 define('APP_DEBUG', true);
 define('THINK_PATH', SITE_DIR . DS . 'Libs' . DS . 'ThinkPHP' . DS);
