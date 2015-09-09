@@ -32,10 +32,11 @@
                        text:'添加消息',
                        iconCls:'icon-add',
                        handler:function(){
-                           if(that.isEditing()){//正在编辑
-                               $.app.method.tip('提示信息', '有正在编辑的行', 'error');
-                               return;
-                           }
+//                           if(that.isEditing()){//正在编辑
+////                               $.app.method.tip('提示信息', '有正在编辑的行', 'error');
+//                               $(that.datagrid).datagrid('acceptChanges');
+//                               return;
+//                           }
                            $(that.datagrid).datagrid('appendRow',{
                                msg_type:that.defaultMsgType,
                                interval:'00:00'
@@ -43,6 +44,14 @@
                            var rows = $(that.datagrid).datagrid('getRows');
                            that.editRow = rows.length-1;
                            $(that.datagrid).datagrid('beginEdit',that.editRow);
+                       }
+                   },
+                   {
+                       text:'保存',
+                       iconCls:'icon-save',
+                       handler:function(){
+                           var t = $(that.datagrid).datagrid('acceptChanges');
+                           console.log(t);
                        }
                    },
                    {
@@ -88,7 +97,7 @@
                     {field:'msg_id',width:'30%',title:'消息',editor:{
                         type:'combogrid',
                         options:{
-                            require:true,
+                            required:true,
                             panelWidth : 700,
                             panelHeight:308,
                             pagination : true,// 是否分页
