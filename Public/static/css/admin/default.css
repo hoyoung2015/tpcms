@@ -8,6 +8,10 @@ a:focus,a:hover,a:active {outline: 0;}
 .datagrid-row-selected a{color:#000} /* 解决列表选中部分a标签看不见问题 */
 .panel input,.panel form{font-size:12px} /* 表单中字体问题 */
 .border{border: 1px solid #95b8e7}
+.l-btn{
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+  }
 
 /* 表单样式 */
 form{font-size:12px}

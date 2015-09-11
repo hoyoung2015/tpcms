@@ -37,4 +37,10 @@ class MessageController extends CommonController {
             $this->display();
         }
     }
+    public function getMsg($id=null){
+        if(is_null($id)){
+            $this->ajaxReturn(array());
+        }
+        $this->ajaxReturn(M('msg_base')->find($id));
+    }
 }

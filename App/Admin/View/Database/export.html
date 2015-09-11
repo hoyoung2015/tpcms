@@ -9,10 +9,10 @@ var databaseExprotModule = {
 	
 	//工具栏
 	toolbar: [
-		{ text: '立即备份', iconCls: 'icons-other-database_save', handler: function(){databaseExprotModule.export()}},
-		{ text: '优化表', iconCls: 'icons-other-database_lightning', handler: function(){databaseExprotModule.optimizeOrRepairAll("<{:U('Database/optimize')}>")}},
-		{ text: '修复表', iconCls: 'icons-other-database_refresh', handler: function(){databaseExprotModule.optimizeOrRepairAll("<{:U('Database/repair')}>")}},
-		{ text: '刷新', iconCls: 'icons-arrow-arrow_refresh', handler: function(){databaseExprotModule.refresh()}}
+		{ text: '立即备份', iconCls: 'icon-tabicons_16_12', handler: function(){databaseExprotModule.export()}},
+		{ text: '优化表', iconCls: 'icon-tabicons_06_03', handler: function(){databaseExprotModule.optimizeOrRepairAll("<{:U('Database/optimize')}>")}},
+		{ text: '修复表', iconCls: 'icon-tabicons_12_01', handler: function(){databaseExprotModule.optimizeOrRepairAll("<{:U('Database/repair')}>")}},
+		{ text: '刷新', iconCls: 'icon-reload', handler: function(){databaseExprotModule.refresh()}}
 	],
 	
 	//操作格式化

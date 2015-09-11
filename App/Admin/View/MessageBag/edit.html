@@ -1,0 +1,314 @@
+<script type="application/javascript" src="__STATIC__/js/easyui/plugins/datagrid-dnd.js"></script>
+<div class="easyui-panel" data-options="{header:'#msgbag-edit-tab-tools',fit:true}">
+    <form id="msgBagEditForm" style="padding: 5px">
+        <input type="hidden" name="info[msg_json]" value="<{$info.msg_json}>">
+        <input type="hidden" name="info[msg_bag_id]" value="<{$info.msg_bag_id}>">
+        <table cellspacing="5" width="100%">
+            <tr>
+                <td width="90">名称：</td>
+                <td><input class="easyui-validatebox" value="<{$info.name}>" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
+            </tr>
+            <tr>
+                <td>备注：</td>
+                <td><textarea class="easyui-validatebox" name="info[remarks]" style="width:220px;height:60px;font-size:12px"><{$info.remarks}></textarea></td>
+            </tr>
+        </table>
+        <table id="msgBagMsgTable" class="easyui-datagrid">
+
+        </table>
+    </form>
+    <div id="msgbag-edit-tab-tools" style="padding: 5px;text-align: right;background: #FAFAFA">
+        <label style="float: left;line-height: 26px;color: #555"><span class="icon-tabicons_11_03">&nbsp;</span>拖拽可以调整消息的顺序</label>
+        <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgBagEdit.save(<{$info.msg_bag_id}>)">保存</a>
+        <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgBagEdit.cancel()">取消</a>
+    </div>
+</div>
+
+<script type="application/javascript">
+    var msgBagEdit = {
+        editRow:undefined,
+        datagrid:'#msgBagMsgTable',
+        form:'#msgBagEditForm',
+        isEditing: function () {
+            return this.editRow != undefined;
+        },
+        endEditing:function(){
+            return this.editRow == undefined;
+        },
+        defaultMsgType:'text',
+        ram:{},
+        msgTypeAlias:{'text':'文本','image':'图片','news':'图文'},
+        init:function(){
+            var that = this;
+            var data = $(that.form).find("input[name='info[msg_json]']").val();//转为json字符串
+
+            $(that.datagrid).datagrid({
+                fit:true,
+                fitColumns:true,
+                rownumbers:true,
+                data:JSON.parse(data),
+                onLoadSuccess:function(){
+
+                },
+                onAfterEdit:function(){
+                    that.editRow = undefined;
+
+                },
+                onClickCell:function(index, field){
+                    if(that.editRow==index){return;}
+
+
+                    if (that.isEditing()){
+                        var suc = $(that.datagrid).datagrid('validateRow', that.editRow);
+                        if(!suc){
+                            $.app.method.tip('提示信息', '请先正确填写正在编辑的数据', 'error');
+                            return;
+                        }
+                        $(that.datagrid).datagrid('acceptChanges');
+                    }
+                    $(that.datagrid).datagrid('selectRow', index)
+                            .datagrid('beginEdit', index);
+                    var ed = $(that.datagrid).datagrid('getEditor', {index:index,field:field});
+                    ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') : $(ed.target)).focus();
+                    that.editRow = index;
+
+                },
+                toolbar:[
+                    {
+                        text:'添加消息',
+                        iconCls:'icon-add',
+                        handler:function(){
+                            if(that.isEditing()){//正在编辑
+//                               $(that.datagrid).datagrid('acceptChanges');
+                                $.app.method.tip('提示信息', '请先保存正在编辑的数据', 'error');
+                                return;
+                            }
+
+                            var rows = $(that.datagrid).datagrid('getRows');
+                            that.editRow = rows.length;
+                            //插入新的一行
+                            $(that.datagrid).datagrid('appendRow',{
+                                uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000),//保证消息唯一，可能存在同一个消息
+                                msg_type:that.defaultMsgType,
+                                interval:'00:00'
+                            });
+                            $(that.datagrid).datagrid('beginEdit',that.editRow);
+                        }
+                    },
+                    {
+                        text:'保存',
+                        iconCls:'icon-save',
+                        handler:function(){
+                            if(that.isEditing()){
+                                $(that.datagrid).datagrid('enableDnd',that.editRow);//该行启用拖拽
+                                $(that.datagrid).datagrid('acceptChanges');
+                            }
+                        }
+                    },
+                    {
+                        text:'移除',
+                        iconCls:'icon-remove',
+                        handler:function(){
+                            var rows = $(that.datagrid).datagrid('getSelections');
+                            $.each(rows,function(index,row){
+                                var index = $(that.datagrid).datagrid('getRowIndex',row);
+                                $(that.datagrid).datagrid('deleteRow',index);
+                                if(that.editRow==index){//如果移除的是正在编辑的要处理
+                                    that.editRow = undefined;
+                                }
+                            });
+                        }
+                    },
+                    {
+                        text:'取消',
+                        iconCls:'icon-redo',
+                        handler:function(){
+
+                            if(that.isEditing()){
+                                $(that.datagrid).datagrid('rejectChanges');
+                                that.editRow = undefined;
+                                $(that.datagrid).datagrid('enableDnd');//防止取消后拖拽失效
+                            }
+                        }
+                    }
+                ],
+                onSelect:function(index,row){
+
+                },
+                columns:[[
+                    {
+                        field:'uuid',
+                        checkbox:true
+                    },
+                    {
+                        field : 'msg_type',
+                        title : '消息类型',
+                        width:'8%',
+                        formatter:function(value,row,index){
+                            return that.msgTypeAlias[row.msg_type];
+                        },
+                        editor:{
+                            type:'combobox',
+                            options:{
+                                editable:false,
+                                valueField:'msg_type',
+                                textField:'msg_name',
+                                required:true,
+                                data:[{msg_type:'text',msg_name:'文本'},{msg_type:'image',msg_name:'图片'},{msg_type:'news',msg_name:'图文'}],
+                                onSelect : function (record){
+                                    var theIndex = $(msgBagEdit.datagrid).datagrid('getRows').length;
+                                    var ed = $(msgBagEdit.datagrid).datagrid('getEditor',{
+                                        index:theIndex-1,
+                                        field:'msg_id'
+                                    });
+                                    //更换搜索词重新加载
+                                    $(ed.target).combogrid({
+                                        queryParams:{
+                                            search:{
+                                                msg_type:record.msg_type
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    },
+                    {
+                        field:'msg_id',
+                        width:'30%',
+                        title:'消息',
+                        formatter:function(value,row,index){
+                            var name = row.name;
+                            if(name == undefined){
+                                //远程获取名称
+                                $.ajax({
+                                    url:"<{:U('Message/getMsg')}>",
+                                    type : "POST",
+                                    dataType : "json",
+                                    data:{id:row.msg_id},
+                                    async:false,
+                                    success:function(res){
+                                        name = res.name;
+                                    }
+                                });
+                            }
+                            return name;
+                        },
+                        editor:{
+                            type:'combogrid',
+                            options:{
+                                required:true,
+                                panelWidth : 700,
+                                panelHeight:308,
+                                pagination : true,// 是否分页
+                                pageSize:10,
+                                idField : 'id',
+                                textField : 'name',
+                                rownumbers:true,
+                                hasDownArrow:true,
+                                url:"<{:U('Message/index')}>",
+                                onBeforeLoad:function(){
+
+                                },
+                                queryParams:{
+                                    search:{
+                                        msg_type:that.defaultMsgType
+                                    }
+                                },
+                                columns:[[
+                                    {
+                                        field : 'name',
+                                        title : '消息名称',
+                                        width:'60%'
+                                    },
+                                    {
+                                        field : 'msg_type',
+                                        title : '消息类型',
+                                        width:'15%',
+                                        formatter:function(value,row,index){
+                                            switch (row.msg_type){
+                                                case 'news':
+                                                    return '图文';
+                                                case 'text':
+                                                    return '文本';
+                                                case 'image':
+                                                    return '图片';
+                                            }
+                                        }
+                                    },
+                                    {
+                                        field:'opt_id',
+                                        title:' ',
+                                        width:'15%'
+                                    }
+                                ]]
+                            }
+                        }},
+                    {field:'interval',width:'8%',title:'间隔时间',editor:{
+                        type:'timespinner',
+                        options:{
+
+                        }
+                    }}
+                ]]
+            });
+        },
+        closeTab:function(){
+            var currentTab = $('#pagetabs').tabs('getSelected');
+            var index = $('#pagetabs').tabs('getTabIndex',currentTab);
+            $('#pagetabs').tabs('close',index);
+        },
+        //刷新
+        refresh: function(){
+            $(this.datagrid).datagrid('reload');
+        },
+        save:function(id){
+            var that = this;
+            $(that.form).form('submit', {
+                onSubmit: function(){
+                    var isValid = $(this).form('validate');
+                    if (!isValid) return false;
+
+                    //检查是否正在编辑
+                    if(that.isEditing()){
+                        $.app.method.tip('提示信息', '请先保存消息', 'error');
+                        return false;
+                    }
+
+                    var rows = $(that.datagrid).datagrid('getRows');
+                    //检查是否有消息
+                    if(rows.length==0){
+                        $.app.method.tip('提示信息', '没有任何消息，请添加', 'error');
+                        return false;
+                    }
+
+
+                    $(this).find("input[name='info[msg_json]']").val(JSON.stringify(rows));//转为json字符串
+                    $.messager.progress({text:'处理中，请稍候...'});
+                    var action = "<{:U('MessageBag/edit')}>";
+                    action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+                    $.post(action, $(this).serialize(), function(res){
+                        $.messager.progress('close');
+                        if(!res.status){
+                            $.app.method.tip('提示信息', res.info, 'error');
+                        }else{
+                            $.app.method.tip('提示信息', res.info, 'info');
+
+                            that.closeTab();
+                            msgBagListModule.refresh();
+                        }
+                    }, 'json');
+
+                    return false;
+                }
+            });
+        },
+        cancel:function(){
+            this.closeTab();
+        }
+    };
+    $(function () {
+        msgBagEdit.init();
+    });
+
+</script>
