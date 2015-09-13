@@ -23,7 +23,25 @@ input[type="file"],input[type="image"],input[type="submit"],input[type="reset"],
 /* 首页样式 */
 #toparea{background-image:linear-gradient(to bottom, #F2F5FF, #E4EEFF);background-repeat: repeat-x;border:0;padding:0;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF2F5FF',endColorstr='#FFE4EEFF',GradientType=0)}
 #topmenu{display:inline;background:none;}
-#topmenu .logo{color:white  ;display:block;float:left;font-size:20px;text-decoration:none;cursor:default;font-weight: 200;padding:8px 17px;}
+#topmenu .logo{
+    display:block;
+    float:left;
+    text-decoration:none;
+    cursor:default;
+}
+#topmenu .logo img{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin-top: 2px;
+}
+#topmenu .logo span{
+    font-weight: 200;
+    font-size:20px;
+    color:white  ;
+    line-height: 39px;
+
+}
 #topmenu .nav{float:right;margin:0;padding:0;list-style:none;margin-right: 20px}
 #topmenu .nav li{float:left;margin:0;padding:0}
 #topmenu .nav li a{color:white;padding:13px 15px;text-decoration:none;display: block;}
