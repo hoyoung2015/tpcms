@@ -37,4 +37,11 @@ class MessagePoolController extends CommonController {
             $this->display();
         }
     }
+    public function addRule(){
+        if(IS_POST){
+
+        }else{
+            $this->display();
+        }
+    }
 }

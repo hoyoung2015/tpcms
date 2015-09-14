@@ -1,9 +1,13 @@
 <style type="text/css">
 .pool_left{
     float: left;
-    margin-right: 10px;
-    width: 400px;
+    width: 650px;
+    margin-bottom: 10px;
 }
+    .pool_right{
+        width: 650px;
+        clear: both;
+    }
 </style>
 
 <script type="application/javascript" src="__STATIC__/js/easyui/plugins/datagrid-dnd.js"></script>
@@ -43,6 +47,7 @@
         editRow:undefined,
         datagrid:'#msgPoolRuleTable',
         form:'#msgPoolAddBagForm',
+        dialog:   '#globel-dialog-div',
         isEditing: function () {
             return this.editRow != undefined;
         },
@@ -57,39 +62,12 @@
 //                fit:true,
                 fitColumns:true,
                 data:[],
-                onAfterEdit:function(){
-                    that.editRow = undefined;
-                },
                 toolbar:[
                     {
                         text:'添加规则',
                         iconCls:'icon-add',
                         handler:function(){
-                            if(that.isEditing()){//正在编辑
-//                               $(that.datagrid).datagrid('acceptChanges');
-                                $.app.method.tip('提示信息', '请先保存正在编辑的数据', 'error');
-                                return;
-                            }
-
-                            var rows = $(that.datagrid).datagrid('getRows');
-                            that.editRow = rows.length;
-                            //插入新的一行
-                            $(that.datagrid).datagrid('appendRow',{
-                                uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000),//保证消息唯一，可能存在同一个消息
-                                msg_type:that.defaultMsgType,
-                                interval:'00:00'
-                            });
-                            $(that.datagrid).datagrid('beginEdit',that.editRow);
-                        }
-                    },
-                    {
-                        text:'保存',
-                        iconCls:'icon-save',
-                        handler:function(){
-                            if(that.isEditing()){
-                                $(that.datagrid).datagrid('enableDnd',that.editRow);//该行启用拖拽
-                                $(that.datagrid).datagrid('acceptChanges');
-                            }
+                            that.addRule();
                         }
                     },
                     {
@@ -105,18 +83,6 @@
                                 }
                             });
                         }
-                    },
-                    {
-                        text:'取消',
-                        iconCls:'icon-redo',
-                        handler:function(){
-
-                            if(that.isEditing()){
-                                $(that.datagrid).datagrid('rejectChanges');
-                                that.editRow = undefined;
-                                $(that.datagrid).datagrid('enableDnd');//防止取消后拖拽失效
-                            }
-                        }
                     }
                 ],
                 columns:[[
@@ -127,13 +93,7 @@
                     {
                         field:'tag',
                         title:'标签名',
-                        width:'30%',
-                        editor:{
-                            type:'validatebox',
-                            options:{
-                                required:true
-                            }
-                        }
+                        width:'30%'
                     },
                     {
                         field : 'opt',
@@ -141,31 +101,12 @@
                         width:'20%',
                         formatter:function(value,row,index){
                             return that.ruleAlias[row.opt];
-                        },
-                        editor:{
-                            type:'combobox',
-                            options:{
-                                editable:false,
-                                valueField:'opt',
-                                textField:'opt_name',
-                                required:true,
-                                data:[{opt:'EQ',opt_name:'等于'},{opt:'NEQ',opt_name:'不等于'},{opt:'GT',opt_name:'大于'}],
-                                onSelect : function (record){
-
-                                }
-                            }
                         }
                     },
                     {
                         field:'val',
                         width:'45%',
-                        title:'标签值',
-                        editor:{
-                            type:'textarea',
-                            options:{
-                                required:true
-                            }
-                        }
+                        title:'标签值'
                     }
                 ]]
             });
@@ -177,6 +118,59 @@
         },
         refresh: function(){
             $(this.datagrid).datagrid('reload');
+        },
+        addRule:function(){
+            var that = this;
+            $(that.dialog).dialog({
+                title: '添加规则',
+                iconCls: 'icon-tabicons_02_15',
+                width: 390,
+                height: 400,
+                cache: false,
+                href: "<{:U('MessagePool/addRule')}>",
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                onLoad:function(){
+                    $(that.dialog).find('form').eq(0).find("input[name='opt']").combobox({
+                        data:[{opt:'EQ',opt_name:'等于'}],
+                        valueField:'opt',
+                        textField:'opt_name',
+                        required:true
+                    });
+                },
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
+
+                                var data = $(this).serializeArray();
+                                var row = {
+                                    uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000)
+                                };
+                                $.each(data,function(index,val){
+                                    row[val.name] = val.value;
+                                });
+                                $(that.datagrid).datagrid('appendRow',row);
+                                $(that.dialog).dialog('close');
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                    }
+                }]
+            });
         },
         save:function(){
             var that = this;
