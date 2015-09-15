@@ -1,15 +1,14 @@
 <script type="application/javascript" src="__STATIC__/js/easyui/plugins/datagrid-dnd.js"></script>
 <div class="easyui-panel" data-options="{header:'#msgbag-add-tab-tools',fit:true}">
     <form id="msgBagAddForm" style="padding: 5px">
-        <input type="hidden" name="info[msg_json]">
         <table cellspacing="5" width="100%">
             <tr>
                 <td width="90">名称：</td>
-                <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
+                <td><input class="easyui-validatebox" data-options="required:true" type="text" name="name" style="width:220px" /></td>
             </tr>
             <tr>
                 <td>备注：</td>
-                <td><textarea class="easyui-validatebox" name="info[remarks]" style="width:220px;height:60px;font-size:12px"></textarea></td>
+                <td><textarea class="easyui-validatebox" name="remarks" style="width:220px;height:60px;font-size:12px"></textarea></td>
             </tr>
         </table>
         <table id="msgBagMsgTable" class="easyui-datagrid">
@@ -278,9 +277,15 @@
                         return false;
                     }
 
-                    $(this).find("input[name='info[msg_json]']").val(JSON.stringify(rows));//转为json字符串
+
+                    var data = {};
+                    $.each($(this).serializeArray(),function(index,val){
+                        data[val.name] = val.value;
+                    });
+                    data['msg_json'] = rows;
+
                     $.messager.progress({text:'处理中，请稍候...'});
-                    $.post("<{:U('MessageBag/add')}>", $(this).serialize(), function(res){
+                    $.post("<{:U('MessageBag/add')}>", data, function(res){
                         $.messager.progress('close');
                         if(!res.status){
                             $.app.method.tip('提示信息', res.info, 'error');

@@ -10,39 +10,40 @@
     }
 </style>
 
-<div class="easyui-panel" data-options="{header:'#msgpool-add-tab-tools',fit:true}">
-    <form id="msgPoolAddBagForm" style="padding: 5px">
+<div class="easyui-panel" data-options="{header:'#msgpool-edit-tab-tools',fit:true}">
+    <form id="msgPoolEditBagForm" style="padding: 5px">
+        <input type="hidden" name="pool_id" value="<{$info.pool_id}>"/>
         <div class="pool_left">
             <table cellspacing="5" width="100%">
                 <tr>
                     <td width="90">名称：</td>
-                    <td><input class="easyui-validatebox" data-options="required:true" type="text" name="name" style="width:220px" /></td>
+                    <td><input class="easyui-validatebox" data-options="required:true" type="text" value="<{$info.name}>" name="name" style="width:220px" /></td>
                 </tr>
                 <tr>
                     <td>备注：</td>
-                    <td><textarea class="easyui-validatebox" name="remarks" style="width:220px;height:60px;font-size:12px"></textarea></td>
+                    <td><textarea class="easyui-validatebox" name="remarks" style="width:220px;height:60px;font-size:12px"><{$info.remarks}></textarea></td>
                 </tr>
             </table>
             <!--消息池匹配规则-->
-            <table id="msgPoolRuleTable"></table>
+            <table id="msgPoolRuleEditTable"></table>
         </div>
         <div class="pool_right">
             <!--消息池中含有的消息包-->
-            <table id="msgPoolBagTable"></table>
+            <table id="msgPoolBagEditTable"></table>
 
         </div>
 
     </form>
-    <div id="msgpool-add-tab-tools" style="padding: 5px;text-align: right;background: #FAFAFA">
+    <div id="msgpool-edit-tab-tools" style="padding: 5px;text-align: right;background: #FAFAFA">
         <label style="float: left;line-height: 26px;color: #555"><span class="icon-tabicons_11_03">&nbsp;</span>拖拽可以调整消息的顺序</label>
-        <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgPoolAddModule.save()">保存</a>
-        <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgPoolAddModule.cancel()">取消</a>
+        <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgPoolEditModule.save()">保存</a>
+        <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgPoolEditModule.cancel()">取消</a>
     </div>
 </div>
 
 <script type="application/javascript">
-    var msgPoolAddModule = {
-        form:'#msgPoolAddBagForm',
+    var msgPoolEditModule = {
+        form:'#msgPoolEditBagForm',
         cancel:function(){
             this.closeTab();
         },
@@ -58,20 +59,21 @@
                     var isValid = $(this).form('validate');
                     if (!isValid) return false;
 
+                    rows = $(this).serializeArray();
 
-                    var data = {};
-                    $.each($(this).serializeArray(),function(index,val){
+                    data = {};
+                    $.each(rows,function(index,val){
                         data[val.name] = val.value;
                     });
 
 
-                    var bagRows = $(msgPoolAddBag.datagrid).datagrid('getRows');
-                    var ruleRows = $(msgPoolAddRule.datagrid).datagrid('getRows');
+                    var bagRows = $(msgPoolEditBag.datagrid).datagrid('getRows');
+                    var ruleRows = $(msgPoolEditRule.datagrid).datagrid('getRows');
 
                     data['rule_json'] = ruleRows;
                     data['msg_bag_json'] = bagRows;
                     $.messager.progress({text:'处理中，请稍候...'});
-                    $.post("<{:U('MessagePool/add')}>", data, function(res){
+                    $.post("<{:U('MessagePool/edit?id=0')}>", data, function(res){
                         $.messager.progress('close');
 
                         if(!res.status){
@@ -88,24 +90,17 @@
             });
         }
     }
-    var msgPoolAddRule = {
+    var msgPoolEditRule = {
         editRow:undefined,
-        datagrid:'#msgPoolRuleTable',
+        datagrid:'#msgPoolRuleEditTable',
         dialog:   '#globel-dialog-div',
-        isEditing: function () {
-            return this.editRow != undefined;
-        },
-        endEditing:function(){
-            return this.editRow == undefined;
-        },
         ruleAlias:{'EQ':'相等','NEQ':'不相等','GT':'大于','LT':'小于'},
         init:function(){
             var that = this;
             $(that.datagrid).datagrid({
                 title:'规则列表',
-//                fit:true,
                 fitColumns:true,
-                data:[],
+                data:<{$info.rule_json}>,
                 toolbar:[
                     {
                         text:'添加规则',
@@ -155,7 +150,6 @@
                 ]]
             });
         },
-
         refresh: function(){
             $(this.datagrid).datagrid('reload');
         },
@@ -213,30 +207,16 @@
             });
         }
     };
-    var msgPoolAddBag = {
+    var msgPoolEditBag = {
         editRow:undefined,
-        datagrid:'#msgPoolBagTable',
+        datagrid:'#msgPoolBagEditTable',
         dialog:   '#globel-dialog-div',
-        isEditing: function () {
-            return this.editRow != undefined;
-        },
-        endEditing:function(){
-            return this.editRow == undefined;
-        },
         init:function(){
             var that = this;
             $(that.datagrid).datagrid({
                 title:'消息包列表',
-//                fit:true,
                 fitColumns:true,
-                data:[],
-                onLoadSuccess:function(){
-
-                },
-                onAfterEdit:function(){
-                    that.editRow = undefined;
-
-                },
+                data:<{$info.msg_bag_json}>,
                toolbar:[
                    {
                        text:'添加消息包',
@@ -372,8 +352,8 @@
         }
     };
     $(function () {
-        msgPoolAddRule.init();
-        msgPoolAddBag.init();
+        msgPoolEditRule.init();
+        msgPoolEditBag.init();
     });
 
 </script>

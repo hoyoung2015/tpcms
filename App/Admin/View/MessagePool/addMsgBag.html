@@ -1,0 +1,21 @@
+<form>
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="90">消息包：</td>
+            <td><input name="msg_bag_id" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td width="90">出现的概率：</td>
+            <td>
+                <input class="easyui-numberspinner" data-options="min:0,max:1,precision:2,value:0,increment:0.01,required:true" type="text" name="prob" style="width:80px" />
+            <span style="color:#777">精确到2位小数</span>
+            </td>
+        </tr>
+        <tr>
+            <td width="90">出现的频率：</td>
+            <td><input class="easyui-timespinner" data-options="required:true,value:'0'" type="text" name="freq" style="width:80px" />
+                <span style="color:#777">精确到分钟</span>
+            </td>
+        </tr>
+    </table>
+</form>

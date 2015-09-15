@@ -21,7 +21,6 @@
         addAction:"<{:U('MessagePool/add')}>",
         listAction:"<{:U('MessagePool/index')}>",
         editAction:"<{:U('MessagePool/edit')}>",
-        deleteAction:"<{:U('MessagePool/delete')}>",
         tab:'#pagetabs',
         load : function(){
             var that = this;
@@ -85,9 +84,8 @@
                 }else{
                     ids.push(id);
                 }
-                // console.log(ids);return;
                 $.messager.progress({text:'处理中，请稍候...'});
-                $.post(that.deleteAction,{"ids":ids},function(res){
+                $.post("<{:U('MessagePool/delete')}>",{"ids":ids},function(res){
                     $.messager.progress('close');
                     if(!res.status){
                         $.app.method.tip('提示信息', res.info, 'error');
@@ -108,14 +106,16 @@
         },
         //编辑
         edit: function(id){
+            $(this.datagrid).datagrid('uncheckAll');
             var that = this;
             var href = "<{:U('MessagePool/edit')}>";
             href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
             $(that.tab).tabs('add',{
-                title: '编辑消息包',
+                title: '编辑消息池',
                 closable:true,
                 href: href
             });
+
         }
     };
     msgPoolListModule.load();

@@ -38,8 +38,7 @@ class MessageBagController extends CommonController {
     }
     public function add(){
         if(IS_POST){
-            $data = I('post.info');
-
+            $data = $_POST;
             //检查名称是否重复
             $m = M('msg_bag');
             $list = $m->where(array('name'=>$data['name']))->select();
@@ -47,8 +46,8 @@ class MessageBagController extends CommonController {
                 $this->error('此消息包的名称已被占用');
             }
             $data['create_time'] = time();
-            $rs = $m->add($data);
-            if($rs){
+            $data['msg_json'] = json_encode($data['msg_json']);
+            if($m->add($data)){
                 $this->success('添加成功');
             }else{
                 $this->error('添加失败');
@@ -56,6 +55,10 @@ class MessageBagController extends CommonController {
         }else{
             $this->display();
         }
+    }
+    public function getMsgBag($id,$fields = array()){
+        $data = M('msg_bag')->field(count($fields)>0?'*':$fields)->find($id);
+        $this->ajaxReturn($data);
     }
     public function delete($ids){
         $m = M('msg_bag');
@@ -69,13 +72,13 @@ class MessageBagController extends CommonController {
     public function edit($id){
         $m = M('msg_bag');
         if(IS_POST){
-            $data = I('post.info');
+            $data = $_POST;
 
             $list = $m->where(array('name'=>$data['name']))->select();
             if(count($list)>0 && $list[0]['msg_bag_id']!=$id){
                 $this->error('此消息包的名称已被占用');
             }
-
+            $data['msg_json'] = json_encode($data['msg_json']);
 
             $m->save($data);
             $this->success('修改成功');
