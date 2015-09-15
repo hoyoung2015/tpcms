@@ -126,5 +126,36 @@ class CommonController extends Controller {
 			$this->display('Common:404');
 		}
 	}
-	
+    /**
+     * 检查不能被删除的项
+     * 参数按引用传递，剔除不能删除的项
+     * @param array $ids
+     */
+    protected function cannotDelMsg(&$ids = array()){
+        $msgBagModel = M('msg_bag');
+        $msgModel = M('msg_base');
+        //检查是否被消息包使用
+        $cannot_del = array();
+        foreach($ids as $index=>$id){
+            $msgBags = $msgBagModel->where(array(
+                'msg_json'=>array('like','%"msg_id":"'.$id.'"%')
+            ))->field('name')->select();
+            if(count($msgBags)>0){//被消息包使用
+                $msg = $msgModel->field('name')->find($id);
+                $arr = array(
+                    'msg_id'=>$id,
+                    'msg_name'=>$msg['name']
+                );
+                $arr2 = array();
+                foreach($msgBags as $msgBag){
+                    $arr2[] = '<span style="font-weight: bold">'.$msgBag['name'].'</span>';
+                }
+                $arr['msg_bag_name'] = implode(',',$arr2);
+                $cannot_del[] = $arr;
+
+                unset($ids[$index]);//去除不能删除的
+            }
+        }
+        return $cannot_del;
+    }
 }

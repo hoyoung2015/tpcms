@@ -67,12 +67,13 @@ class MessageImageController extends CommonController {
         }
     }
     public function delete($ids){
-        $db = D('MessageImage');
-        $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
-        if ($result){
-            $this->success('删除成功');
-        }else {
-            $this->error('删除失败');
+        $cannot_del = $this->cannotDelMsg($ids);
+        if(count($ids) > 0){//删除
+            $db = D('MessageImage');
+            $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
         }
+        $this->ajaxReturn(array(
+            'cannotDel'=>$cannot_del
+        ));
     }
 }

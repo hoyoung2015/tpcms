@@ -131,13 +131,14 @@ class MessageNewsController extends CommonController {
         }
     }
     public function delete($ids){
-        $db = D('MessageNews');
-        $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
-        if ($result){
-            $this->success('删除成功');
-        }else {
-            $this->error('删除失败');
+        $cannot_del = $this->cannotDelMsg($ids);
+        if(count($ids) > 0){//删除
+            $db = D('MessageNews');
+            $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
         }
+        $this->ajaxReturn(array(
+            'cannotDel'=>$cannot_del
+        ));
     }
     public function findNewsItem($ids){
         $m = M('news_item');

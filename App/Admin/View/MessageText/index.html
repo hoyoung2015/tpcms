@@ -202,12 +202,19 @@ var msgTextListModule = {
 			$.messager.progress({text:'处理中，请稍候...'});
 			$.post('<{:U('MessageText/delete')}>',{"ids":ids},function(res){
 				$.messager.progress('close');
-				if(!res.status){
-					$.app.method.tip('提示信息', res.info, 'error');
-				}else{
-					$.app.method.tip('提示信息', res.info, 'info');
-					that.refresh();
-				}
+                if(res.cannotDel.length > 0){//存在不能删除的
+                    var arr = new Array();
+                    arr.push('<ul style="padding-left: 50px">');
+                    $.each(res.cannotDel,function(index,val){
+                        arr.push('<li>'+val['msg_name']+'被'+'消息包'+val['msg_bag_name']+'使用</li>');
+                    });
+                    arr.push('</ul>');
+                    arr.push('<p style="padding-left: 40px;font-weight: bold">这些素材不能删除！</p>');
+                    $.messager.alert('删除提示',arr.join(''),'info');
+                }else{
+                    $.app.method.tip('提示信息', '删除成功', 'info');
+                }
+                that.refresh();
 			}, 'json');
 		});
 	}
