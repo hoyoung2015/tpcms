@@ -41,4 +41,7 @@ return array(
 	'DATA_BACKUP_COMPRESS_LEVEL'=> '9',							//压缩级别   1:普通   4:一般   9:最高
 
     'ICON_DIR'=>'Public/static/plugins/icons/tabicons/',
+    'MAX_MID_NUM' => 5000,//永久素材mediaid的最大量
+    'APP_ID'=>'wx350a0eb717f226f9',
+    'APP_SECRET'=>'42d60df83ab3016fe7ac69dbd8c55e63'
 );

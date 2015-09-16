@@ -16,8 +16,14 @@
         <div class="pool_left">
             <table cellspacing="5" width="100%">
                 <tr>
-                    <td width="90">名称：</td>
+                    <td width="90">消息池名称：</td>
                     <td><input class="easyui-validatebox" data-options="required:true" type="text" value="<{$info.name}>" name="name" style="width:220px" /></td>
+                </tr>
+                <tr>
+                    <td width="90">触发条件：</td>
+                    <td>
+                        <input type="text" name="fire_event" value="<{$info.fire_event}>"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>备注：</td>
@@ -44,6 +50,31 @@
 <script type="application/javascript">
     var msgPoolEditModule = {
         form:'#msgPoolEditBagForm',
+        init:function(){
+            $(this.form).find("input[name='fire_event']").combobox({
+                data:[{
+                    'event':'reply',
+                    'name':'向公众号回复关键字、图片、语音'
+                },{
+                    'event':'empty',
+                    'name':'缺省操作'
+                },{
+                    'event':'click_menu',
+                    'name':'点击公众号菜单'
+                },{
+                    'event':'subscribe',
+                    'name':'关注公众号'
+                },{
+                    'event':'click_link',
+                    'name':'点链接'
+                }],
+                width:'228px',
+                editable:false,
+                required:true,
+                valueField:'event',
+                textField:'name'
+            });
+        },
         cancel:function(){
             this.closeTab();
         },
@@ -354,6 +385,7 @@
     $(function () {
         msgPoolEditRule.init();
         msgPoolEditBag.init();
+        msgPoolEditModule.init();
     });
 
 </script>

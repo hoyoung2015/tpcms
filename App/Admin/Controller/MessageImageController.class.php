@@ -41,6 +41,9 @@ class MessageImageController extends CommonController {
                 $this->error('添加失败');
             }
         }else{
+            //查找media_id剩余数量
+            $mediaLeft = C('MAX_MID_NUM') - M('media_id')->where('is_use=1')->count();
+            $this->assign('mediaIdLeft',$mediaLeft);
             $this->display();
         }
     }

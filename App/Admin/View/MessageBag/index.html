@@ -1,6 +1,6 @@
 <div id="msgbag-datagrid-toolbar" style="padding:1px;height:auto">
     <form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
-        名称:
+        消息包名称:
         <input type="text" name="search[name]" style="width:200px;"/>
         <a href="javascript:;" onclick="msgBagListModule.search(this)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
     </form>
@@ -89,12 +89,19 @@
                 $.messager.progress({text:'处理中，请稍候...'});
                 $.post(that.deleteAction,{"ids":ids},function(res){
                     $.messager.progress('close');
-                    if(!res.status){
-                        $.app.method.tip('提示信息', res.info, 'error');
+                    if(res.cannotDel.length > 0){//存在不能删除的
+                        var arr = new Array();
+                        arr.push('<ul style="padding-left: 50px">');
+                        $.each(res.cannotDel,function(index,val){
+                            arr.push('<li>'+val['msg_bag_name']+'被'+'消息池'+val['msg_pool_name']+'使用</li>');
+                        });
+                        arr.push('</ul>');
+                        arr.push('<p style="padding-left: 40px;font-weight: bold">这些消息包不能删除！</p>');
+                        $.messager.alert('删除提示',arr.join(''),'info');
                     }else{
-                        $.app.method.tip('提示信息', res.info, 'info');
-                        that.refresh();
+                        $.app.method.tip('提示信息', '删除成功', 'info');
                     }
+                    that.refresh();
                 }, 'json');
             });
         },

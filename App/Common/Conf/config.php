@@ -83,4 +83,7 @@ return array(
 		'key'     => "e1f29ef5410819906b9d983a165d2d9c",
 		'id'	  => "835ae5af25c5790a91680dd615d93987"
 	),
+    'AUTOLOAD_NAMESPACE' => array(
+        'Overtrue'     => THINK_PATH.'Library',
+    )
 );

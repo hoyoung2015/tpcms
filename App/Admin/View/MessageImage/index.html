@@ -38,7 +38,13 @@
                     {field:'image_url',width:20,title:'图片',align:'center',formatter:function(value,row,index){
                         return '<img style="margin-top:5px;" src="/wechat/timthumb.php?w=60&h=45&q=90&zc=1&ct=1&src='+row.image_url+'"/>';
                     }},
-                    {field:'name',width:100,title:'名称',sortable:true},
+                    {field:'name',width:100,title:'名称(media_id)',sortable:true,formatter:function(value,row,index){
+                        var name = row.name;
+                        if(row.media_id!=undefined){
+                            name += '('+row.media_id+')';
+                        }
+                        return name;
+                    }},
                     {field:'create_time',title:'录入时间',width:20,sortable:true,formatter:function(value,row,index){
                         return msgImageListModule.time(row.create_time);
                     }},
@@ -62,11 +68,29 @@
             $(this.datagrid).datagrid({pageNumber: 1});
         },
         //操作格式化
-        operate: function(val){
+        operate: function(value,row,index){
             var btn = [];
-            btn.push('<a href="javascript:;" onclick="msgImageListModule.edit('+val+')">编辑</a>');
-            btn.push('<a href="javascript:;" onclick="msgImageListModule.delete('+val+')">删除</a>');
+
+            if(row.media_id==undefined){
+                btn.push('<a href="javascript:;" onclick="msgImageListModule.persistent(\''+row.image_url+'\')">永久化</a>');
+            }
+
+            btn.push('<a href="javascript:;" onclick="msgImageListModule.edit('+row.id+')">编辑</a>');
+            btn.push('<a href="javascript:;" onclick="msgImageListModule.delete('+row.id+')">删除</a>');
             return btn.join(' | ');
+        },
+        persistent:function(path){
+            var that = this;
+            $.messager.progress({text:'处理中，请稍候...'});
+            $.post("<{:U('MediaId/forever')}>",{'path':path,'type':'image'},function(res){
+                $.messager.progress('close');
+                if(!res.status){
+                    $.app.method.tip('提示信息', res.info, 'error');
+                }else{
+                    $.app.method.tip('提示信息', res.info, 'info');
+                    that.refresh();
+                }
+            });
         },
         //批量删除
         delete: function(id){

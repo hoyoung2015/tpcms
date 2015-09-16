@@ -124,3 +124,6 @@ function p($a){
     echo "<pre>";
     print_r($a);
 }
+function getAccessToken(){
+
+}

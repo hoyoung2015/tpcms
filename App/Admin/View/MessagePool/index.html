@@ -1,6 +1,6 @@
 <div id="msgpool-datagrid-toolbar" style="padding:1px;height:auto">
     <form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
-        名称:
+        消息池名称:
         <input type="text" name="search[name]" style="width:200px;"/>
         <a href="javascript:;" onclick="msgPoolListModule.search(this)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
     </form>
@@ -11,16 +11,25 @@
     </div>
 </div>
 <div id="msgPoolListModule">
-
-
+</div>
+<div id="msgPoolRuleDetailDialog" class="easyui-dialog" title="规则详情" data-options="closed:true,iconCls:'icon-save'" style="width:400px;height:300px;padding:10px">
+    <table></table>
 </div>
 <script type="application/javascript">
     var msgPoolListModule = {
         datagrid : '#msgPoolListModule',
         dialog:   '#globel-dialog-div',
+        msgPoolRuleDetailDialog:'#msgPoolRuleDetailDialog',
         addAction:"<{:U('MessagePool/add')}>",
         listAction:"<{:U('MessagePool/index')}>",
         editAction:"<{:U('MessagePool/edit')}>",
+        fireEventAlias:{
+            'reply':'向公众号回复关键字、图片、语音',
+            'empty':'缺省操作',
+            'click_menu':'点击公众号菜单',
+            'subscribe':'关注公众号',
+            'click_link':'点链接'
+        },
         tab:'#pagetabs',
         load : function(){
             var that = this;
@@ -35,8 +44,11 @@
                 pageList:[20,40,60,100],
                 columns:[[
                     {field:'pool_id',checkbox:true},
-                    {field:'name',width:50,title:'名称',sortable:true},
-                    {field:'remarks',width:100,title:'备注',sortable:true},
+                    {field:'name',width:50,title:'消息池名称',sortable:true},
+                    {field:'fire_event',width:20,title:'触发条件',formatter:function(value,row,index){
+                        return that.fireEventAlias[row.fire_event];
+                    }},
+                    {field:'remarks',width:50,title:'备注',sortable:true},
                     {field:'create_time',title:'录入时间',width:22,sortable:true,formatter:function(value,row,index){
                         return msgPoolListModule.time(row.create_time);
                     }},
@@ -62,9 +74,23 @@
         //操作格式化
         operate: function(val){
             var btn = [];
+            btn.push('<a href="javascript:;" onclick="msgPoolListModule.ruleDetail('+val+')">规则</a>');
             btn.push('<a href="javascript:;" onclick="msgPoolListModule.edit('+val+')">编辑</a>');
             btn.push('<a href="javascript:;" onclick="msgPoolListModule.delete('+val+')">删除</a>');
             return btn.join(' | ');
+        },
+        ruleDetail:function(id){//查看规则详情
+            var that = this;
+            var href = "<{:U('MessagePool/ruleDetail')}>";
+            href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+
+            $(that.msgPoolRuleDetailDialog).dialog('open');
+            var ppgrid = $(that.msgPoolRuleDetailDialog).find('table').propertygrid({
+                url: href,
+                showGroup: true,
+                showHeader:false,
+                scrollbarSize: 0
+            });
         },
         //批量删除
         delete: function(id){

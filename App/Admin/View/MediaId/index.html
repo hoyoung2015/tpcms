@@ -1,0 +1,213 @@
+<div id="mediaid-datagrid-toolbar" style="padding:1px;height:auto">
+    <div>
+        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="mediaIdListModule.refresh()">刷新</a>
+    </div>
+</div>
+<div id="MediaIdListModule">
+
+
+</div>
+<script type="application/javascript">
+    var mediaIdListModule = {
+        datagrid : '#MediaIdListModule',
+        dialog:   '#globel-dialog-div',
+        addAction:"<{:U('MediaId/add')}>",
+        listAction:"<{:U('MediaId/index')}>",
+        editAction:"<{:U('MediaId/edit')}>",
+        deleteAction:"<{:U('MediaId/delete')}>",
+        msgTypeAlias:{
+          'image':'图片',
+            'voice':'语音'
+        },
+        load : function(){
+            var that = this;
+            $(this.datagrid).datagrid({
+                toolbar:"#mediaid-datagrid-toolbar",
+                url:that.listAction,
+                fitColumns:true,
+                fit:true,
+                pagination:true,
+                rownumbers:true,
+                pageSize:20,
+                pageList:[20,40,60,100],
+                columns:[[
+//                    {field:'id',checkbox:true},
+                    {field:'media_id',width:100,title:'mediaId',sortable:true},
+                    {field:'media_type',width:20,title:'素材类型',formatter:function(value,row,index){
+                        return that.msgTypeAlias[row.type];
+                    }},
+                    {field:'file_path',width:100,title:'素材路径',sortable:true},
+                    {field:'opt_id',width:30,title:'操作',formatter:that.operate}
+                ]]
+            });
+        },
+        time: function(nS){
+            return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ").replace(/上午|下午/g, "");
+        },
+        //刷新
+        refresh: function(){
+            $(this.datagrid).datagrid('reload');
+        },
+        //搜索
+        search: function(that){
+            var queryParams = $(this.datagrid).datagrid('options').queryParams;
+            $.each($(that).parent('form').serializeArray(), function() {
+                queryParams[this['name']] = this['value'];
+            });
+            $(this.datagrid).datagrid({pageNumber: 1});
+        },
+        //操作格式化
+        operate: function(val){
+            var btn = [];
+            btn.push('<a href="javascript:;" onclick="mediaIdListModule.edit('+val+')">编辑</a>');
+            return btn.join(' | ');
+        },
+        //批量删除
+        delete: function(id){
+            var rows = $(this.datagrid).datagrid('getSelections');
+            if(!id && rows.length==0){//多选情况下
+                $.app.method.tip('提示信息', '请选择要删除的行', 'error');
+                return;
+            }
+            var that = this;
+            $.messager.confirm('提示信息', '确定要删除吗？', function(result){
+                if(!result) return false;
+                var ids = [];
+                if(!id){
+                    rows.forEach(function(row){
+                        ids.push(row.id);
+                    });
+                }else{
+                    ids.push(id);
+                }
+                // console.log(ids);return;
+                $.messager.progress({text:'处理中，请稍候...'});
+                $.post(that.deleteAction,{"ids":ids},function(res){
+                    $.messager.progress('close');
+                    if(res.cannotDel.length > 0){//存在不能删除的
+                        var arr = new Array();
+                        arr.push('<ul style="padding-left: 50px">');
+                        $.each(res.cannotDel,function(index,val){
+                            arr.push('<li>'+val['msg_name']+'被'+'消息包'+val['msg_bag_name']+'使用</li>');
+                        });
+                        arr.push('</ul>');
+                        arr.push('<p style="padding-left: 40px;font-weight: bold">这些素材不能删除！</p>');
+                        $.messager.alert('删除提示',arr.join(''),'info');
+                    }else{
+                        $.app.method.tip('提示信息', '删除成功', 'info');
+                    }
+                    that.refresh();
+                }, 'json');
+            });
+        },
+        add:function(){
+            var that = this;
+            $(that.dialog).dialog({
+                title: '添加图片消息',
+                iconCls: 'icons-application-application_add',
+                width: 390,
+                height: 300,
+                cache: false,
+                href: that.addAction,
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
+
+                                $.messager.progress({text:'处理中，请稍候...'});
+                                $.post(that.addAction, $(this).serialize(), function(res){
+                                    $.messager.progress('close');
+                                    if(!res.status){
+                                        $.app.method.tip('提示信息', res.info, 'error');
+                                    }else{
+                                        $.app.method.tip('提示信息', res.info, 'info');
+                                        $(that.dialog).dialog('close');
+                                        that.refresh();
+                                    }
+                                }, 'json');
+
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                    }
+                }]
+            });
+        },
+        //编辑
+        edit: function(id){
+            if(typeof(id) !== 'number'){
+                $.app.method.tip('提示信息', '未选择消息', 'error');
+                return false;
+            }
+            var href = this.editAction;
+            href += href.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+            var that = this;
+            $(that.dialog).dialog({
+                title: '编辑文本消息',
+                iconCls: 'icons-application-application_edit',
+                width: 390,
+                height: 350,
+                cache: false,
+                href: href,
+                modal: true,
+                collapsible: false,
+                minimizable: false,
+                resizable: false,
+                maximizable: false,
+                buttons:[{
+                    text:'确定',
+                    iconCls:'icon-ok',
+                    handler: function(){
+                        $(that.dialog).find('form').eq(0).form('submit', {
+                            onSubmit: function(){
+                                var isValid = $(this).form('validate');
+                                if (!isValid) return false;
+
+                                var action = that.editAction;
+                                action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
+
+                                $.messager.progress({text:'处理中，请稍候...'});
+                                $.post(action, $(this).serialize(), function(res){
+                                    $.messager.progress('close');
+
+                                    if(!res.status){
+                                        $.app.method.tip('提示信息', res.info, 'error');
+                                    }else{
+                                        $.app.method.tip('提示信息', res.info, 'info');
+                                        $(that.dialog).dialog('close');
+                                        that.refresh();
+                                    }
+                                }, 'json');
+
+                                return false;
+                            }
+                        });
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-no',
+                    handler: function(){
+                        $(that.dialog).dialog('close');
+                        $(that.datagrid).datagrid('unselectAll');
+                    }
+                }]
+            });
+        }
+    };
+mediaIdListModule.load();
+</script>

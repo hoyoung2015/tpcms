@@ -60,14 +60,53 @@ class MessageBagController extends CommonController {
         $data = M('msg_bag')->field(count($fields)>0?'*':$fields)->find($id);
         $this->ajaxReturn($data);
     }
-    public function delete($ids){
-        $m = M('msg_bag');
-        $result = $m->where(array('msg_bag_id'=>array('IN',$ids)))->delete();
-        if ($result){
-            $this->success('删除成功');
-        }else {
-            $this->error('删除失败');
+    public function test2(){
+        $ids = array('17');
+        $cannot_del = $this->cannotDelBag($ids);
+        echo '<pre>';
+        print_r($cannot_del);
+    }
+    /**
+     * 检查不能被删除的被消息池引用的消息包
+     * 参数按引用传递，剔除不能删除的项
+     * @param array $ids
+     */
+    protected function cannotDelBag(&$ids = array()){
+        $msgPoolModel = M('msg_pool');
+        $msgBagModel = M('msg_bag');
+        //检查是否被消息包使用
+        $cannot_del = array();
+        foreach($ids as $index=>$id){
+            $msgPools = $msgPoolModel->where(array(
+                'msg_bag_json'=>array('like','%"msg_bag_id":"'.$id.'"%')
+            ))->field('name')->select();
+            if(count($msgPools)>0){//被消息包使用
+                $msgBag = $msgBagModel->field('name')->find($id);
+                $arr = array(
+                    'msg_bag_id'=>$id,
+                    'msg_bag_name'=>$msgBag['name']
+                );
+                $arr2 = array();
+                foreach($msgPools as $msgPool){
+                    $arr2[] = '<span style="font-weight: bold">'.$msgPool['name'].'</span>';
+                }
+                $arr['msg_pool_name'] = implode(',',$arr2);
+                $cannot_del[] = $arr;
+
+                unset($ids[$index]);//去除不能删除的
+            }
         }
+        return $cannot_del;
+    }
+    public function delete($ids){
+        $cannot_del = $this->cannotDelBag($ids);
+        $m = M('msg_bag');
+        if(count($ids) > 0){//删除
+            $result = $m->where(array('msg_bag_id'=>array('IN',$ids)))->delete();
+        }
+        $this->ajaxReturn(array(
+            'cannotDel'=>$cannot_del
+        ));
     }
     public function edit($id){
         $m = M('msg_bag');

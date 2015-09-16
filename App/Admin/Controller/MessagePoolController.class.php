@@ -8,16 +8,31 @@
 namespace Admin\Controller;
 use Admin\Controller\CommonController;
 class MessagePoolController extends CommonController {
-    public function index($page = 1, $rows = 10, $search = array(), $sort = 'pool_id', $order = 'asc'){
+    public function index($page = 1, $rows = 10, $search = array(), $sort = 'pool_id', $order = 'desc'){
         if(IS_POST){
-            $data = D('MessagePool')->search($page = 1, $rows = 10, $search = array(), $sort = 'pool_id', $order = 'asc');
+            $data = D('MessagePool')->search($page, $rows, $search, $sort, $order);
             $this->ajaxReturn($data);
         }else{
             $this->display();
         }
     }
-    public function test2(){
 
+    /**
+     * 规则详情
+     */
+    public function ruleDetail($id){
+        $msg_pool = M('msg_pool')->find($id);
+
+        $rows = array();
+        $rows[] = array(
+            'group'=>'系统规则',
+            'name'=>'触发条件',
+            'value'=>'hello'
+        );
+        $this->ajaxReturn(array(
+            'total'=>count($rows),
+            'rows'=>$rows
+        ));
     }
     public function edit($id){
         $m = M('msg_pool');

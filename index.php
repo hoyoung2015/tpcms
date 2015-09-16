@@ -1,7 +1,7 @@
 <?php
 // 检测PHP环境
 if(version_compare(PHP_VERSION, '5.3.0','<'))  die('require PHP > 5.3.0 !');
-
+require('autoload.php');
 define('DS', DIRECTORY_SEPARATOR);
 // 站点目录
 define('SITE_DIR', dirname(__FILE__));
@@ -17,8 +17,9 @@ define('SITE_PATH', dirname(__FILE__));
 
 // ThinkPHP定义
 define('APP_DEBUG', true);
-define('THINK_PATH', SITE_DIR . DS . 'Libs' . DS . 'ThinkPHP' . DS);
+define('THINK_PATH', SITE_DIR . DS . 'ThinkPHP' . DS);
 define('APP_PATH', SITE_DIR . DS . 'App' . DS);
 define('RUNTIME_PATH', SITE_DIR . DS . 'Public' . DS . 'Runtime' . DS);   // 系统运行时目录
 
 require(THINK_PATH.'ThinkPHP.php');
+
