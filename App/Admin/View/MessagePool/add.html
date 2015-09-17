@@ -50,22 +50,7 @@
         form:'#msgPoolAddBagForm',
         init:function(){
             $(this.form).find("input[name='fire_event']").combobox({
-                data:[{
-                    'event':'reply',
-                    'name':'向公众号回复关键字、图片、语音'
-                },{
-                    'event':'empty',
-                    'name':'缺省操作'
-                },{
-                    'event':'click_menu',
-                    'name':'点击公众号菜单'
-                },{
-                    'event':'subscribe',
-                    'name':'关注公众号'
-                },{
-                    'event':'click_link',
-                    'name':'点链接'
-                }],
+                url:"<{:U('MessagePool/fireEvents')}>",
                 width:'228px',
                 editable:false,
                 required:true,
@@ -141,7 +126,7 @@
         endEditing:function(){
             return this.editRow == undefined;
         },
-        ruleAlias:{'EQ':'相等','NEQ':'不相等','GT':'大于','LT':'小于'},
+        ruleAlias:<{:json_encode(C('OPT_OPTIONS'))}>,
         init:function(){
             var that = this;
             $(that.datagrid).datagrid({
@@ -218,7 +203,8 @@
                 maximizable: false,
                 onLoad:function(){
                     $(that.dialog).find('form').eq(0).find("input[name='opt']").combobox({
-                        data:[{opt:'EQ',opt_name:'等于'}],
+                        editable:false,
+                        url:"<{:U('MessagePool/optOptions')}>",
                         valueField:'opt',
                         textField:'opt_name',
                         required:true

@@ -22,17 +22,44 @@ class MessagePoolController extends CommonController {
      */
     public function ruleDetail($id){
         $msg_pool = M('msg_pool')->find($id);
-
         $rows = array();
         $rows[] = array(
             'group'=>'系统规则',
             'name'=>'触发条件',
-            'value'=>'hello'
+            'value'=>C('FIRE_EVENT')[$msg_pool['fire_event']]
         );
-        $this->ajaxReturn(array(
-            'total'=>count($rows),
-            'rows'=>$rows
-        ));
+        $match_tags = json_decode($msg_pool['rule_json'],true);
+        foreach($match_tags as $match_tag){
+            $rows[] = array(
+                'group'=>'自定义标签',
+                'name'=>$match_tag['tag'],
+                'value'=>match_tag_show($match_tag)
+            );
+        }
+        $this->assign('data',json_encode($rows));
+        $this->display();
+    }
+    public function optOptions(){
+        $opts = C('OPT_OPTIONS');
+        $arr = array();
+        foreach($opts as $key=>$val){
+            $arr[] = array(
+                'opt'=>$key,
+                'opt_name'=>$val
+            );
+        }
+        $this->ajaxReturn($arr);
+    }
+    public function fireEvents(){
+        $events = C('FIRE_EVENT');
+        $arr = array();
+        foreach($events as $key=>$val){
+            $arr[] = array(
+                'event'=>$key,
+                'name'=>$val
+            );
+        }
+        $this->ajaxReturn($arr);
     }
     public function edit($id){
         $m = M('msg_pool');

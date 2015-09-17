@@ -124,6 +124,21 @@ function p($a){
     echo "<pre>";
     print_r($a);
 }
-function getAccessToken(){
-
+function match_tag_show($match_tag=array()){
+    $opt_name = '【'.C('OPT_OPTIONS')[$match_tag['opt']].'】';
+    switch($match_tag['opt']){
+        case 'EQ':
+        case 'NEQ':
+        case 'GT':
+        case 'LT':
+            return $opt_name.' '.$match_tag['val'];
+            break;
+        case 'BTW':
+        case 'IN':
+            return $opt_name.' ('.$match_tag['val'].')';
+            break;
+        default:
+            return '测试';
+            break;
+    }
 }
