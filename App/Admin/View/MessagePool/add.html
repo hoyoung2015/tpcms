@@ -312,12 +312,45 @@
                                 }
                             });
                             return name;
+                        },
+                        editor:{
+                            type:'combogrid',
+                            options:{
+                                required:true,
+                                panelWidth : 450,
+                                panelHeight:308,
+                                pagination : true,// 是否分页
+                                pageSize:10,
+                                idField : 'msg_bag_id',
+                                valueField : 'msg_bag_id',
+                                textField : 'name',
+                                rownumbers:true,
+                                url:"<{:U('MessageBag/index')}>",
+                                columns:[[
+                                    {
+                                        field : 'name',
+                                        title : '消息包名称',
+                                        width:'100%'
+                                    }
+                                ]]
+                            }
                         }
                     },
                     {
                         field:'prob',
                         title:'概率',
-                        width:'20%'
+                        width:'20%',
+                        editor:{
+                            type:'numberspinner',
+                            options:{
+                                min:0,
+                                max:1,
+                                precision:2,
+                                value:0,
+                                increment:0.01,
+                                required:true
+                            }
+                        }
                     },
                     {
                         field:'freq',
@@ -329,72 +362,7 @@
         },
         addMsgBag:function(){
             var that = this;
-            $(that.dialog).dialog({
-                title: '添加消息包',
-                iconCls: 'icon-tabicons_02_15',
-                width: 390,
-                height: 200,
-                cache: false,
-                href: "<{:U('MessagePool/addMsgBag')}>",
-                modal: true,
-                collapsible: false,
-                minimizable: false,
-                resizable: false,
-                maximizable: false,
-                onLoad:function(){
-                    $(that.dialog).find('form').eq(0).find("input[name='msg_bag_id']").combogrid({
-                        panelWidth:450,
-                        idField:'msg_bag_id',
-                        textField:'name',
-                        url:"<{:U('MessageBag/index')}>",
-                        rownumbers:true,
-                        pagination : true,// 是否分页
-                        pageSize:10,
-                        columns:[[
-                            {field:'name',title:'消息包名称',width:'90%'}
-                        ]]
-                    });
-                },
-                buttons:[{
-                    text:'确定',
-                    iconCls:'icon-ok',
-                    handler: function(){
-                        $(that.dialog).find('form').eq(0).form('submit', {
-                            onSubmit: function(){
-                                var isValid = $(this).form('validate');
-                                if (!isValid) return false;
 
-                                var data = $(this).serializeArray();
-                                var row = {
-                                    uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000)
-                                };
-                                $.each(data,function(index,val){
-                                    row[val.name] = val.value;
-                                });
-                                //判断消息包是否重复
-
-                                var rows = $(that.datagrid).datagrid('getRows');
-                                for(var i=0;i<rows.length;i++){
-                                    if(rows[i].msg_bag_id==row.msg_bag_id){
-                                        $.app.method.tip('提示信息', '该消息包已选择', 'error');
-                                        return false;
-                                    }
-                                }
-
-                                $(that.datagrid).datagrid('appendRow',row);
-                                $(that.dialog).dialog('close');
-                                return false;
-                            }
-                        });
-                    }
-                },{
-                    text:'取消',
-                    iconCls:'icon-no',
-                    handler: function(){
-                        $(that.dialog).dialog('close');
-                    }
-                }]
-            });
         },
         refresh: function(){
             $(this.datagrid).datagrid('reload');

@@ -138,7 +138,7 @@ function match_tag_show($match_tag=array()){
             return $opt_name.' ('.$match_tag['val'].')';
             break;
         default:
-            return '测试';
+            return '不存在';
             break;
     }
 }
