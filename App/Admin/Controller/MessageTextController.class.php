@@ -24,6 +24,7 @@ class MessageTextController extends CommonController {
 			$data = I('post.info');
             $msg = array(
                 'name'=>$data['name'],
+                'cat_id'=>$data['cat_id'],
                 'create_time'=>time(),
                 'msg_type'=>'text',
                 'msg_text'=>array(
@@ -44,10 +45,9 @@ class MessageTextController extends CommonController {
 		}
 	}
     public function test(){
-        $ids = array('50','60');
-        $cannot_del = $this->cannotDelMsg($ids);
-        print_r($cannot_del);
-        print_r($ids);
+        $rs = array();
+        D('Category')->getSelectCatId($rs,9,1);
+        p($rs);
     }
 
 	public function delete($ids){
@@ -67,6 +67,7 @@ class MessageTextController extends CommonController {
             $msg = array(
                 'id'=>$id,
                 'name'=>$data['name'],
+                'cat_id'=>$data['cat_id'],
                 'msg_text'=>array(
                     'base_id'=>$id,
                     'content'=>$data['content'],

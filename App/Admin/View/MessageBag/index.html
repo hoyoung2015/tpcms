@@ -1,19 +1,30 @@
-<div id="msgbag-datagrid-toolbar" style="padding:1px;height:auto">
-    <form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
-        消息包名称:
-        <input type="text" name="search[name]" style="width:200px;"/>
-        <a href="javascript:;" onclick="msgBagListModule.search(this)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
-    </form>
-    <div>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgBagListModule.add()">添加消息包</a>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgBagListModule.delete()">批量删除</a>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgBagListModule.refresh()">刷新</a>
+<div class="easyui-layout" style="height: 100%;width: 100%">
+    <div data-options="region:'north'" style="height: 34px">
+        <form style="margin: 3px">
+            消息包名称:
+            <input type="text" name="search[name]" style="width:200px;"/>
+            <a href="javascript:;" onclick="msgBagListModule.search(this)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+        </form>
+    </div>
+    <div data-options="region:'west',split:true,title:'消息包分类'" style="width:200px;">
+        <ul id="msgBagTree"></ul>
+    </div>
+    <div data-options="region:'center'">
+        <div id="msgbag-datagrid-toolbar" style="padding:1px;height:auto">
+            <div>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgBagListModule.add()">添加消息包</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgBagListModule.delete()">批量删除</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgBagListModule.refresh()">刷新</a>
+            </div>
+        </div>
+        <div id="msgBagListModule"></div>
     </div>
 </div>
-<div id="msgBagListModule">
 
 
-</div>
+
+
+
 <script type="application/javascript">
     var msgBagListModule = {
         datagrid : '#msgBagListModule',
@@ -22,9 +33,18 @@
         listAction:"<{:U('MessageBag/index')}>",
         editAction:"<{:U('MessageBag/edit')}>",
         deleteAction:"<{:U('MessageBag/delete')}>",
+        catType:2,//消息类别
+        tree:'#msgBagTree',
         tab:'#pagetabs',
         load : function(){
             var that = this;
+            $(that.tree).tree({
+                url:"<{:U('Category/public_categoryTree')}>",
+                queryParams:{type:that.catType},
+                onClick:function(node){
+                    that.loadByCatId(node.id);
+                }
+            });
             $(this.datagrid).datagrid({
                 toolbar:"#msgbag-datagrid-toolbar",
                 url:that.listAction,
@@ -37,7 +57,8 @@
                 columns:[[
                     {field:'msg_bag_id',checkbox:true},
                     {field:'name',width:50,title:'名称',sortable:true},
-                    {field:'remarks',width:100,title:'备注',sortable:true},
+                    {field:'catname',width:20,title:'分类'},
+                    {field:'remarks',width:50,title:'备注',sortable:true},
                     {field:'create_time',title:'录入时间',width:22,sortable:true,formatter:function(value,row,index){
                         return msgBagListModule.time(row.create_time);
                     }},
@@ -50,7 +71,20 @@
         },
         //刷新
         refresh: function(){
-            $(this.datagrid).datagrid('reload');
+            $(this.datagrid).datagrid({
+                queryParams:{}
+            });
+        },
+        loadByCatId:function(catId){
+            var that = this;
+            $(this.datagrid).datagrid({
+                queryParams:{
+                    cat:{
+                        type:that.catType,
+                        catid:catId
+                    }
+                }
+            });
         },
         //搜索
         search: function(that){

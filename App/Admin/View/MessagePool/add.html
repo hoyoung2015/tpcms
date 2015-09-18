@@ -15,6 +15,13 @@
         <div class="pool_left">
             <table cellspacing="5" width="100%">
                 <tr>
+                    <td width="80">消息池类别：</td>
+                    <td><input class="easyui-combotree" data-options="
+                            url:'<{:U('Category/public_categoryTree')}>'
+                            ,queryParams:{type:3}
+                            " type="text" name="cat_id" style="width:230px;height:24px" /></td>
+                </tr>
+                <tr>
                     <td width="90">名称：</td>
                     <td><input class="easyui-validatebox" data-options="required:true" type="text" name="name" style="width:220px" /></td>
                 </tr><tr>
@@ -93,10 +100,6 @@
                         $.app.method.tip('提示信息', '请添加消息包', 'error');
                         return false;
                     }
-
-
-
-
                     data['rule_json'] = ruleRows;
                     data['msg_bag_json'] = bagRows;
                     $.messager.progress({text:'处理中，请稍候...'});

@@ -20,7 +20,7 @@ class MessageImageModel extends RelationModel{
             'foreign_key'=>'base_id'
         )
     );
-    public function search($page = 1, $rows = 10, $search = array(), $sort = 'id', $order = 'asc'){
+    public function search($page = 1, $rows = 10, $search = array(), $cat=array('type'=>1,'catid'=>0), $sort = 'id', $order = 'asc'){
         $arr = array();
         foreach ($search as $k=>$v){
             if(!$v) continue;
@@ -30,20 +30,33 @@ class MessageImageModel extends RelationModel{
         if(!empty($arr)){
             $where = ' and '.join(' and ',$arr);
         }
+
+        if(intval($cat['catid']) > 0){//分类
+            $catIds = array($cat['catid']);
+            D('Category')->getSelectCatId($catIds,$cat['catid'],$cat['type']);
+            $where .= ' and cat_id in ('.join(',',$catIds).') ';
+
+            $arr[] = 'cat_id in ('.join(',',$catIds).')';
+
+        }
+
         $total = $this->where($arr)->count();//总数
 
         $order = ' order by '.$sort.' '.$order;
 //        echo $rows;
         $limit = ($page - 1) * $rows . "," . $rows;
 
-        $sql = 'select * from msg_base a,msg_image b where a.id=b.base_id'.$where.$order.' limit '.$limit;
+
+        $sql = "select a.*,b.*,c.catname,a.id as opt_id from msg_base a "
+            ."left join msg_image b on a.id=b.base_id "
+            ."left join category c on cat_id=c.catid "
+            ."where a.msg_type='image' ".$where.$order.' limit '.$limit;
 //        echo $sql;
         $list =$total ? $this->query($sql):array();
 
         $m = M('media_id');
 
         for($i=0;$i<count($list);$i++){
-            $list[$i]['opt_id'] = $list[$i]['id'];
             //查询是否为永久素材，按照绝对路径匹配
             $medias = $m->where(array('file_path'=>$list[$i]['image_url'],'is_use'=>1))->select();
             if(count($medias)>0){

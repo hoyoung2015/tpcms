@@ -1,17 +1,27 @@
-<div id="msgpool-datagrid-toolbar" style="padding:1px;height:auto">
-    <form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
-        消息池名称:
-        <input type="text" name="search[name]" style="width:200px;"/>
-        <a href="javascript:;" onclick="msgPoolListModule.search(this)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
-    </form>
-    <div>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgPoolListModule.add()">添加</a>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgPoolListModule.delete()">批量删除</a>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgPoolListModule.refresh()">刷新</a>
+<div class="easyui-layout" style="height: 100%;width: 100%">
+    <div data-options="region:'north'" style="height: 34px">
+        <form style="margin: 3px">
+            消息池名称:
+            <input type="text" name="search[name]" style="width:200px;"/>
+            <a href="javascript:;" onclick="msgPoolListModule.search(this)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+        </form>
+    </div>
+    <div data-options="region:'west',split:true,title:'消息池分类'" style="width:200px;">
+        <ul id="msgPoolTree"></ul>
+    </div>
+    <div data-options="region:'center'">
+        <div id="msgpool-datagrid-toolbar" style="padding:1px;height:auto">
+            <div>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgPoolListModule.add()">添加</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgPoolListModule.delete()">批量删除</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgPoolListModule.refresh()">刷新</a>
+            </div>
+        </div>
+        <div id="msgPoolListModule"></div>
     </div>
 </div>
-<div id="msgPoolListModule">
-</div>
+
+
 <script type="application/javascript">
     var msgPoolListModule = {
         datagrid : '#msgPoolListModule',
@@ -20,9 +30,18 @@
         listAction:"<{:U('MessagePool/index')}>",
         editAction:"<{:U('MessagePool/edit')}>",
         fireEventAlias:<{:json_encode(C('FIRE_EVENT'))}>,
+        catType:3,//消息类别
+        tree:'#msgPoolTree',
         tab:'#pagetabs',
         load : function(){
             var that = this;
+            $(that.tree).tree({
+                url:"<{:U('Category/public_categoryTree')}>",
+                queryParams:{type:that.catType},
+                onClick:function(node){
+                    that.loadByCatId(node.id);
+                }
+            });
             $(this.datagrid).datagrid({
                 toolbar:"#msgpool-datagrid-toolbar",
                 url:that.listAction,
@@ -35,6 +54,7 @@
                 columns:[[
                     {field:'pool_id',checkbox:true},
                     {field:'name',width:50,title:'消息池名称',sortable:true},
+                    {field:'catname',width:20,title:'分类'},
                     {field:'fire_event',width:20,title:'触发条件',formatter:function(value,row,index){
                         return that.fireEventAlias[row.fire_event];
                     }},
@@ -51,7 +71,20 @@
         },
         //刷新
         refresh: function(){
-            $(this.datagrid).datagrid('reload');
+            $(this.datagrid).datagrid({
+                queryParams:{}
+            });
+        },
+        loadByCatId:function(catId){
+            var that = this;
+            $(this.datagrid).datagrid({
+                queryParams:{
+                    cat:{
+                        type:that.catType,
+                        catid:catId
+                    }
+                }
+            });
         },
         //搜索
         search: function(that){

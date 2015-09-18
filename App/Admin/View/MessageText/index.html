@@ -12,7 +12,7 @@
     <div data-options="region:'west',split:true,title:'消息分类'" style="width:200px;">
         <ul id="msgTextTree"></ul>
     </div>
-    <div data-options="region:'center'" style="border: noneo">
+    <div data-options="region:'center'">
         <div id="msgtext-datagrid-toolbar" style="padding:1px;height:auto">
 
             <div>
@@ -52,7 +52,6 @@ var msgTextListModule = {
             url:"<{:U('Category/public_categoryTree')}>",
             queryParams:{type:1},
             onClick:function(node){
-                console.log(node);
                 that.loadByCatId(node.id);
             }
         });
@@ -69,7 +68,8 @@ var msgTextListModule = {
             columns:[[
                 {field:'id',checkbox:true},
                 {field:'name',width:20,title:'名称',sortable:true},
-                {field:'content',width:50,title:'内容',sortable:true},
+                {field:'catname',width:20,title:'分类'},
+                {field:'content',width:40,title:'内容',sortable:true},
                 {field:'create_time',title:'录入时间',width:15,sortable:true,formatter:function(value,row,index){
                     return msgTextListModule.time(row.create_time);
                 }},
@@ -79,7 +79,9 @@ var msgTextListModule = {
     },
 	//刷新
 	refresh: function(){
-		$(this.datagrid).datagrid('reload');
+        $(this.datagrid).datagrid({
+            queryParams:{}
+        });
 	},
     loadByCatId:function(catId){
         var that = this;
@@ -231,7 +233,6 @@ var msgTextListModule = {
 			}else{
 				ids.push(id);
 			}
-			// console.log(ids);return;
 			$.messager.progress({text:'处理中，请稍候...'});
 			$.post('<{:U('MessageText/delete')}>',{"ids":ids},function(res){
 				$.messager.progress('close');

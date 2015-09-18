@@ -3,6 +3,13 @@
     <form id="msgBagAddForm" style="padding: 5px">
         <table cellspacing="5" width="100%">
             <tr>
+                <td width="80">消息类别：</td>
+                <td><input class="easyui-combotree" data-options="
+			    url:'<{:U('Category/public_categoryTree')}>'
+			    ,queryParams:{type:2}
+			    " type="text" name="cat_id" style="width:230px;height:24px" /></td>
+            </tr>
+            <tr>
                 <td width="90">名称：</td>
                 <td><input class="easyui-validatebox" data-options="required:true" type="text" name="name" style="width:220px" /></td>
             </tr>
@@ -42,6 +49,7 @@
                 fit:true,
                 fitColumns:true,
                 rownumbers:true,
+                title:'此处添加消息，拖拽可调整消息顺序',
                 data:[],
                 onLoadSuccess:function(){
 

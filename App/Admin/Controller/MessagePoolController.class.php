@@ -8,9 +8,31 @@
 namespace Admin\Controller;
 use Admin\Controller\CommonController;
 class MessagePoolController extends CommonController {
-    public function index($page = 1, $rows = 10, $search = array(), $sort = 'pool_id', $order = 'desc'){
+    public function index($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'pool_id', $order = 'desc'){
         if(IS_POST){
-            $data = D('MessagePool')->search($page, $rows, $search, $sort, $order);
+            $db = M('msg_pool');
+            $where = array('1=1');
+            foreach ($search as $k=>$v){
+                if(!$v) continue;
+                $where[] = "`{$k}` like '%{$v}%'";
+            }
+            if(intval($cat['catid']) > 0){//分类
+                $catIds = array($cat['catid']);
+                D('Category')->getSelectCatId($catIds,$cat['catid'],$cat['type']);
+                $where[] = ' cat_id in ('.join(',',$catIds).') ';
+            }
+            $where = implode(' and ', $where);
+
+            $total = $db->where($where)->count();
+            $order = ' order by '.$sort.' '.$order;
+            $limit = ($page - 1) * $rows . "," . $rows;
+
+            $sql = "select a.*,c.catname,a.pool_id as opt_id from msg_pool a "
+                ."left join category c on cat_id=c.catid "
+                ."where ".$where.$order.' limit '.$limit;
+//            echo $sql;
+            $list = $total ? $db->query($sql) : array();
+            $data = array('total'=>$total, 'rows'=>$list);
             $this->ajaxReturn($data);
         }else{
             $this->display();

@@ -10,9 +10,9 @@ namespace Admin\Controller;
 
 
 class MessageNewsController extends CommonController {
-    public function index($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
+    public function index($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'create_time', $order = 'desc'){
         if(IS_POST){
-            $data = D('MessageNews')->search($page, $rows, $search, $sort, $order);
+            $data = D('MessageNews')->search($page, $rows, $search,$cat, $sort, $order);
 
             $m = M('news_item');
             for($i=0;$i<count($data['rows']);$i++){
@@ -75,6 +75,7 @@ class MessageNewsController extends CommonController {
             $data = I('post.info');
             $msg = array(
                 'name'=>$data['name'],
+                'cat_id'=>$data['cat_id'],
                 'create_time'=>time(),
                 'msg_type'=>'news',
                 'msg_news'=>array(
@@ -98,6 +99,7 @@ class MessageNewsController extends CommonController {
             $msg = array(
                 'id'=>$data['id'],
                 'name'=>$data['name'],
+                'cat_id'=>$data['cat_id'],
                 'msg_news'=>array(
                     'base_id'=>$data['id'],
                     'item_ids'=>$data['item_ids']

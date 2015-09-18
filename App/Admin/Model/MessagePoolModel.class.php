@@ -20,11 +20,19 @@ class MessagePoolModel extends RelationModel{
             'foreign_key'=>'pool_id'
         )
     );
-    public function search($page = 1, $rows = 10, $search = array(), $sort = 'pool_id', $order = 'asc'){
+    public function search($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'pool_id', $order = 'asc'){
         $arr = array();
         foreach ($search as $k=>$v){
             if(!$v) continue;
             $arr[] = "`{$k}` like '%{$v}%'";
+        }
+        if(intval($cat['catid']) > 0){//分类
+            $catIds = array($cat['catid']);
+            D('Category')->getSelectCatId($catIds,$cat['catid'],$cat['type']);
+            $where .= ' and cat_id in ('.join(',',$catIds).') ';
+
+            $arr[] = 'cat_id in ('.join(',',$catIds).')';
+
         }
         $total = $this->where($arr)->count();//总数
         $order = $sort.' '.$order;

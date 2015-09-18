@@ -14,22 +14,35 @@ namespace Admin\Controller;
  * @package Admin\Controller
  */
 class MessageBagController extends CommonController {
-    public function index($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
+    public function index($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'create_time', $order = 'desc'){
         if(IS_POST){
             $db = M('msg_bag');
-            $where = array();
+            $where = array('1=1');
             foreach ($search as $k=>$v){
                 if(!$v) continue;
                 $where[] = "`{$k}` like '%{$v}%'";
             }
-            $where = implode(' and ', $where);
-            $total = $db->where($where)->count();
-            $order = $sort.' '.$order;
-            $limit = ($page - 1) * $rows . "," . $rows;
-            $list = $total ? $db->where($where)->order($order)->limit($limit)->select() : array();
-            for($i=0;$i<count($list);$i++){
-                $list[$i]['opt_id'] = $list[$i]['msg_bag_id'];
+
+
+
+            if(intval($cat['catid']) > 0){//分类
+                $catIds = array($cat['catid']);
+                D('Category')->getSelectCatId($catIds,$cat['catid'],$cat['type']);
+                $where[] = ' cat_id in ('.join(',',$catIds).') ';
             }
+            $where = implode(' and ', $where);
+
+            $total = $db->where($where)->count();
+            $order = ' order by '.$sort.' '.$order;
+            $limit = ($page - 1) * $rows . "," . $rows;
+
+            $sql = "select a.*,c.catname,a.msg_bag_id as opt_id from msg_bag a "
+                ."left join category c on cat_id=c.catid "
+                ."where ".$where.$order.' limit '.$limit;
+
+//            echo $sql;
+
+            $list = $total ? $db->query($sql) : array();
             $data = array('total'=>$total, 'rows'=>$list);
             $this->ajaxReturn($data);
         }else{

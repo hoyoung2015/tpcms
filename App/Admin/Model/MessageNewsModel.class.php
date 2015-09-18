@@ -20,7 +20,7 @@ class MessageNewsModel extends RelationModel{
             'foreign_key'=>'base_id'
         )
     );
-    public function search($page = 1, $rows = 10, $search = array(), $sort = 'id', $order = 'asc'){
+    public function search($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'id', $order = 'asc'){
         $arr = array();
         foreach ($search as $k=>$v){
             if(!$v) continue;
@@ -31,20 +31,24 @@ class MessageNewsModel extends RelationModel{
             $where = ' and '.join(' and ',$arr);
         }
 
+        if(intval($cat['catid']) > 0){//分类
+            $catIds = array($cat['catid']);
+            D('Category')->getSelectCatId($catIds,$cat['catid'],$cat['type']);
+            $where .= ' and cat_id in ('.join(',',$catIds).') ';
+        }
+
         $sqlCount = 'select count(id) as total from msg_base a,msg_news b where a.id=b.base_id'.$where;
 
         $total = $this->query($sqlCount)[0]['total'];//总数
-//print_r($total);
         $order = ' order by '.$sort.' '.$order;
-//        echo $rows;
         $limit = ($page - 1) * $rows . "," . $rows;
 
-        $sql = 'select * from msg_base a,msg_news b where a.id=b.base_id'.$where.$order.' limit '.$limit;
+        $sql = "select a.*,b.*,c.catname,a.id as opt_id from msg_base a "
+            ."left join msg_news b on a.id=b.base_id "
+            ."left join category c on cat_id=c.catid "
+            ."where a.msg_type='news' ".$where.$order.' limit '.$limit;
 //        echo $sql;
         $list =$total ? $this->query($sql):array();
-        for($i=0;$i<count($list);$i++){
-            $list[$i]['opt_id'] = $list[$i]['id'];
-        }
         return array(
             'total'=>$total,
             'rows'=>$list

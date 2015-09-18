@@ -10,23 +10,21 @@ namespace Admin\Controller;
 
 
 class MessageImageController extends CommonController {
-    public function index($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
+    public function index($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'create_time', $order = 'desc'){
         if(IS_POST){
-            $data = D('MessageImage')->search($page, $rows, $search, $sort, $order);
+            $data = D('MessageImage')->search($page, $rows, $search,$cat, $sort, $order);
 
             $this->ajaxReturn($data);
         }else{
             $this->display();
         }
     }
-    public function volist($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
-        $this->ajaxReturn(D('MessageImage')->search($page, $rows, $search, $sort, $order));
-    }
     public function add(){
         if(IS_POST){
             $data = I('post.info');
             $msg = array(
                 'name'=>$data['name'],
+                'cat_id'=>$data['cat_id'],
                 'create_time'=>time(),
                 'msg_type'=>'image',
                 'msg_image'=>array(
@@ -54,6 +52,7 @@ class MessageImageController extends CommonController {
             $msg = array(
                 'id'=>$data['id'],
                 'name'=>$data['name'],
+                'cat_id'=>$data['cat_id'],
                 'msg_image'=>array(
                     'base_id'=>$data['id'],
                     'image_url'=>$data['image_url'],

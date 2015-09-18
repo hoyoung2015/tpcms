@@ -18,6 +18,13 @@
     <input type="hidden" name="info[msg_type]" value="image"/>
     <table cellspacing="5" width="100%">
         <tr>
+            <td width="80">消息类别：</td>
+            <td><input class="easyui-combotree" data-options="
+			    url:'<{:U('Category/public_categoryTree')}>'
+			    ,queryParams:{type:1}
+			    " type="text" name="info[cat_id]" value="<{$info.cat_id}>" style="width:230px;height:24px" /></td>
+        </tr>
+        <tr>
             <td width="90">名称：</td>
             <td><input class="easyui-validatebox" data-options="required:true" type="text" value="<{$info.name}>" name="info[name]" style="width:220px" /></td>
         </tr>

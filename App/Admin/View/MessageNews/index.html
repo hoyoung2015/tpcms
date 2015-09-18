@@ -1,17 +1,27 @@
-<div id="msgnews-datagrid-toolbar" style="padding:1px;height:auto">
-	<form style="border-bottom:1px solid #ddd;margin-bottom:1px;padding:5px">
-		名称:
-		<input type="text" name="search[name]" style="width:200px;"/>
+<div class="easyui-layout" style="height: 100%;width: 100%">
+    <div data-options="region:'north'" style="height: 34px">
+        <form style="margin: 3px">
+            名称:
+            <input type="text" name="search[name]" style="width:200px;"/>
 
-		<a href="javascript:;" onclick="msgNewsListModule.search(this)" class="easyui-linkbutton" iconCls="icon-search">搜索</a>
-	</form>
-	<div>
-		<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgNewsListModule.add()">添加消息</a>
-		<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgNewsListModule.delete()">批量删除</a>
-		<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgNewsListModule.refresh()">刷新</a>
-	</div>
+            <a href="javascript:;" onclick="msgNewsListModule.search(this)" plain="true" class="easyui-linkbutton" iconCls="icon-search">搜索</a>
+        </form>
+    </div>
+    <div data-options="region:'west',split:true,title:'消息分类'" style="width:200px;">
+        <ul id="msgNewsTree"></ul>
+    </div>
+    <div data-options="region:'center'">
+        <div id="msgnews-datagrid-toolbar" style="padding:1px;height:auto">
+            <div>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgNewsListModule.add()">添加消息</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgNewsListModule.delete()">批量删除</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgNewsListModule.refresh()">刷新</a>
+            </div>
+        </div>
+        <div id="msgnews_datagrid"></div>
+    </div>
 </div>
-<div id="msgnews_datagrid"></div>
+
 <script type="text/javascript">
 var msgNewsListModule = {
     listAction:"<{:U('MessageNews/index')}>",
@@ -19,13 +29,29 @@ var msgNewsListModule = {
     editAction:'<{:U('MessageNews/edit')}>',
 	dialog:   '#globel-dialog-div',
 	datagrid: '#msgnews_datagrid',
+    catType:1,//消息类别
+    tree:'#msgNewsTree',
     tab:'#pagetabs',
 	//时间格式化
 	time: function(nS){
 		return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ").replace(/上午|下午/g, "");    
 	},
-	refresh:function(){
-        $(this.datagrid).datagrid('reload');
+    //刷新
+    refresh: function(){
+        $(this.datagrid).datagrid({
+            queryParams:{}
+        });
+    },
+    loadByCatId:function(catId){
+        var that = this;
+        $(this.datagrid).datagrid({
+            queryParams:{
+                cat:{
+                    type:that.catType,
+                    catid:catId
+                }
+            }
+        });
     },
 	//操作格式化
 	operate: function(val){
@@ -36,6 +62,13 @@ var msgNewsListModule = {
 	},
 	load:function(){
         var that = this;
+        $(that.tree).tree({
+            url:"<{:U('Category/public_categoryTree')}>",
+            queryParams:{type:1},
+            onClick:function(node){
+                that.loadByCatId(node.id);
+            }
+        });
         $(this.datagrid).datagrid({
             toolbar:"#msgnews-datagrid-toolbar",
             url:that.listAction,
@@ -50,7 +83,8 @@ var msgNewsListModule = {
                 {field:'cover',width:10,align:'center',title:'首个封面图片',formatter:function(value,row,index){
                     return '<img style="margin-top:5px" src="/wechat/timthumb.php?w=60&h=45&q=90&zc=1&ct=1&src='+row.cover+'"/>';
                 }},
-                {field:'name',width:20,title:'名称',sortable:true},
+                {field:'name',width:40,title:'名称',sortable:true},
+                {field:'catname',width:20,title:'分类'},
                 {field:'create_time',title:'录入时间',width:15,sortable:true,formatter:function(value,row,index){
                     return msgNewsListModule.time(row.create_time);
                 }},

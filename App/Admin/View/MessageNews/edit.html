@@ -63,6 +63,13 @@
             <input type="hidden" name="info[id]" value="<{$info.id}>">
             <input type="hidden" name="info[item_ids]" value="<{$info.msg_news.item_ids}>"/>
             <h3>
+                消息分类：
+            </h3>
+            <input class="easyui-combotree" data-options="
+			    url:'<{:U('Category/public_categoryTree')}>'
+			    ,queryParams:{type:1}
+			    " type="text" name="info[cat_id]" value="<{$info.cat_id}>" style="width:321px;height:24px" />
+            <h3>
                 消息名称：
             </h3>
             <input class="easyui-validatebox" value="<{$info.name}>" data-options="required:true" type="text" name="info[name]" style="width:312px" />

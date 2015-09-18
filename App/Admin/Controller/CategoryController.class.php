@@ -224,6 +224,7 @@ class CategoryController extends CommonController {
 	 */
 	public function public_categoryTree(){
         $data = D('Category')->getSelectTree(0,I('post.type'));
+        $data = array(0=>array('id'=>0,'text'=>'全部','children'=>$data));
 		$this->ajaxReturn($data);
 	}
 }
