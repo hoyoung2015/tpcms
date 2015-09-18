@@ -12,37 +12,32 @@ class CategoryController extends CommonController {
 	 */
 	public function categoryList(){
 		if(IS_POST){
-			if(S('category_categorylist')){
-			$data = S('category_categorylist');
-			}else{
-				$category_db = D('Category');
-				$data = $category_db->getTree();
-				S('category_categorylist', $data);
-			}
+            $param = $_POST;
+            $category_db = D('Category');
+            $data = $category_db->getTree(0,intval($param['type']));
 			$this->ajaxReturn($data);
 		}else{
 			$menu_db = D('Menu');
-			$currentpos = $menu_db->currentPos(I('get.menuid'));  //栏目位置
 			$treegrid = array(
+                //注意queryParams不能和toobar配置挨着，否则出错
 				'options' => array(
-					'title'     => $currentpos,
 					'url'       => U('Category/categoryList', array('grid'=>'treegrid')),
 					'idField'   => 'catid',
+                    'queryParams'=>array('type'=>key(dict('type','Category'))),
 					'treeField' => 'catname',
 					'toolbar'   => 'categoryCategoryModule.toolbar',
 				),
 				'fields' => array(
-					'排序'     => array('field'=>'listorder','width'=>15,'align'=>'center','formatter'=>'categoryCategoryModule.sort'),
+					'排序'     => array('field'=>'listorder','width'=>20,'align'=>'center','formatter'=>'categoryCategoryModule.sort'),
 					'栏目ID'   => array('field'=>'catid','width'=>25,'align'=>'center'),
 					'栏目名称' => array('field'=>'catname','width'=>130),
 					'栏目类型' => array('field'=>'type','width'=>30,'formatter'=>'categoryCategoryModule.type'),
-					'模型'     => array('field'=>'model','width'=>30,'formatter'=>'categoryCategoryModule.model'),
 					'描述'     => array('field'=>'description','width'=>80),
-					'前台显示' => array('field'=>'ismenu','width'=>20,'formatter'=>'categoryCategoryModule.show'),
 					'状态'     => array('field'=>'disabled','width'=>20,'formatter'=>'categoryCategoryModule.state'),
 					'管理操作' => array('field'=>'operateid','width'=>50,'align'=>'center','formatter'=>'categoryCategoryModule.operate'),
 				)
 			);
+            $this->assign('typeList', dict('type', 'Category'));
 			$this->assign('treegrid', $treegrid);
 			$this->display('category_list');
 		}
@@ -55,7 +50,6 @@ class CategoryController extends CommonController {
 		if(IS_POST){
 			$category_db = D('Category');
 			$data = I('post.info');
-			$data['ismenu'] = $data['ismenu'] ? '1' : '0';
 			$id = $category_db->add($data);
 			if($id){
 				$category_db->clearCatche();
@@ -64,8 +58,9 @@ class CategoryController extends CommonController {
 				$this->error('添加失败');
 			}
 		}else{
-			$this->assign('typeList', dict('type', 'Category'));
-			$this->assign('modelList', dict('model', 'Category'));
+            $parentId = I('get.parentid');
+            $type = I('get.type');
+            $this->assign('type_name',dict('type', 'Category')[intval($type)]);
 			$this->display('category_add');
 		}
 	}
@@ -81,7 +76,6 @@ class CategoryController extends CommonController {
 				$this->error('上级栏目设置失败');
 			}
 			
-			$data['ismenu'] = $data['ismenu'] ? '1' : '0';
 			$res = $category_db->where(array('catid'=>$id))->save($data);
 			if($res){
 				$category_db->clearCatche();
@@ -91,9 +85,8 @@ class CategoryController extends CommonController {
 			}
 		}else{
 			$info = $category_db->where(array('catid'=>$id))->find();
+            $info['type_name'] = dict('type', 'Category')[intval($info['type'])];
 			$this->assign('info', $info);
-			$this->assign('typeList', dict('type', 'Category'));
-			$this->assign('modelList', dict('model', 'Category'));
 			$this->display('category_edit');
 		}
 	}
@@ -223,14 +216,14 @@ class CategoryController extends CommonController {
 	 * 栏目下拉框
 	 */
 	public function public_categorySelect(){
-		if(S('category_public_categoryselect')){
-			$data = S('category_public_categoryselect');
-		}else {
-			$category_db = D('Category');
-			$data = $category_db->getSelectTree();
-			$data = array(0=>array('id'=>0,'text'=>'作为一级栏目','children'=>$data));
-			S('category_public_categoryselect', $data);
-		}
+        $data = D('Category')->getSelectTree(0,I('post.type'));
+        $data = array(0=>array('id'=>0,'text'=>'作为一级栏目','children'=>$data));
+		$this->ajaxReturn($data);
+	}/**
+	 * 栏目下拉框
+	 */
+	public function public_categoryTree(){
+        $data = D('Category')->getSelectTree(0,I('post.type'));
 		$this->ajaxReturn($data);
 	}
 }

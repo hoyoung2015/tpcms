@@ -59,4 +59,9 @@ return array(
         'subscribe'=>'关注',
         'click_link'=>'点击链接',
     ),
+    'CATE_TYPE'=>array(
+        'msg'=>'消息素材',
+        'msg_bag'=>'消息包',
+        'msg_pool'=>'消息池'
+    ),
 );

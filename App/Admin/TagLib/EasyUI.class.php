@@ -62,13 +62,18 @@ class EasyUI extends TagLib{
 			'singleSelect' => true,
 			'animate'      => true
 		);
+
 		$options = $tag['options'] ? $this->autoBuildVar($tag['options']) : 'array()';
+
+
+
+
 		$fields  = $tag['fields'] ? $this->autoBuildVar($tag['fields']) : 'null';
 		
 		$parseStr = '<table id="'. $id .'" class="easyui-treegrid" data-options=\'<?php $dataOptions = array_merge('. var_export($dataOptions, true). ', '. $options .');if(isset($dataOptions[\'toolbar\']) && substr($dataOptions[\'toolbar\'],0,1) != \'#\'): unset($dataOptions[\'toolbar\']); endif; echo trim(json_encode($dataOptions), \'{}[]\').((isset('. $options .'[\'toolbar\']) && substr('. $options .'[\'toolbar\'],0,1) != \'#\')?\',"toolbar":\'.'. $options .'[\'toolbar\']:null); ?>\' style="'. $style .'"><thead><tr>';
 		$parseStr .= '<?php if(is_array('. $fields .')):foreach ('. $fields .' as $key=>$arr):if(isset($arr[\'formatter\'])):unset($arr[\'formatter\']);endif;echo "<th data-options=\'".trim(json_encode($arr), \'{}[]\').(isset('. $fields .'[$key][\'formatter\'])?",\"formatter\":".'. $fields .'[$key][\'formatter\']:null)."\'>".$key."</th>";endforeach;endif; ?>';
 		$parseStr .= '</tr></thead></table>';
-		
+
 		return $parseStr;
 	}
 	

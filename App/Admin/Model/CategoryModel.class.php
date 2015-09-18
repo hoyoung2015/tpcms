@@ -7,10 +7,17 @@ class CategoryModel extends Model{
 	protected $pk        = 'catid';
 	
 	//获取栏目列表
-	public function getTree($parentid = 0){
-		$field = array('catid','`catname`','type','model','description','disabled','ismenu','listorder','`catid` as `operateid`');
+	public function getTree($parentid = 0,$type = 0){
+		$field = array('catid','`catname`','type','description','disabled','listorder','`catid` as `operateid`');
 		$order = '`listorder` ASC,`catid` DESC';
-		$data = $this->field($field)->where(array('parentid'=>$parentid))->order($order)->select();
+
+        $where = array(
+            'parentid'=>$parentid
+        );
+        if($type){
+            $where['type'] = $type;
+        }
+		$data = $this->field($field)->where($where)->order($order)->select();
 		if (is_array($data)){
 			foreach ($data as &$arr){
 				$arr = array_merge($arr, array(
@@ -28,10 +35,14 @@ class CategoryModel extends Model{
 	}
 	
 	//栏目下拉列表
-	public function getSelectTree($parentid = 0){
+	public function getSelectTree($parentid = 0,$type=0){
 		$field = array('`catid` as `id`','`catname` as `text`');
 		$order = '`listorder` ASC,`id` DESC';
-		$data = $this->field($field)->where(array('parentid'=>$parentid))->order($order)->select();
+        $where = array('parentid'=>$parentid);
+        if(intval($type)){
+            $where['type'] = $type;
+        }
+		$data = $this->field($field)->where($where)->order($order)->select();
 		if (is_array($data)){
 			foreach ($data as &$arr){
 				$arr['children'] = $this->getSelectTree($arr['id']);

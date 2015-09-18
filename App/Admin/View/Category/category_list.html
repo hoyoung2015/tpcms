@@ -2,6 +2,30 @@
 
 <easyui:treegrid options="treegrid.options" fields="treegrid.fields" />
 
+
+<div id="category_list_toolbar">
+    <div style="display: inline-block;">
+
+        <select class="easyui-combobox" data-options='
+            editable:false,
+            panelHeight:"auto",
+            onChange:function(newValue, oldValue){
+                categoryCategoryModule.change(newValue);
+            }
+            ' style="width: 120px">
+            <foreach name="typeList" item="type" key="key">
+                <option value="<{$key}>"><{$type}></option>
+            </foreach>
+        </select>
+    </div>
+<a href="javascript:void(0);" class="easyui-linkbutton" onclick="categoryCategoryModule.add()" data-options="iconCls:'icon-add',plain:true">添加栏目</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" onclick="categoryCategoryModule.refresh()" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" onclick="categoryCategoryModule.order()" data-options="iconCls:'icon-tabicons_03_05',plain:true">排序</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" onclick="categoryCategoryModule.export()" data-options="iconCls:'icon-tabicons_08_20',plain:true">导出</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" onclick="categoryCategoryModule.import()" data-options="iconCls:'icon-tabicons_09_01',plain:true">导入</a>
+
+</div>
+
 <script type="text/javascript">
 var categoryCategoryModule = {
 	dialog:   '#globel-dialog-div',
@@ -9,13 +33,7 @@ var categoryCategoryModule = {
 	treegrid: '#category_categorylist_treegrid',
 	
 	//工具栏
-	toolbar: [
-		{text: '添加栏目', iconCls: 'icons-table-table_add', handler: function(){categoryCategoryModule.add();}},
-		{text: '刷新', iconCls: 'icons-table-table_refresh', handler: function(){categoryCategoryModule.refresh();}},
-		{text: '排序', iconCls: 'icons-table-table_sort', handler: function(){categoryCategoryModule.order();}},
-		{text: '导出', iconCls: 'icons-table-table_go', handler: function(){categoryCategoryModule.export();}},
-		{text: '导入', iconCls: 'icons-table-table_edit', handler: function(){categoryCategoryModule.import();} }
-	],
+	toolbar: '#category_list_toolbar',
 	
 	//排序格式化
 	sort: function(val, arr){
@@ -58,19 +76,27 @@ var categoryCategoryModule = {
 	refresh: function(){
 		$(this.treegrid).treegrid('reload');
 	},
-	
+	change:function(type){
+        $(this.treegrid).treegrid({
+            queryParams:{
+                'type':type
+            }
+        });
+    },
 	//添加
 	add: function(parentid){
 		if(typeof(parentid) !== 'number') parentid = 0;
 		var href = '<{:U('Category/categoryAdd')}>';
+        var type = $('#category_list_toolbar').find('select').combobox('getValue');
 		href += href.indexOf('?') != -1 ? '&parentid='+parentid : '?parentid='+parentid;
+        href += href.indexOf('?') != -1 ? '&type='+type : '?type='+type;
 		
 		var that = this;
 		$(that.dialog).dialog({
 			title: '添加栏目',
-			iconCls: 'icons-application-application_add',
+			iconCls: 'icon-add',
 			width: 390,
-			height: 360,
+			height: 310,
 			cache: false,
 			href: href,
 			modal: true,
@@ -80,7 +106,7 @@ var categoryCategoryModule = {
 			maximizable: false,
 			buttons:[{
 				text:'确定',
-				iconCls:'icons-other-tick',
+				iconCls:'icon-ok',
 				handler: function(){
 					$(that.dialog).find('form').eq(0).form('submit', {
 						onSubmit: function(){
@@ -88,7 +114,7 @@ var categoryCategoryModule = {
 							if (!isValid) return false;
 							
 							$.messager.progress({text:'处理中，请稍候...'});
-							$.post('<{:U('Category/categoryAdd?dosubmit=1')}>', $(this).serialize(), function(res){
+							$.post("<{:U('Category/categoryAdd?dosubmit=1')}>", $(this).serialize(), function(res){
 								$.messager.progress('close');
 								
 								if(!res.status){
@@ -106,7 +132,7 @@ var categoryCategoryModule = {
 				}
 			},{
 				text:'取消',
-				iconCls:'icons-arrow-cross',
+				iconCls:'icon-no',
 				handler: function(){
 					$(that.dialog).dialog('close');
 				}
@@ -126,9 +152,9 @@ var categoryCategoryModule = {
 		var that = this;
 		$(that.dialog).dialog({
 			title: '编辑栏目',
-			iconCls: 'icons-application-application_edit',
+			iconCls: 'icon-save',
 			width: 390,
-			height: 360,
+			height: 310,
 			cache: false,
 			href: href,
 			modal: true,
@@ -138,7 +164,7 @@ var categoryCategoryModule = {
 			maximizable: false,
 			buttons:[{
 				text:'确定',
-				iconCls:'icons-other-tick',
+				iconCls:'icon-ok',
 				handler: function(){
 					$(that.dialog).find('form').eq(0).form('submit', {
 						onSubmit: function(){
@@ -166,7 +192,7 @@ var categoryCategoryModule = {
 				}
 			},{
 				text:'取消',
-				iconCls:'icons-arrow-cross',
+				iconCls:'icon-no',
 				handler: function(){
 					$(that.dialog).dialog('close');
 				}

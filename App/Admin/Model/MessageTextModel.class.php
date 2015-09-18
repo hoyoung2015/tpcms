@@ -20,7 +20,7 @@ class MessageTextModel extends RelationModel{
             'foreign_key'=>'base_id'
         )
     );
-    public function search($page = 1, $rows = 10, $search = array(), $sort = 'id', $order = 'asc'){
+    public function search($page = 1, $rows = 10, $search = array(),$catid = 0, $sort = 'id', $order = 'asc'){
         $arr = array();
         foreach ($search as $k=>$v){
             if(!$v) continue;

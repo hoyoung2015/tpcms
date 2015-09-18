@@ -58,6 +58,7 @@
                 textField:'name'
             });
         },
+
         cancel:function(){
             this.closeTab();
         },
@@ -330,7 +331,7 @@
                                     {
                                         field : 'name',
                                         title : '消息包名称',
-                                        width:'100%'
+                                        width:'90%'
                                     }
                                 ]]
                             }
@@ -362,7 +363,21 @@
         },
         addMsgBag:function(){
             var that = this;
+            if(that.isEditing()){//正在编辑
+//                               $(that.datagrid).datagrid('acceptChanges');
+                $.app.method.tip('提示信息', '请先保存正在编辑的数据', 'error');
+                return;
+            }
 
+            var rows = $(that.datagrid).datagrid('getRows');
+            that.editRow = rows.length;
+            //插入新的一行
+            $(that.datagrid).datagrid('appendRow',{
+                uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000),//保证消息唯一，可能存在同一个消息
+                prob:0,
+                freq:0
+            });
+            $(that.datagrid).datagrid('beginEdit',that.editRow);
         },
         refresh: function(){
             $(this.datagrid).datagrid('reload');
