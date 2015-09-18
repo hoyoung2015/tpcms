@@ -20,7 +20,7 @@ class MessageTextModel extends RelationModel{
             'foreign_key'=>'base_id'
         )
     );
-    public function search($page = 1, $rows = 10, $search = array(),$catid = 0, $sort = 'id', $order = 'asc'){
+    public function search($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'id', $order = 'asc'){
         $arr = array();
         foreach ($search as $k=>$v){
             if(!$v) continue;
@@ -30,6 +30,11 @@ class MessageTextModel extends RelationModel{
         if(!empty($arr)){
             $where = ' and '.join(' and ',$arr);
         }
+
+        if($cat['catid']>0){
+            D('Category')->
+        }
+
 
         $sqlCount = 'select count(id) as total from msg_base a,msg_text b where a.id=b.base_id'.$where;
 

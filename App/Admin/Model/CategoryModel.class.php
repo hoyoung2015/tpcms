@@ -52,6 +52,23 @@ class CategoryModel extends Model{
 		}
 		return $data;
 	}
+	//栏目下所有栏目的id
+	public function getSelectCatId(&$arr = array(),$parentid = 0,$type=0){
+		$field = array('`catid`');
+        $where = array('parentid'=>$parentid);
+        if(intval($type)){
+            $where['type'] = $type;
+        }
+		$data = $this->field($field)->where($where)->select();
+		if (is_array($data)){
+			foreach ($data as &$arr){
+				$arr['children'] = $this->getSelectTree($arr['id']);
+			}
+		}else{
+			$data = array();
+		}
+		return $data;
+	}
 	
 	//内容管理左侧导航
 	public function getCatTree($parentid = 0){

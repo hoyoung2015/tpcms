@@ -32,6 +32,7 @@ var msgTextListModule = {
     addAction:'<{:U('MessageText/add')}>',
 	dialog:   '#globel-dialog-div',
 	datagrid: '#msgtext_datagrid',
+    catType:1,//消息类别
     tree:'#msgTextTree',
 	//时间格式化
 	time: function(nS){
@@ -51,7 +52,8 @@ var msgTextListModule = {
             url:"<{:U('Category/public_categoryTree')}>",
             queryParams:{type:1},
             onClick:function(node){
-                console.log(node)
+                console.log(node);
+                that.loadByCatId(node.id);
             }
         });
         $(this.datagrid).datagrid({
@@ -80,9 +82,13 @@ var msgTextListModule = {
 		$(this.datagrid).datagrid('reload');
 	},
     loadByCatId:function(catId){
+        var that = this;
         $(this.datagrid).datagrid({
             queryParams:{
-                'catid':catId
+                cat:{
+                    type:that.catType,
+                    catid:catId
+                }
             }
         });
     },

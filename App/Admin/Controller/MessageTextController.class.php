@@ -8,9 +8,9 @@ use Admin\Controller\CommonController;
  */
 class MessageTextController extends CommonController {
 
-	public function index($page = 1, $rows = 10, $search = array(), $sort = 'create_time', $order = 'desc'){
+	public function index($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'create_time', $order = 'desc'){
 		if(IS_POST){
-            $data = D('MessageText')->search($page, $rows, $search, $sort, $order);
+            $data = D('MessageText')->search($page, $rows, $search,$cat, $sort, $order);
 
             $this->ajaxReturn($data);
 		}else{
