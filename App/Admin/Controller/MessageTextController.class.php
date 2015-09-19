@@ -45,8 +45,7 @@ class MessageTextController extends CommonController {
 		}
 	}
     public function test(){
-        $rs = array();
-        D('Category')->getSelectCatId($rs,9,1);
+        $rs = getAllIdFromTreeOneStep(9,1);
         p($rs);
     }
 

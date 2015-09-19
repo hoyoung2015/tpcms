@@ -32,12 +32,9 @@ class MessageImageModel extends RelationModel{
         }
 
         if(intval($cat['catid']) > 0){//分类
-            $catIds = array($cat['catid']);
-            D('Category')->getSelectCatId($catIds,$cat['catid'],$cat['type']);
+            $catIds = getAllIdFromTreeOneStep($cat['catid'],$cat['type']);
             $where .= ' and cat_id in ('.join(',',$catIds).') ';
-
             $arr[] = 'cat_id in ('.join(',',$catIds).')';
-
         }
 
         $total = $this->where($arr)->count();//总数

@@ -223,8 +223,8 @@ class CategoryController extends CommonController {
 	 * 栏目下拉框
 	 */
 	public function public_categoryTree(){
-        $data = D('Category')->getSelectTree(0,I('post.type'));
-        $data = array(0=>array('id'=>0,'text'=>'全部','children'=>$data));
+        $type = I('post.type');
+        $data = getCacheTreeByType($type);
 		$this->ajaxReturn($data);
 	}
 }

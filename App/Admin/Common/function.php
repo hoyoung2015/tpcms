@@ -142,3 +142,51 @@ function match_tag_show($match_tag=array()){
             break;
     }
 }
+/*
+ *获得一个类型的全量树
+ */
+function getCacheTreeByType($type){
+    $data = S('category_tree_'.$type);
+    if($data === false){
+        $data = D('Category')->getSelectTree(0,$type);
+        $data = array(0=>array('id'=>0,'text'=>'全部','children'=>$data));
+        S('category_tree_'.$type,$data);
+    }
+    return $data;
+}
+
+/**
+ * 给定一个父节点id，获取该子树
+ * @param $parentId
+ */
+function getCacheTreeNodeFromParentId(&$rs,$hole_cat_tree,$parentId = 0){
+    foreach($hole_cat_tree as $cat){
+        if($cat['id']==$parentId){
+            $rs = $cat;
+            return;
+        }
+        if(is_array($cat['children']) && count($cat['children'])>0){
+            getCacheTreeNodeFromParentId($rs,$cat['children'],$parentId);
+        }
+    }
+}
+
+/**
+ * 遍历该树的所有id
+ * @param $rs
+ * @param $tree
+ */
+function getAllIdFromTree(&$rs,$tree){
+    $rs[] = $tree['id'];
+    foreach($tree['children'] as $node){
+        getAllIdFromTree($rs,$node);
+    }
+}
+function getAllIdFromTreeOneStep($parentId,$type){
+    $hole_tree = getCacheTreeByType($type);//获得该类的所有树
+    $pTree = array();
+    getCacheTreeNodeFromParentId($pTree,$hole_tree,$parentId);//获得子树
+    $rs = array();
+    getAllIdFromTree($rs,$pTree);
+    return $rs;
+}

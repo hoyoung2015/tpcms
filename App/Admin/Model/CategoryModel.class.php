@@ -52,6 +52,18 @@ class CategoryModel extends Model{
 		}
 		return $data;
 	}
+    //栏目下拉列表
+    public function getSelectTreeCache(&$rs,$all_cat_tree,$parentid = 0,$type=0){
+        foreach($all_cat_tree as $cat){
+            if($cat['id']==$parentid){
+                $rs = $cat;
+                return;
+            }
+            if(is_array($cat['children']) && count($cat['children'])>0){
+                $this->getSelectTreeCache($rs,$cat['children'],$parentid);
+            }
+        }
+    }
 	//栏目下所有栏目的id
 	public function getSelectCatId(&$rs = array(),$parentid = 0,$type=0){
         $where = array('parentid'=>$parentid);
@@ -63,6 +75,18 @@ class CategoryModel extends Model{
             foreach ($data as $arr){
                 $rs[] = $arr['catid'];
                 $this->getSelectCatId($rs,$arr['catid']);//进入递归
+            }
+        }
+	}//栏目下所有栏目的id
+	public function getSelectCatIdCache(&$rs = array(),$cat_tree,$parentid = 0){
+        foreach($cat_tree as $cat){
+            if($cat['id']==$parentid){
+                $rs[] = $cat['id'];
+                $parentid = $cat['id'];
+            }
+            if(is_array($cat['children']) && count($cat['children'])>0){
+                echo $parentid.'<br>';
+                $this->getSelectCatIdCache($rs,$cat['children'],$parentid);
             }
         }
 	}
