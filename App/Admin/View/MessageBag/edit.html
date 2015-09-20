@@ -1,40 +1,133 @@
 <script type="application/javascript" src="__STATIC__/js/easyui/plugins/datagrid-dnd.js"></script>
-<div class="easyui-panel" data-options="{header:'#msgbag-edit-tab-tools',fit:true}">
-    <form id="msgBagEditForm" style="padding: 5px">
-        <input type="hidden" name="msg_bag_id" value="<{$info.msg_bag_id}>">
-        <table cellspacing="5" width="100%">
-            <tr>
-                <td width="80">消息类别：</td>
-                <td><input class="easyui-combotree" data-options="
+<div class="easyui-panel" id="msgBag_edit_modulePanel" style="padding: 5px" data-options="{header:'#msgBag_edit_tools',fit:true}">
+    <div>
+        <div style="float: left">
+            <form id="msgBag_edit_form">
+                <input type="hidden" name="msg_bag_id" value="<{$info.msg_bag_id}>">
+                <table cellspacing="5" width="100%">
+                    <tr>
+                        <td width="80">消息类别：</td>
+                        <td><input class="easyui-combotree" value="<{$info.cat_id}>" data-options="
 			    url:'<{:U('Category/public_categoryTree')}>'
 			    ,queryParams:{type:2}
-			    " type="text" name="cat_id" value="<{$info.cat_id}>" style="width:230px;height:24px" /></td>
-            </tr>
-            <tr>
-                <td width="90">名称：</td>
-                <td><input class="easyui-validatebox" value="<{$info.name}>" data-options="required:true" type="text" name="name" style="width:220px" /></td>
-            </tr>
-            <tr>
-                <td>备注：</td>
-                <td><textarea class="easyui-validatebox" name="remarks" style="width:220px;height:60px;font-size:12px"><{$info.remarks}></textarea></td>
-            </tr>
-        </table>
-        <table id="msgBagMsgTable" class="easyui-datagrid">
+			    " type="text" name="cat_id" style="width:230px;height:24px" /></td>
+                    </tr>
+                    <tr>
+                        <td width="90">名称：</td>
+                        <td><input class="easyui-validatebox" value="<{$info.name}>" data-options="required:true" type="text" name="name" style="width:220px" /></td>
+                    </tr>
+                    <tr>
+                        <td>备注：</td>
+                        <td><textarea class="easyui-validatebox" name="remarks" style="width:220px;height:60px;font-size:12px"><{$info.remarks}></textarea></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div>
+            <div id="msgBag_edit_tools" style="padding: 5px;text-align: right;background: #FAFAFA">
+                <label style="float: left;line-height: 26px;color: #555"><span class="icon-tabicons_11_03">&nbsp;</span>拖拽可以调整消息的顺序，双击可编辑消息属性。注意打开本面板后不要在其他面板删除消息，否则造成数据不一致</label>
+                <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgBag_edit_module.save()">保存</a>
+                <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgBag_edit_module.cancel()">取消</a>
+            </div>
+            <table id="msgBag_edit_msgTable" class="easyui-datagrid"></table>
 
-        </table>
-    </form>
-    <div id="msgbag-edit-tab-tools" style="padding: 5px;text-align: right;background: #FAFAFA">
-        <label style="float: left;line-height: 26px;color: #555"><span class="icon-tabicons_11_03">&nbsp;</span>拖拽可以调整消息的顺序</label>
-        <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgBagEdit.save(<{$info.msg_bag_id}>)">保存</a>
-        <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgBagEdit.cancel()">取消</a>
+        </div>
+
+    </div>
+
+
+    <div style="width: 100%;height: 100%;clear: both;margin-top: 5px">
+        <div class="easyui-layout" style="height: 100%;">
+            <div data-options="region:'west',split:true,title:'消息分类'" style="width:200px;">
+                <ul id="msgBag_edit_tree"></ul>
+            </div>
+            <div data-options="region:'center'">
+                <div id="msgBag_edit_msgListTableToolbar">
+                    <select class="easyui-combobox" data-options="
+                        editable:false,
+                        onChange:function(newVal,oldVal){
+                            msgBag_edit_module.changeMsgType(newVal);
+                        }
+                    " name="state" style="width:200px;">
+                        <option value="text">文本消息</option>
+                        <option value="image">图片消息</option>
+                        <option value="news">图文消息</option>
+                    </select>
+                </div>
+                <table id="msgBag_edit_msgListTable" data-options="
+                    toolbar:'#msgBag_edit_msgListTableToolbar',
+                    border:false,
+                    fitColumns:true,
+                    fit:true,
+                    pagination:true,
+                    rownumbers:true,
+                    border:false,
+                    singleSelect:true,
+                    pageSize:20,
+                    pageList:[20,40,60,100]
+                    " class="easyui-datagrid"></table>
+            </div>
+        </div>
     </div>
 </div>
 
 <script type="application/javascript">
-    var msgBagEdit = {
+    var msgBag_edit_module = {
         editRow:undefined,
-        datagrid:'#msgBagMsgTable',
-        form:'#msgBagEditForm',
+        datagrid:'#msgBag_edit_msgTable',
+        msgBag_edit_msgListTable:'#msgBag_edit_msgListTable',
+        catType:1,//消息类别
+        tree:'#msgBag_edit_tree',
+        form:'#msgBag_edit_form',
+        msgConfig:{
+            'url':{
+                'text':"<{:U('MessageText/index')}>",
+                'image':"<{:U('MessageImage/index')}>",
+                'news':"<{:U('MessageNews/index')}>"
+            },
+            'columns':{
+                'text':[[
+                    {field:'name',width:20,title:'名称',sortable:true},
+                    {field:'catname',width:20,title:'分类'},
+                    {field:'content',width:40,title:'内容',sortable:true},
+                    {field:'opt_id',width:8,title:'操作',formatter:function(val){
+                        var btn = [];
+                        btn.push('<a href="javascript:;" onclick="msgBag_edit_module.insertMsg('+val+')">添加</a>');
+                        return btn.join(' | ');
+                    }}
+                ]],
+                'image':[[
+                    {field:'image_url',width:20,title:'图片',align:'center',formatter:function(value,row,index){
+                        return '<img style="margin-top:5px;" src="/wechat/timthumb.php?w=60&h=45&q=90&zc=1&ct=1&src='+row.image_url+'"/>';
+                    }},
+                    {field:'name',width:80,title:'名称(media_id)',sortable:true,formatter:function(value,row,index){
+                        var name = row.name;
+                        if(row.media_id!=undefined){
+                            name += '('+row.media_id+')';
+                        }
+                        return name;
+                    }},
+                    {field:'catname',width:20,title:'分类'},
+                    {field:'opt_id',width:10,title:'操作',formatter:function(val){
+                        var btn = [];
+                        btn.push('<a href="javascript:;" onclick="msgBag_edit_module.insertMsg('+val+')">添加</a>');
+                        return btn.join(' | ');
+                    }}
+                ]],
+                'news':[[
+                    {field:'cover',width:10,align:'center',title:'首个封面图片',formatter:function(value,row,index){
+                        return '<img style="margin-top:5px" src="/wechat/timthumb.php?w=60&h=45&q=90&zc=1&ct=1&src='+row.cover+'"/>';
+                    }},
+                    {field:'name',width:40,title:'名称',sortable:true},
+                    {field:'catname',width:20,title:'分类'},
+                    {field:'opt_id',width:10,title:'操作',formatter:function(val){
+                        var btn = [];
+                        btn.push('<a href="javascript:;" onclick="msgBag_edit_module.insertMsg('+val+')">添加</a>');
+                        return btn.join(' | ');
+                    }}
+                ]]
+            }
+        },
         isEditing: function () {
             return this.editRow != undefined;
         },
@@ -42,27 +135,31 @@
             return this.editRow == undefined;
         },
         defaultMsgType:'text',
-        ram:{},
         msgTypeAlias:{'text':'文本','image':'图片','news':'图文'},
-        init:function(){
+        changeMsgType:function(msgType){
             var that = this;
 
+            $(that.msgBag_edit_msgListTable).datagrid({
+                url:that.msgConfig['url'][msgType],
+                columns:that.msgConfig['columns'][msgType]
+            });
+        },
+        init:function(){
+            var that = this;
             $(that.datagrid).datagrid({
-                fit:true,
+//                fit:true,
                 fitColumns:true,
                 rownumbers:true,
+                singleSelect:true,
                 data:<{$info.msg_json}>,
-                onLoadSuccess:function(){
-
-                },
                 onAfterEdit:function(){
                     that.editRow = undefined;
-
                 },
-                onClickCell:function(index, field){
-                    if(that.editRow==index){return;}
-
-
+                onLoadSuccess:function(){
+                    $(that.datagrid).datagrid('enableDnd');//拖拽
+                },
+                onDblClickRow:function(index, field){
+                    if(that.editRow==index){return;}//自身
                     if (that.isEditing()){
                         var suc = $(that.datagrid).datagrid('validateRow', that.editRow);
                         if(!suc){
@@ -71,35 +168,11 @@
                         }
                         $(that.datagrid).datagrid('acceptChanges');
                     }
-                    $(that.datagrid).datagrid('selectRow', index)
-                            .datagrid('beginEdit', index);
-                    var ed = $(that.datagrid).datagrid('getEditor', {index:index,field:field});
-                    ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') : $(ed.target)).focus();
+                    $(that.datagrid).datagrid('beginEdit', index);
+//                    $(that.datagrid).datagrid('unselectAll');
                     that.editRow = index;
-
                 },
                 toolbar:[
-                    {
-                        text:'添加消息',
-                        iconCls:'icon-add',
-                        handler:function(){
-                            if(that.isEditing()){//正在编辑
-//                               $(that.datagrid).datagrid('acceptChanges');
-                                $.app.method.tip('提示信息', '请先保存正在编辑的数据', 'error');
-                                return;
-                            }
-
-                            var rows = $(that.datagrid).datagrid('getRows');
-                            that.editRow = rows.length;
-                            //插入新的一行
-                            $(that.datagrid).datagrid('appendRow',{
-                                uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000),//保证消息唯一，可能存在同一个消息
-                                msg_type:that.defaultMsgType,
-                                interval:'00:00'
-                            });
-                            $(that.datagrid).datagrid('beginEdit',that.editRow);
-                        }
-                    },
                     {
                         text:'保存',
                         iconCls:'icon-save',
@@ -128,7 +201,6 @@
                         text:'取消',
                         iconCls:'icon-redo',
                         handler:function(){
-
                             if(that.isEditing()){
                                 $(that.datagrid).datagrid('rejectChanges');
                                 that.editRow = undefined;
@@ -137,137 +209,105 @@
                         }
                     }
                 ],
-                onSelect:function(index,row){
-
-                },
                 columns:[[
-                    {
-                        field:'uuid',
-                        checkbox:true
-                    },
                     {
                         field : 'msg_type',
                         title : '消息类型',
                         width:'8%',
                         formatter:function(value,row,index){
                             return that.msgTypeAlias[row.msg_type];
-                        },
-                        editor:{
-                            type:'combobox',
-                            options:{
-                                editable:false,
-                                valueField:'msg_type',
-                                textField:'msg_name',
-                                required:true,
-                                data:[{msg_type:'text',msg_name:'文本'},{msg_type:'image',msg_name:'图片'},{msg_type:'news',msg_name:'图文'}],
-                                onSelect : function (record){
-                                    var theIndex = $(msgBagEdit.datagrid).datagrid('getRows').length;
-                                    var ed = $(msgBagEdit.datagrid).datagrid('getEditor',{
-                                        index:theIndex-1,
-                                        field:'msg_id'
-                                    });
-                                    //更换搜索词重新加载
-                                    $(ed.target).combogrid({
-                                        queryParams:{
-                                            search:{
-                                                msg_type:record.msg_type
-                                            }
-                                        }
-                                    });
-                                }
-                            }
                         }
+                    },{
+                        field : 'catname',
+                        title : '分类',
+                        width:'8%'
                     },
                     {
-                        field:'msg_id',
+                        field:'name',
                         width:'30%',
-                        title:'消息',
-                        formatter:function(value,row,index){
-                            var name = row.name;
-                            if(name == undefined){
-                                //远程获取名称
-                                $.ajax({
-                                    url:"<{:U('Message/getMsg')}>",
-                                    type : "POST",
-                                    dataType : "json",
-                                    data:{id:row.msg_id},
-                                    async:false,
-                                    success:function(res){
-                                        name = res.name;
-                                    }
-                                });
-                            }
-                            return name;
-                        },
+                        title:'消息'
+                    },
+                    {field:'interval',width:'8%',title:'间隔时间',
                         editor:{
-                            type:'combogrid',
+                            type:'timespinner',
                             options:{
-                                required:true,
-                                panelWidth : 700,
-                                panelHeight:308,
-                                pagination : true,// 是否分页
-                                pageSize:10,
-                                idField : 'id',
-                                textField : 'name',
-                                rownumbers:true,
-                                hasDownArrow:true,
-                                url:"<{:U('Message/index')}>",
-                                onBeforeLoad:function(){
 
-                                },
-                                queryParams:{
-                                    search:{
-                                        msg_type:that.defaultMsgType
-                                    }
-                                },
-                                columns:[[
-                                    {
-                                        field : 'name',
-                                        title : '消息名称',
-                                        width:'60%'
-                                    },
-                                    {
-                                        field : 'msg_type',
-                                        title : '消息类型',
-                                        width:'15%',
-                                        formatter:function(value,row,index){
-                                            switch (row.msg_type){
-                                                case 'news':
-                                                    return '图文';
-                                                case 'text':
-                                                    return '文本';
-                                                case 'image':
-                                                    return '图片';
-                                            }
-                                        }
-                                    },
-                                    {
-                                        field:'opt_id',
-                                        title:' ',
-                                        width:'15%'
-                                    }
-                                ]]
                             }
-                        }},
-                    {field:'interval',width:'8%',title:'间隔时间',editor:{
-                        type:'timespinner',
-                        options:{
-
                         }
-                    }}
+                    }
                 ]]
             });
+
+            //加载树形
+            $(that.tree).tree({
+                url:"<{:U('Category/public_categoryTree')}>",
+                queryParams:{type:that.catType},
+                onClick:function(node){
+                    that.loadByCatId(node.id);
+                }
+            });
+            $(that.msgBag_edit_msgListTable).datagrid({
+                url:"<{:U('MessageText/index')}>",//默认加载文本消息
+                columns:that.msgConfig['columns']['text']
+            });
+        },
+        loadByCatId:function(catId){
+            var that = this;
+            $(this.msgBag_edit_msgListTable).datagrid({
+                queryParams:{
+                    cat:{
+                        type:that.catType,
+                        catid:catId
+                    }
+                }
+            });
+        },
+        msgOperate:function(val){
+            var btn = [];
+            btn.push('<a href="javascript:;" onclick="msgBag_edit_module.insertMsg('+val+')">添加</a>');
+            return btn.join(' | ');
+        },
+        insertMsg:function(msgId){
+            if(this.isEditing()){
+                $.app.method.tip('提示信息', '请先保存正在编辑的消息', 'error');
+                return;
+            }
+            var that = this;
+            var row = undefined;
+            $.each($(that.msgBag_edit_msgListTable).datagrid('getRows'),function(index,value){
+                if(msgId==value.id){
+                    row = value;
+                    return;
+                }
+            });
+            if(row == undefined){
+                return;
+            }
+            var index = $(that.datagrid).datagrid('getRows').length;
+            $(that.datagrid).datagrid('appendRow',{
+                uuid:new Date().getTime()+'_'+Math.round(Math.random()*1000),
+                msg_type:row.msg_type,
+                msg_id:row.id,
+                name:row.name,
+                catname:row.catname,
+                interval:'00:00'
+            });
+//            $(that.datagrid).datagrid('acceptChanges');//防止编辑时点击取消撤销添加
+
+            $(that.datagrid).datagrid('enableDnd',index);//该行启用拖拽
+            $(that.datagrid).datagrid('beginEdit',index);//该行启用拖拽
+            that.editRow = index;
+            $('#msgBag_edit_modulePanel').scrollTop(0);
         },
         closeTab:function(){
             var currentTab = $('#pagetabs').tabs('getSelected');
             var index = $('#pagetabs').tabs('getTabIndex',currentTab);
             $('#pagetabs').tabs('close',index);
         },
-        //刷新
         refresh: function(){
             $(this.datagrid).datagrid('reload');
         },
-        save:function(id){
+        save:function(){
             var that = this;
             $(that.form).form('submit', {
                 onSubmit: function(){
@@ -281,11 +321,12 @@
                     }
 
                     var rows = $(that.datagrid).datagrid('getRows');
-                    //检查是否有消息
+
                     if(rows.length==0){
                         $.app.method.tip('提示信息', '没有任何消息，请添加', 'error');
                         return false;
                     }
+
 
                     var data = {};
                     $.each($(this).serializeArray(),function(index,val){
@@ -294,9 +335,7 @@
                     data['msg_json'] = rows;
 
                     $.messager.progress({text:'处理中，请稍候...'});
-                    var action = "<{:U('MessageBag/edit')}>";
-                    action += action.indexOf('?') != -1 ? '&id='+id : '?id='+id;
-                    $.post(action, data, function(res){
+                    $.post("<{:U('MessageBag/edit?id=0')}>", data, function(res){
                         $.messager.progress('close');
                         if(!res.status){
                             $.app.method.tip('提示信息', res.info, 'error');
@@ -317,7 +356,7 @@
         }
     };
     $(function () {
-        msgBagEdit.init();
+        msgBag_edit_module.init();
     });
 
 </script>

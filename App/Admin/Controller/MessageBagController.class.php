@@ -125,9 +125,12 @@ class MessageBagController extends CommonController {
         $m = M('msg_bag');
         if(IS_POST){
             $data = $_POST;
-
-            $list = $m->where(array('name'=>$data['name']))->select();
-            if(count($list)>0 && $list[0]['msg_bag_id']!=$id){
+//            $this->ajaxReturn($data);
+            $list = $m->where(array(
+                'name'=>$data['name'],
+                'msg_bag_id'=>array('neq',$data['msg_bag_id'])
+            ))->select();
+            if(count($list)>0){
                 $this->error('此消息包的名称已被占用');
             }
             $data['msg_json'] = json_encode($data['msg_json']);

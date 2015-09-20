@@ -1,56 +1,82 @@
 <style type="text/css">
-.pool_left{
-    float: left;
-    width: 650px;
-    margin-bottom: 10px;
-}
+    .pool_left{
+        float: left;
+        margin-bottom: 10px;
+    }
     .pool_right{
-        width: 650px;
-        clear: both;
     }
 </style>
 
-<div class="easyui-panel" data-options="{header:'#msgpool-edit-tab-tools',fit:true}">
-    <form id="msgPoolEditBagForm" style="padding: 5px">
-        <input type="hidden" name="pool_id" value="<{$info.pool_id}>"/>
-        <div class="pool_left">
-
+<div class="easyui-panel" id="msgPool_add_panel" style="padding: 5px" data-options="{header:'#msgPool_add_tabTools',fit:true}">
+    <div class="pool_left">
+        <form id="msgPool_add_form">
+            <input type="hidden" name="pool_id" value="<{$info.pool_id}>"/>
             <table cellspacing="5" width="100%">
                 <tr>
-                    <td width="90">消息池名称：</td>
-                    <td><input class="easyui-validatebox" data-options="required:true" type="text" value="<{$info.name}>" name="name" style="width:220px" /></td>
+                    <td width="80">消息池类别：</td>
+                    <td><input class="easyui-combotree" value="<{$info.cat_id}>" data-options="
+                            url:'<{:U('Category/public_categoryTree')}>'
+                            ,queryParams:{type:3}
+                            " type="text" name="cat_id" style="width:230px;height:24px" /></td>
                 </tr>
                 <tr>
-                    <td width="90">触发条件：</td>
-                    <td>
-                        <input type="text" name="fire_event" value="<{$info.fire_event}>"/>
-                    </td>
+                    <td width="90">名称：</td>
+                    <td><input class="easyui-validatebox" value="<{$info.name}>" data-options="required:true" type="text" name="name" style="width:220px" /></td>
+                </tr>
+                <tr>
+                <td width="90">触发条件：</td>
+                <td>
+                    <input type="text" name="fire_event" value="<{$info.fire_event}>"/>
+                </td>
+            </tr>
+                <tr>
+                    <td width="90">触发条件参数：</td>
+                    <td><input class="easyui-validatebox" value="<{$info.fire_event_param}>" type="text" name="fire_event_param" style="width:220px" /></td>
                 </tr>
                 <tr>
                     <td>备注：</td>
                     <td><textarea class="easyui-validatebox" name="remarks" style="width:220px;height:60px;font-size:12px"><{$info.remarks}></textarea></td>
                 </tr>
             </table>
-            <!--消息池匹配规则-->
-            <table id="msgPoolRuleEditTable"></table>
+        </form>
+    </div>
+    <div class="pool_right">
+        <!--消息池匹配规则-->
+        <table id="msgPool_add_ruleTable"></table>
+        <!--消息池中含有的消息包-->
+        <table id="msgPool_add_bagTable"></table>
+    </div>
+    <div style="clear: both;height: 100%;width: 100%;margin-top: 5px">
+        <div class="easyui-layout" style="height: 100%;">
+            <div data-options="region:'west',split:true,title:'消息包分类'" style="width:200px;">
+                <ul id="msgPool_add_bagTree"></ul>
+            </div>
+            <div data-options="region:'center'">
+                <table id="msgPool_add_bagList" data-options="
+                    border:false,
+                    fitColumns:true,
+                    fit:true,
+                    pagination:true,
+                    rownumbers:true,
+                    border:false,
+                    singleSelect:true,
+                    pageSize:20,
+                    pageList:[20,40,60,100]
+                    " class="easyui-datagrid"></table>
+            </div>
         </div>
-        <div class="pool_right">
-            <!--消息池中含有的消息包-->
-            <table id="msgPoolBagEditTable"></table>
+    </div>
 
-        </div>
-
-    </form>
-    <div id="msgpool-edit-tab-tools" style="padding: 5px;text-align: right;background: #FAFAFA">
+    <div id="msgPool_add_tabTools" style="padding: 5px;text-align: right;background: #FAFAFA">
         <label style="float: left;line-height: 26px;color: #555"><span class="icon-tabicons_11_03">&nbsp;</span>拖拽可以调整消息的顺序</label>
-        <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgPoolEditModule.save()">保存</a>
-        <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgPoolEditModule.cancel()">取消</a>
+        <a href="javascript:" class="easyui-linkbutton btn-save" iconCls="icon-save" onclick="msgPool_add_module.save()">保存</a>
+        <a href="javascript:" class="easyui-linkbutton btn-cancel" iconCls="icon-no" onclick="msgPool_add_module.cancel()">取消</a>
     </div>
 </div>
 
 <script type="application/javascript">
-    var msgPoolEditModule = {
-        form:'#msgPoolEditBagForm',
+    var msgPool_add_module = {
+        form:'#msgPool_add_form',
         init:function(){
             $(this.form).find("input[name='fire_event']").combobox({
                 url:"<{:U('MessagePool/fireEvents')}>",
@@ -61,6 +87,7 @@
                 textField:'name'
             });
         },
+
         cancel:function(){
             this.closeTab();
         },
@@ -76,17 +103,25 @@
                     var isValid = $(this).form('validate');
                     if (!isValid) return false;
 
-                    rows = $(this).serializeArray();
 
-                    data = {};
-                    $.each(rows,function(index,val){
+                    var data = {};
+                    $.each($(this).serializeArray(),function(index,val){
                         data[val.name] = val.value;
                     });
 
+                    var ruleRows = $(msgPool_add_ruleModule.datagrid).datagrid('getRows');
 
-                    var bagRows = $(msgPoolEditBag.datagrid).datagrid('getRows');
-                    var ruleRows = $(msgPoolEditRule.datagrid).datagrid('getRows');
+                    if(ruleRows.length==0){
+                        $.app.method.tip('提示信息', '请添加规则', 'error');
+                        return false;
+                    }
 
+                    var bagRows = $(msgPool_add_bagModule.datagrid).datagrid('getRows');
+
+                    if(bagRows.length==0){
+                        $.app.method.tip('提示信息', '请添加消息包', 'error');
+                        return false;
+                    }
                     data['rule_json'] = ruleRows;
                     data['msg_bag_json'] = bagRows;
                     $.messager.progress({text:'处理中，请稍候...'});
@@ -107,23 +142,176 @@
             });
         }
     }
-    var msgPoolEditRule = {
+    var msgPool_add_ruleModule = {
+                editRow:undefined,
+                datagrid:'#msgPool_add_ruleTable',
+                dialog:   '#globel-dialog-div',
+                isEditing: function () {
+                    return this.editRow != undefined;
+                },
+                endEditing:function(){
+                    return this.editRow == undefined;
+                },
+                ruleAlias:<{:json_encode(C('OPT_OPTIONS'))}>,
+    init:function(){
+        var that = this;
+        $(that.datagrid).datagrid({
+            title:'自定义标签规则',
+//                fit:true,
+            fitColumns:true,
+            data:<{$info.rule_json}>,
+            toolbar:[
+                {
+                    text:'添加规则',
+                    iconCls:'icon-add',
+                    handler:function(){
+                        that.addRule();
+                    }
+                },
+                {
+                    text:'移除',
+                    iconCls:'icon-remove',
+                    handler:function(){
+                        var rows = $(that.datagrid).datagrid('getSelections');
+                        $.each(rows,function(index,row){
+                            var index = $(that.datagrid).datagrid('getRowIndex',row);
+                            $(that.datagrid).datagrid('deleteRow',index);
+                            if(that.editRow==index){//如果移除的是正在编辑的要处理
+                                that.editRow = undefined;
+                            }
+                        });
+                    }
+                }
+            ],
+            columns:[[
+                {
+                    field:'uuid',
+                    checkbox:true
+                },
+                {
+                    field:'tag',
+                    title:'标签名',
+                    width:'30%'
+                },
+                {
+                    field : 'opt',
+                    title : '操作符',
+                    width:'20%',
+                    formatter:function(value,row,index){
+                        return that.ruleAlias[row.opt];
+                    }
+                },
+                {
+                    field:'val',
+                    width:'45%',
+                    title:'标签值'
+                }
+            ]]
+        });
+    },
+
+    refresh: function(){
+        $(this.datagrid).datagrid('reload');
+    },
+    addRule:function(){
+        var that = this;
+        $(that.dialog).dialog({
+            title: '添加规则',
+            iconCls: 'icon-tabicons_02_15',
+            width: 390,
+            height: 400,
+            cache: false,
+            href: "<{:U('MessagePool/addRule')}>",
+            modal: true,
+            collapsible: false,
+            minimizable: false,
+            resizable: false,
+            maximizable: false,
+            onLoad:function(){
+                $(that.dialog).find('form').eq(0).find("input[name='opt']").combobox({
+                    editable:false,
+                    url:"<{:U('MessagePool/optOptions')}>",
+                    valueField:'opt',
+                    textField:'opt_name',
+                    required:true
+                });
+            },
+            buttons:[{
+                text:'确定',
+                iconCls:'icon-ok',
+                handler: function(){
+                    $(that.dialog).find('form').eq(0).form('submit', {
+                        onSubmit: function(){
+                            var isValid = $(this).form('validate');
+                            if (!isValid) return false;
+
+                            var data = $(this).serializeArray();
+                            var row = {
+                                uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000)
+                            };
+                            $.each(data,function(index,val){
+                                row[val.name] = val.value;
+                            });
+                            $(that.datagrid).datagrid('appendRow',row);
+                            $(that.dialog).dialog('close');
+                            return false;
+                        }
+                    });
+                }
+            },{
+                text:'取消',
+                iconCls:'icon-no',
+                handler: function(){
+                    $(that.dialog).dialog('close');
+                }
+            }]
+        });
+    }
+    };
+    var msgPool_add_bagModule = {
         editRow:undefined,
-        datagrid:'#msgPoolRuleEditTable',
+        datagrid:'#msgPool_add_bagTable',
         dialog:   '#globel-dialog-div',
-        ruleAlias:<{:json_encode(C('OPT_OPTIONS'))}>,
+        isEditing: function () {
+            return this.editRow != undefined;
+        },
+        endEditing:function(){
+            return this.editRow == undefined;
+        },
         init:function(){
             var that = this;
             $(that.datagrid).datagrid({
-                title:'规则列表',
+                title:'消息包',
+//                fit:true,
                 fitColumns:true,
-                data:<{$info.rule_json}>,
+                rownumbers:true,
+                data:<{$info.msg_bag_json}>,
+                onAfterEdit:function(){
+                    that.editRow = undefined;
+                },
+                onDblClickRow:function(index, field){
+                    if(that.editRow==index){return;}//自身
+                    if (that.isEditing()){
+                        var suc = $(that.datagrid).datagrid('validateRow', that.editRow);
+                        if(!suc){
+                            $.app.method.tip('提示信息', '请先正确填写正在编辑的数据', 'error');
+                            return;
+                        }
+                        $(that.datagrid).datagrid('acceptChanges');
+                    }
+                    $(that.datagrid).datagrid('beginEdit', index);
+//                    $(that.datagrid).datagrid('unselectAll');
+                    that.editRow = index;
+                },
                 toolbar:[
                     {
-                        text:'添加规则',
-                        iconCls:'icon-add',
+                        text:'保存',
+                        iconCls:'icon-save',
                         handler:function(){
-                            that.addRule();
+                            if(that.isEditing()){
+                                $(that.datagrid).datagrid('acceptChanges');
+                                $(msgPool_add_bagModule.datagrid).datagrid('enableDnd');//该行启用拖拽
+                            }
                         }
                     },
                     {
@@ -139,241 +327,152 @@
                                 }
                             });
                         }
+                    },
+                    {
+                        text:'取消',
+                        iconCls:'icon-redo',
+                        handler:function(){
+                            if(that.isEditing()){
+                                $(that.datagrid).datagrid('rejectChanges');
+                                that.editRow = undefined;
+                                $(that.datagrid).datagrid('enableDnd');//防止取消后拖拽失效
+                            }
+                        }
                     }
                 ],
                 columns:[[
                     {
-                        field:'uuid',
-                        checkbox:true
-                    },
-                    {
-                        field:'tag',
-                        title:'标签名',
-                        width:'30%'
-                    },
-                    {
-                        field : 'opt',
-                        title : '操作符',
-                        width:'20%',
-                        formatter:function(value,row,index){
-//                            $data = $(msgPoolEditModule.form).find("input[name='fire_event']").combobox('getData');
-                            return that.ruleAlias[row.opt];
-                        }
-                    },
-                    {
-                        field:'val',
-                        width:'45%',
-                        title:'标签值'
-                    }
-                ]]
-            });
-        },
-        refresh: function(){
-            $(this.datagrid).datagrid('reload');
-        },
-        addRule:function(){
-            var that = this;
-            $(that.dialog).dialog({
-                title: '添加规则',
-                iconCls: 'icon-tabicons_02_15',
-                width: 390,
-                height: 400,
-                cache: false,
-                href: "<{:U('MessagePool/addRule')}>",
-                modal: true,
-                collapsible: false,
-                minimizable: false,
-                resizable: false,
-                maximizable: false,
-                onLoad:function(){
-                    $(that.dialog).find('form').eq(0).find("input[name='opt']").combobox({
-                        editable:false,
-                        url:"<{:U('MessagePool/optOptions')}>",
-                        valueField:'opt',
-                        textField:'opt_name',
-                        required:true
-                    });
-                },
-                buttons:[{
-                    text:'确定',
-                    iconCls:'icon-ok',
-                    handler: function(){
-                        $(that.dialog).find('form').eq(0).form('submit', {
-                            onSubmit: function(){
-                                var isValid = $(this).form('validate');
-                                if (!isValid) return false;
-
-                                var data = $(this).serializeArray();
-                                var row = {
-                                    uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000)
-                                };
-                                $.each(data,function(index,val){
-                                    row[val.name] = val.value;
-                                });
-                                $(that.datagrid).datagrid('appendRow',row);
-                                $(that.dialog).dialog('close');
-                                return false;
-                            }
-                        });
-                    }
-                },{
-                    text:'取消',
-                    iconCls:'icon-no',
-                    handler: function(){
-                        $(that.dialog).dialog('close');
-                    }
-                }]
-            });
-        }
-    };
-    var msgPoolEditBag = {
-        editRow:undefined,
-        datagrid:'#msgPoolBagEditTable',
-        dialog:   '#globel-dialog-div',
-        init:function(){
-            var that = this;
-            $(that.datagrid).datagrid({
-                title:'消息包列表',
-                fitColumns:true,
-                data:<{$info.msg_bag_json}>,
-               toolbar:[
-                   {
-                       text:'添加消息包',
-                       iconCls:'icon-add',
-                       handler:function(){
-                           that.addMsgBag();
-                       }
-                   },
-                   {
-                       text:'移除',
-                       iconCls:'icon-remove',
-                       handler:function(){
-                           var rows = $(that.datagrid).datagrid('getSelections');
-                           $.each(rows,function(index,row){
-                               var index = $(that.datagrid).datagrid('getRowIndex',row);
-                               $(that.datagrid).datagrid('deleteRow',index);
-                               if(that.editRow==index){//如果移除的是正在编辑的要处理
-                                   that.editRow = undefined;
-                               }
-                           });
-                       }
-                   }
-               ],
-                columns:[[
-                    {
-                        field:'uuid',
-                        checkbox:true
-                    },
-                    {
-                        field : 'msg_bag_id',
+                        field : 'name',
                         title : '消息包',
-                        width:'40%',
-                        formatter:function(value,row,index){
-                            //远程获取名称
-                            var name;
-                            $.ajax({
-                                url:"<{:U('MessageBag/getMsgBag')}>",
-                                type : "POST",
-                                dataType : "json",
-                                data:{id:row.msg_bag_id,fields:['name']},
-                                async:false,
-                                success:function(res){
-                                    name = res.name;
-                                }
-                            });
-                            return name;
-                        }
+                        width:'40%'
                     },
                     {
                         field:'prob',
                         title:'概率',
-                        width:'20%'
+                        width:'20%',
+                        editor:{
+                            type:'numberspinner',
+                            options:{
+                                min:0,
+                                max:1,
+                                precision:2,
+                                value:0,
+                                increment:0.01,
+                                required:true
+                            }
+                        }
                     },
                     {
                         field:'freq',
                         title:'频率',
-                        width:'20%'
+                        width:'20%',
+                        editor:{
+                            type:'timespinner',
+                            options:{
+
+                            }
+                        }
                     }
                 ]]
             });
         },
         addMsgBag:function(){
             var that = this;
-            $(that.dialog).dialog({
-                title: '添加消息包',
-                iconCls: 'icon-tabicons_02_15',
-                width: 390,
-                height: 200,
-                cache: false,
-                href: "<{:U('MessagePool/addMsgBag')}>",
-                modal: true,
-                collapsible: false,
-                minimizable: false,
-                resizable: false,
-                maximizable: false,
-                onLoad:function(){
-                    $(that.dialog).find('form').eq(0).find("input[name='msg_bag_id']").combogrid({
-                        panelWidth:450,
-                        idField:'msg_bag_id',
-                        textField:'name',
-                        url:"<{:U('MessageBag/index')}>",
-                        rownumbers:true,
-                        pagination : true,// 是否分页
-                        pageSize:10,
-                        columns:[[
-                            {field:'name',title:'消息包名称',width:'90%'}
-                        ]]
-                    });
-                },
-                buttons:[{
-                    text:'确定',
-                    iconCls:'icon-ok',
-                    handler: function(){
-                        $(that.dialog).find('form').eq(0).form('submit', {
-                            onSubmit: function(){
-                                var isValid = $(this).form('validate');
-                                if (!isValid) return false;
+            if(that.isEditing()){//正在编辑
+//                               $(that.datagrid).datagrid('acceptChanges');
+                $.app.method.tip('提示信息', '请先保存正在编辑的数据', 'error');
+                return;
+            }
 
-                                var data = $(this).serializeArray();
-                                var row = {
-                                    uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000)
-                                };
-                                $.each(data,function(index,val){
-                                    row[val.name] = val.value;
-                                });
-                                //判断消息包是否重复
-
-                                var rows = $(that.datagrid).datagrid('getRows');
-                                for(var i=0;i<rows.length;i++){
-                                    if(rows[i].msg_bag_id==row.msg_bag_id){
-                                        $.app.method.tip('提示信息', '该消息包已选择', 'error');
-                                        return false;
-                                    }
-                                }
-
-                                $(that.datagrid).datagrid('appendRow',row);
-                                $(that.dialog).dialog('close');
-                                return false;
-                            }
-                        });
-                    }
-                },{
-                    text:'取消',
-                    iconCls:'icon-no',
-                    handler: function(){
-                        $(that.dialog).dialog('close');
-                    }
-                }]
+            var rows = $(that.datagrid).datagrid('getRows');
+            that.editRow = rows.length;
+            //插入新的一行
+            $(that.datagrid).datagrid('appendRow',{
+                uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000),//保证消息唯一，可能存在同一个消息
+                prob:0,
+                freq:0
             });
+            $(that.datagrid).datagrid('beginEdit',that.editRow);
         },
         refresh: function(){
             $(this.datagrid).datagrid('reload');
         }
     };
+    var msgPool_add_bagListModule = {
+        catType:2,
+        tree:'#msgPool_add_bagTree',
+        datagrid:'#msgPool_add_bagList',
+        init:function(){
+            var that = this;
+            //初始化树结构
+            $(that.tree).tree({
+                url:"<{:U('Category/public_categoryTree')}>",
+                queryParams:{type:that.catType},
+                onClick:function(node){
+                    that.loadByCatId(node.id);
+                }
+            });
+            $(that.datagrid).datagrid({
+                url:"<{:U('MessageBag/index')}>",
+                columns:[[
+                    {field:'name',width:50,title:'名称',sortable:true},
+                    {field:'catname',width:20,title:'分类'},
+                    {field:'remarks',width:50,title:'备注',sortable:true},
+                    {field:'opt_id',width:10,formatter:function(val){
+                        var btn = [];
+                        btn.push('<a href="javascript:;" onclick="msgPool_add_bagListModule.insertMsg('+val+')">添加</a>');
+                        return btn.join(' | ');
+                    }}
+                ]]
+            });
+        },
+        insertMsg:function(val){
+            if(msgPool_add_bagModule.isEditing()){
+                $.app.method.tip('提示信息', '请先保存正在编辑的消息', 'error');
+                return;
+            }
+            var that = this;
+            var row = undefined;
+            $.each($(that.datagrid).datagrid('getRows'),function(index,value){
+                if(val==value.msg_bag_id){
+                    row = value;
+                    return;
+                }
+            });
+            if(row == undefined){
+                return;
+            }
+            var index = $(msgPool_add_bagModule.datagrid).datagrid('getRows').length;
+            $(msgPool_add_bagModule.datagrid).datagrid('appendRow',{
+                uuid:new Date().getTime()+'_'+Math.round(Math.random()*1000),
+                msg_bag_id:row.msg_bag_id,
+                name:row.name,
+                catname:row.catname,
+                prob:0,
+                freq:'00:00'
+            });
+            $(msgPool_add_bagModule.datagrid).datagrid('beginEdit',index);//该行启用拖拽
+            msgPool_add_bagModule.editRow = index;
+            $('#msgPool_add_panel').scrollTop(0);
+        },
+        loadByCatId:function(catId){
+            var that = this;
+            $(that.datagrid).datagrid({
+                queryParams:{
+                    cat:{
+                        type:that.catType,
+                        catid:catId
+                    }
+                }
+            });
+        }
+    }
     $(function () {
-        msgPoolEditRule.init();
-        msgPoolEditBag.init();
-        msgPoolEditModule.init();
+        msgPool_add_ruleModule.init();//添加规则的列表
+        msgPool_add_bagModule.init();//添加消息包的列表
+        msgPool_add_bagListModule.init();//选择消息包列表
+        msgPool_add_module.init();
+
     });
 
 </script>
