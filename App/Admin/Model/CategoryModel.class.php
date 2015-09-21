@@ -180,5 +180,10 @@ class CategoryModel extends Model{
 		S('category_categorylist', null);
 		S('category_public_categoryselect', null);
 		S('content_public_category', null);
+        $catTypes = dict('type', 'Category');
+        foreach($catTypes as $key=>$catType){
+//            echo 'category_tree_'.$key;
+            S('category_tree_'.$key,null);
+        }
 	}
 }

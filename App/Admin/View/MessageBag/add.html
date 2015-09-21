@@ -213,7 +213,8 @@
                         formatter:function(value,row,index){
                             return that.msgTypeAlias[row.msg_type];
                         }
-                    },{
+                    },
+                    {
                         field : 'catname',
                         title : '分类',
                         width:'8%'
@@ -223,7 +224,10 @@
                         width:'30%',
                         title:'消息'
                     },
-                    {field:'interval',width:'8%',title:'间隔时间',
+                    {
+                        field:'interval',
+                        width:'8%',
+                        title:'间隔时间',
                         editor:{
                             type:'timespinner',
                             options:{
@@ -289,7 +293,8 @@
             });
 //            $(that.datagrid).datagrid('acceptChanges');//防止编辑时点击取消撤销添加
 
-            $(that.datagrid).datagrid('enableDnd',index);//该行启用拖拽
+//            $(that.datagrid).datagrid('enableDnd',index);//该行启用拖拽
+            $(that.datagrid).datagrid('beginEdit',index);//该行启用拖拽
             that.editRow = index;
             $('#msgBagAddPanel').scrollTop(0);
         },

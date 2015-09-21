@@ -75,7 +75,6 @@ class CategoryController extends CommonController {
 			if(!$category_db->checkParentId($id, $data['parentid'])){
 				$this->error('上级栏目设置失败');
 			}
-			
 			$res = $category_db->where(array('catid'=>$id))->save($data);
 			if($res){
 				$category_db->clearCatche();
@@ -97,7 +96,14 @@ class CategoryController extends CommonController {
 	public function categoryDelete($id = 0){
 		if($id && IS_POST){
 			$category_db = D('Category');
-			$result = $category_db->where(array('catid'=>$id))->delete();
+
+            //获取素有子节点
+            $cat = $category_db->find($id);
+            $nodeIds = getAllIdFromTreeOneStep($id,$cat['type']);
+            if(!is_array($nodeIds) || count($nodeIds)==0){
+                $this->error('操作有误');
+            }
+			$result = $category_db->where(array('catid'=>array('in',$nodeIds)))->delete();
 			if($result){
 				$category_db->clearCatche();
 				$this->success('删除成功');

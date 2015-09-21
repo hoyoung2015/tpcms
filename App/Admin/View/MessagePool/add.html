@@ -110,10 +110,11 @@
 
                     var ruleRows = $(msgPool_add_ruleModule.datagrid).datagrid('getRows');
 
-                    if(ruleRows.length==0){
-                        $.app.method.tip('提示信息', '请添加规则', 'error');
-                        return false;
-                    }
+                    //规则可以为空
+//                    if(ruleRows.length==0){
+//                        $.app.method.tip('提示信息', '请添加规则', 'error');
+//                        return false;
+//                    }
 
                     var bagRows = $(msgPool_add_bagModule.datagrid).datagrid('getRows');
 
