@@ -107,6 +107,16 @@ class MsgPoolMatcher {
                         $pass_count++;
                     }
                     break;
+                case 'BTW'://区间内
+                    if(!isset($tag[$rule['tag']])){//标签不存在，没必要比了
+                        break;
+                    }
+                    list($left,$right) = explode(',',$rule['val']);
+                    $val = $tag[$rule['tag']];
+                    if($val>=$left && $val<=$right){
+                        $pass_count++;
+                    }
+                    break;
             }
         }
 
