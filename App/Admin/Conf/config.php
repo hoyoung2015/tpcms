@@ -54,10 +54,10 @@ return array(
     ),
     'FIRE_EVENT'=>array(
         'reply'=>'向公众号回复',
-        'empty'=>'缺省操作',
-        'click_menu'=>'点击菜单',
+        'none'=>'缺省操作',
+        'click'=>'点击菜单',
         'subscribe'=>'关注',
-        'click_link'=>'点击链接',
+        'view'=>'点击链接',
     ),
     'CATE_TYPE'=>array(
         'msg'=>'消息素材',

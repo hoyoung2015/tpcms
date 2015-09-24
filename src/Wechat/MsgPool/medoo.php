@@ -8,21 +8,22 @@
  * Released under the MIT license
  */
 namespace Overtrue\Wechat\MsgPool;
+use PDO;
 class medoo
 {
 	// General
-	protected $database_type;
+	protected $database_type = 'mysql';
 
-	protected $charset;
+	protected $charset = 'utf8';
 
-	protected $database_name;
+	protected $database_name = 'wd';
 
 	// For MySQL, MariaDB, MSSQL, Sybase, PostgreSQL, Oracle
-	protected $server;
+	protected $server = '127.0.0.1';
 
-	protected $username;
+	protected $username = 'root';
 
-	protected $password;
+	protected $password = '';
 
 	// For SQLite
 	protected $database_file;
@@ -31,7 +32,7 @@ class medoo
 	protected $socket;
 
 	// Optional
-	protected $port;
+	protected $port = 3306;
 
 	protected $option = array();
 
