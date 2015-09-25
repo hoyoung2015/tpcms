@@ -17,20 +17,47 @@ class MsgPoolMatcher {
     public function execute($input = array()){
         $target_pool = $this->matchAllPool($input);
 
-        //组装消息
+        if($target_pool==null){
+            echo '没有配置全局消息';
+        }else{
+            print_r($target_pool);
+            echo '目标消息池>>> '.$target_pool['name'];
+        }
+        //拿消息包
+        $msgBag = $this->matchMsgBag($target_pool);
+
+    }
+
+    protected function matchMsgBag($msgPool){
+
+        $msgBags = json_decode($msgPool['msg_bag_json'],true);
+
+        $probArr = array();
+        foreach($msgBags as $msgBag){
+            $probArr[] = $msgBag['prob'];
+        }
+        $index = $this->get_rand($probArr);
+
+        echo '消息包索引>>> '.$index;
+        //检查间隔时间限制
+        $msgBag = $msgBags[$index];
+        $interval = $this->getInterval($msgBag['interval']);
+
+        return $msgBags[$index];
     }
 
     protected function matchAllPool($input){
         $this->p($input);
         $event = $input['event'];
-        $param = $input['param'];
+        $param = isset($input['param'])?$input['param']:'';
 
         $target_pool = null;
 
         $where = array(
             'AND'=>array(
                 'fire_event'=>$event//触发条件
-            )
+            ),
+            'ORDER'=>'tag_count DESC'
         );
 
         switch($event){
@@ -54,8 +81,13 @@ class MsgPoolMatcher {
             }
         }
 
-        if($target_pool==null){
 
+        if($target_pool==null){
+//            echo '查找缺省消息';
+            $pools = $this->db->select('msg_pool',array('name','msg_bag_json'),array('fire_event'=>'none'));
+            if(count($pools) > 0){
+                $target_pool = $pools[0];
+            }
         }
 
         return $target_pool;
@@ -97,6 +129,22 @@ class MsgPoolMatcher {
                         $pass_count++;
                     }
                     break;
+                case 'GT'://大于
+                    if(!isset($tag[$rule['tag']])){//标签不存在，没必要比了
+                        break;
+                    }
+                    if($tag[$rule['tag']] > $rule['val']){//符合条件
+                        $pass_count++;
+                    }
+                    break;
+                case 'LT'://小于
+                    if(!isset($tag[$rule['tag']])){//标签不存在，没必要比了
+                        break;
+                    }
+                    if($tag[$rule['tag']] < $rule['val']){//符合条件
+                        $pass_count++;
+                    }
+                    break;
                 case 'IN'://在集合内
                     if(!isset($tag[$rule['tag']])){//标签不存在，没必要比了
                         break;
@@ -104,6 +152,16 @@ class MsgPoolMatcher {
 
                     $collection = explode(',',$rule['val']);
                     if(in_array($tag[$rule['tag']],$collection)){
+                        $pass_count++;
+                    }
+                    break;
+                case 'NOT_IN'://在集合外
+                    if(!isset($tag[$rule['tag']])){//标签不存在，没必要比了
+                        break;
+                    }
+
+                    $collection = explode(',',$rule['val']);
+                    if(!in_array($tag[$rule['tag']],$collection)){
                         $pass_count++;
                     }
                     break;
@@ -117,12 +175,55 @@ class MsgPoolMatcher {
                         $pass_count++;
                     }
                     break;
+                case 'NOT_BTW'://区间外
+                    if(!isset($tag[$rule['tag']])){//标签不存在，没必要比了
+                        break;
+                    }
+                    list($left,$right) = explode(',',$rule['val']);
+                    $val = $tag[$rule['tag']];
+                    if($val<left || $val>$right){
+                        $pass_count++;
+                    }
+                    break;
             }
         }
 
         return $pass_count==count($rules);
     }
+    protected function getInterval($time = ''){
+        $arr = explode(',',$time);
+        $total = 0;
+        foreach($arr as &$k){
+            $k = intval($k);
+        }
+        list($h,$m,$s) = $arr;
+        return $h*60*60 + $m*60 + $s;
+    }
+
+    /**
+     * 概率抽取
+     * @param $proArr
+     * @return int|string
+     */
+    protected function get_rand($proArr) {
+        $result = '';
+        //概率数组的总概率精度
+        $proSum = array_sum($proArr);
+        //概率数组循环
+        foreach ($proArr as $key => $proCur) {
+            $randNum = mt_rand(1, $proSum);             //抽取随机数
+            if ($randNum <= $proCur) {
+                $result = $key;                         //得出结果
+                break;
+            } else {
+                $proSum -= $proCur;
+            }
+        }
+        unset ($proArr);
+        return $result;
+    }
     protected function p($arr){
         print_r($arr);
     }
+
 }

@@ -50,7 +50,9 @@ return array(
         'GT'=>'大于',
         'LT'=>'下于',
         'BTW'=>'区间内',
-        'IN'=>'集合内'
+        'NOT_BTW'=>'区间内',
+        'IN'=>'集合内',
+        'NOT_IN'=>'集合外',
     ),
     'FIRE_EVENT'=>array(
         'reply'=>'向公众号回复',

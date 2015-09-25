@@ -54,7 +54,7 @@
                 columns:[[
                     {field:'pool_id',checkbox:true},
                     {field:'name',width:50,title:'消息池名称',sortable:true},
-                    {field:'catname',width:20,title:'分类'},
+                    {field:'catname',width:25,title:'分类'},
                     {field:'fire_event',width:20,title:'触发条件',formatter:function(value,row,index){
                         return that.fireEventAlias[row.fire_event];
                     }},
@@ -118,6 +118,7 @@
                 resizable: false,
                 maximizable: false
             });
+            $(this.datagrid).datagrid('uncheckAll');
         },
         //批量删除
         delete: function(id){

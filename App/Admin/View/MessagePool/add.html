@@ -110,6 +110,7 @@
 
                     var ruleRows = $(msgPool_add_ruleModule.datagrid).datagrid('getRows');
 
+
                     //规则可以为空
 //                    if(ruleRows.length==0){
 //                        $.app.method.tip('提示信息', '请添加规则', 'error');
@@ -124,6 +125,7 @@
                     }
                     data['rule_json'] = ruleRows;
                     data['msg_bag_json'] = bagRows;
+//                    console.log(data);return false;
                     $.messager.progress({text:'处理中，请稍候...'});
                     $.post("<{:U('MessagePool/add')}>", data, function(res){
                         $.messager.progress('close');
@@ -348,28 +350,27 @@
                     },
                     {
                         field:'prob',
-                        title:'概率',
+                        title:'相对概率',
                         width:'20%',
                         editor:{
                             type:'numberspinner',
                             options:{
-                                min:0,
-                                max:1,
-                                precision:2,
-                                value:0,
-                                increment:0.01,
+                                min:1,
+                                precision:0,
+                                value:1,
+                                increment:1,
                                 required:true
                             }
                         }
                     },
                     {
-                        field:'freq',
-                        title:'频率',
+                        field:'interval',
+                        title:'间隔时间(时:分:秒)',
                         width:'20%',
                         editor:{
                             type:'timespinner',
                             options:{
-
+                                showSeconds: true
                             }
                         }
                     }
@@ -390,7 +391,7 @@
             $(that.datagrid).datagrid('appendRow',{
                 uuid:new Date().getTime()+'_'+Math.round(Math.random()*10000),//保证消息唯一，可能存在同一个消息
                 prob:0,
-                freq:0
+                interval:0
             });
             $(that.datagrid).datagrid('beginEdit',that.editRow);
         },
@@ -448,8 +449,8 @@
                 msg_bag_id:row.msg_bag_id,
                 name:row.name,
                 catname:row.catname,
-                prob:0,
-                freq:'00:00'
+                prob:1,
+                interval:'00:00:00'
             });
             $(msgPool_add_bagModule.datagrid).datagrid('beginEdit',index);//该行启用拖拽
             msgPool_add_bagModule.editRow = index;

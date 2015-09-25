@@ -92,6 +92,13 @@ class MessagePoolController extends CommonController {
             if(count($list)>0 && strval($list[0]['pool_id']) != $data['pool_id']){
                 $this->error('消息池的名称已存在');
             }
+            if(!isset($data['rule_json'])){
+                $data['rule_json'] = array();
+            }
+
+            //设置规则数量，用于匹配的时候先从数量大的匹配
+            $data['tag_count'] = count($data['rule_json']);
+
             $data['rule_json'] = json_encode($data['rule_json']);
             $data['msg_bag_json'] = json_encode($data['msg_bag_json']);
             $rs = $m->save($data);
@@ -119,8 +126,17 @@ class MessagePoolController extends CommonController {
             $data['create_time'] = time();
 
 
+            if(!isset($data['rule_json'])){
+                $data['rule_json'] = array();
+            }
+
+            //设置规则数量，用于匹配的时候先从数量大的匹配
+            $data['tag_count'] = count($data['rule_json']);
+
             $data['rule_json'] = json_encode($data['rule_json']);
             $data['msg_bag_json'] = json_encode($data['msg_bag_json']);
+
+//            $this->ajaxReturn($data);
 
             $rs = $m->add($data);
             if($rs){

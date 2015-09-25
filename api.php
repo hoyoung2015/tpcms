@@ -20,8 +20,30 @@ $input_subscribe = array(
         '学校'=>'西电'
     )
 );
+$input_subscribe2 = array(
+    'event'=>'subscribe',
+    'user_tag'=>array(
+        '学校'=>'西电'
+    )
+);
+$input_subscribe3 = array(
+    'event'=>'subscribe',
+    'user_tag'=>array(
+        '学校'=>'西电',
+        '年龄'=>20
+    )
+);
+
+
+$input_reply = array(
+    'event'=>'reply',
+    'param'=>'hello',
+    'user_tag'=>array(
+        '学校'=>'西电'
+    )
+);
 
 $matcher = new \Overtrue\Wechat\MsgPool\MsgPoolMatcher();
 
 //$matcher->execute($input);
-$matcher->execute($input_subscribe);
+$matcher->execute($input_reply);
