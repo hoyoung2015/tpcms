@@ -1,0 +1,68 @@
+<style type="text/css">
+    #image {
+        width: 228px;
+        height: 172px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #777;
+    }
+
+    #image img {
+        visibility: hidden;
+    }
+</style>
+<form>
+    <input type="hidden" name="info[msg_type]" value="image"/>
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="80">消息类别：</td>
+            <td><input class="easyui-combotree" data-options="
+			    url:'<{:U('Category/public_categoryTree')}>'
+			    ,queryParams:{type:1}
+			    " type="text" name="info[cat_id]" style="width:230px;height:24px" /></td>
+        </tr>
+        <tr>
+            <td width="90">名称：</td>
+            <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td>消息图片：</td>
+            <td>
+                <input type="hidden" name="info[image_url]" id="msgImageUrl"/>
+                <div>
+                <div id="image" onclick="msgImageOpenKCFinder(this)">
+                    <div style="margin:5px">
+                    <p style="vertical-align: middle;height: 160px;line-height:160px;text-align: center">点击这里选择图片</p>
+
+                    </div>
+                </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="application/javascript">
+    var kcfinderUrl = '/wechat/Public/static/js/kcfinder/browse.php';
+    function msgImageOpenKCFinder(div) {
+        window.KCFinder = {
+            callBack: function(url) {
+                $('#msgImageUrl').val(url);
+                window.KCFinder = null;
+                div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                var img = new Image();
+                img.src = url;
+                img.onload = function() {
+                    div.innerHTML = '<img id="img" src="/wechat/timthumb.php?src=' + url + '&w=230&h=172&q=90&zc=1&ct=1" />';
+                    var img = document.getElementById('img');
+                    img.style.visibility = "visible";
+                }
+            }
+        };
+        window.open(kcfinderUrl,
+                'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+        );
+    }
+</script>
