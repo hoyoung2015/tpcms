@@ -6,7 +6,7 @@
  * Time: 14:18
  */
 namespace Overtrue\Wechat\MsgPool;
-class MsgPoolMatcher {
+class MessagePoolMatcher {
     protected $db;
 
     public function __construct()
@@ -18,36 +18,69 @@ class MsgPoolMatcher {
         $target_pool = $this->matchAllPool($input);
 
         if($target_pool==null){
-            echo '没有配置全局消息';
+//            echo '没有配置全局消息';
+            throw new \Exception('没有配置空消息');
         }else{
-            print_r($target_pool);
-            echo '目标消息池>>> '.$target_pool['name'];
+//            echo '目标消息池>>> '.$target_pool['name'];
         }
         //拿消息包
-        $msgBag = $this->matchMsgBag($target_pool);
+        $msgBagInPool = $this->matchMsgBag($input,$target_pool);
 
+        //组装消息
+        $msgBag = $this->db->get('msg_bag','*',array('msg_bag_id'=>$msgBagInPool['msg_bag_id']));
+
+        $messages = $this->packageMsg($msgBag);
+
+        return $messages;
     }
 
-    protected function matchMsgBag($msgPool){
+    /**
+     * 组装消息
+     * @param $msgBag
+     */
+    protected function packageMsg($msgBag){
+        $messages = json_decode($msgBag['msg_json'],true);
+        foreach($messages as &$msg){
+            $interval = $msg['interval'];
+            $list = $this->db->select('msg_base',array(
+                '[]msg_'.$msg['msg_type']=>array('id'=>'base_id')
+            ),'*',array('id'=>$msg['msg_id']));
+            $msg = $list[0];
+            $msg['interval'] = $this->getInterval($interval);
+        }
+        return $messages;
+    }
 
+    protected function matchMsgBag($input,$msgPool){
+
+        $open_id = $input['open_id'];
         $msgBags = json_decode($msgPool['msg_bag_json'],true);
 
-        $probArr = array();
+        $probArr = array();//组装概率数组
         foreach($msgBags as $msgBag){
             $probArr[] = $msgBag['prob'];
         }
-        $index = $this->get_rand($probArr);
+        msg_bag_point:
+        $index = $this->get_rand($probArr);//概率抽取
 
-        echo '消息包索引>>> '.$index;
         //检查间隔时间限制
         $msgBag = $msgBags[$index];
         $interval = $this->getInterval($msgBag['interval']);
 
+        $msg_bag_log = $this->db->select('msg_bag_log','*',array('AND'=>array('open_id'=>$open_id,'msg_bag_id'=>$msgBag['msg_bag_id'])));
+
+        if($msg_bag_log && $interval > 0 && count($probArr)>1){//防止陷入死循环
+            if(time()-$msg_bag_log['create_time']<$interval){//间隔时间还没到
+                //移除这个消息包和概率数组
+                unset($msgBags[$index]);
+                unset($probArr[$index]);
+                goto msg_bag_point;//重新抽取
+            }
+        }
         return $msgBags[$index];
     }
 
     protected function matchAllPool($input){
-        $this->p($input);
         $event = $input['event'];
         $param = isset($input['param'])?$input['param']:'';
 
@@ -69,13 +102,9 @@ class MsgPoolMatcher {
 
         $msg_pools = $this->db->select('msg_pool',array('name','rule_json'),$where);
 
-        echo $this->db->last_query();
-        echo "\n所有消息池>>>";
-        $this->p($msg_pools);
         //逐个匹配消息包
         foreach($msg_pools as $msg_pool){
             if($this->matchOnePool($msg_pool,$input)){//匹配成功
-                echo $msg_pool['name'].'通过了';
                 $target_pool = $msg_pool;
                 break;
             }
@@ -105,8 +134,6 @@ class MsgPoolMatcher {
         $rules = json_decode($pool['rule_json'],true);
 
 
-        echo "\n所有规则>>>";
-        print_r($rules);
 
         $pass_count = 0;
 
@@ -190,8 +217,13 @@ class MsgPoolMatcher {
 
         return $pass_count==count($rules);
     }
+
+    /**
+     * @param string $time 格'hh:mm:ss'
+     * @return mixed
+     */
     protected function getInterval($time = ''){
-        $arr = explode(',',$time);
+        $arr = explode(':',$time);
         $total = 0;
         foreach($arr as &$k){
             $k = intval($k);
@@ -221,9 +253,6 @@ class MsgPoolMatcher {
         }
         unset ($proArr);
         return $result;
-    }
-    protected function p($arr){
-        print_r($arr);
     }
 
 }

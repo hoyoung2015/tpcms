@@ -36,6 +36,7 @@ $input_subscribe3 = array(
 
 
 $input_reply = array(
+    'open_id'=>'hoyoung',
     'event'=>'reply',
     'param'=>'hello',
     'user_tag'=>array(
@@ -43,7 +44,8 @@ $input_reply = array(
     )
 );
 
-$matcher = new \Overtrue\Wechat\MsgPool\MsgPoolMatcher();
+$matcher = new \Overtrue\Wechat\MsgPool\MessagePoolMatcher();
 
 //$matcher->execute($input);
-$matcher->execute($input_reply);
+$messages = $matcher->execute($input_reply);
+print_r($messages);
