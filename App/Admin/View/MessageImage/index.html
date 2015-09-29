@@ -113,6 +113,7 @@
             $.messager.progress({text:'处理中，请稍候...'});
             $.post("<{:U('MediaId/forever')}>",{'path':path,'type':'image'},function(res){
                 $.messager.progress('close');
+//                console.log(res);
                 if(!res.status){
                     $.app.method.tip('提示信息', res.info, 'error');
                 }else{

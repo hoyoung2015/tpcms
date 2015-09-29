@@ -52,7 +52,30 @@ class MediaIdController extends CommonController {
             $media = new \Overtrue\Wechat\Media(C('APP_ID'),C('APP_SECRET'));
             $mediaId = null;
             $m = M('media_id');
-            if($source['type']=='image'){
+            if(in_array($source['type'],array('image','video','voice'))){
+                $path = $_SERVER['DOCUMENT_ROOT'].$source['path'];
+                try{
+                    $media->forever();
+                    $mediaId = call_user_func(array($media,$source['type']),$source['path']);
+                    $mediaId['file_path'] = $source['path'];
+                    $mediaId['is_use'] = 1;
+                    $rs = $m->add(array(
+                        'media_id'=>$mediaId['media_id'],
+                        'created_at'=>time(),
+                        'file_path'=>$source['path'],
+                        'is_use'=>1,
+                        'type'=>'image'
+                    ));
+                    if($rs){
+                        $this->success('永久化成功');
+                    }else{
+                        $this->error('永久化失败');
+                    }
+                }catch (\Overtrue\Wechat\Exception $e){
+                    $this->error($e->getMessage());
+                }
+            }
+            /*if($source['type']=='image'){
                 $path = $_SERVER['DOCUMENT_ROOT'].$source['path'];
                 $mediaId = $media->forever()->image($path);
                 $mediaId['file_path'] = $source['path'];
@@ -69,7 +92,7 @@ class MediaIdController extends CommonController {
                 }else{
                     $this->error('永久化失败');
                 }
-            }
+            }*/
         }
     }
     public function add(){
@@ -93,6 +116,32 @@ class MediaIdController extends CommonController {
         }else{
             $this->display();
         }
+    }
+    //同步微信服务器的素材列表
+    public function mediaLists(){
+        $media = new \Overtrue\Wechat\Media(C('APP_ID'),C('APP_SECRET'));
+        $media_types = array('video','image','voice');
+
+        $db = M('media_id');
+//        $db->delete();//清空
+        $server_root = $_SERVER['DOCUMENT_ROOT'];
+        foreach($media_types as $media_type){
+            $list = $media->lists($media_type, 0 , 5000);
+            foreach($list['item'] as $md){
+                $db->add(array(
+                   'media_id'=>$md['media_id'],
+                    'type'=>$media_type,
+                    'is_use'=>1,
+                    'created_at'=>$md['update_time'],
+                    'file_path'=>str_replace($server_root,'',$md['name'])
+                ));
+            }
+        }
+        $res = array(
+            'success'=>true,
+            'info'=>'刷新完成'
+        );
+        $this->ajaxReturn($res);
     }
     public function edit($id){
         $m = D('MessageImage');
