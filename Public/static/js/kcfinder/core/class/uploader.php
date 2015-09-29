@@ -343,6 +343,9 @@ class uploader {
                 $filename = $this->normalizeFilename($file['name']);
                 $target = file::getInexistantFilename($dir . $filename);
 
+                //这里是自己加入的
+//                $target =iconv('utf-8','gb2312',$target);
+
                 if (!@move_uploaded_file($file['tmp_name'], $target) &&
                     !@rename($file['tmp_name'], $target) &&
                     !@copy($file['tmp_name'], $target)

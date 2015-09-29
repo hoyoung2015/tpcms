@@ -13,13 +13,21 @@
             <td><input class="easyui-validatebox" data-options="required:true" type="text" name="info[name]" style="width:220px" /></td>
         </tr>
         <tr>
+            <td width="90">歌手：</td>
+            <td><input class="easyui-validatebox" data-options="" type="text" name="info[singer]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td width="90">专辑：</td>
+            <td><input class="easyui-validatebox" data-options="" type="text" name="info[album]" style="width:220px" /></td>
+        </tr>
+        <tr>
             <td width="90">备注：</td>
             <td><textarea class="easyui-validatebox" data-options="validType:{length:[0,200]}" name="info[info]" style="width:220px;height:60px;font-size:12px"></textarea></td>
         </tr>
         <tr>
             <td>上传语音文件：</td>
             <td>
-                <input id="voice_upload" name="voice_upload" type="file" multiple="false">
+                <input id="music_upload" name="music_upload" type="file" multiple="false">
                 <input name="info[file_path]" type="hidden">
             </td>
         </tr>

@@ -1,0 +1,35 @@
+<form>
+    <input type="hidden" name="info[msg_type]" value="image"/>
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="80">消息类别：</td>
+            <td><input class="easyui-combotree" value="<{$info.cat_id}>" data-options="
+			    url:'<{:U('Category/public_categoryTree')}>'
+			    ,queryParams:{type:1}
+			    " type="text" name="info[cat_id]" style="width:230px;height:24px" /></td>
+        </tr>
+        <tr>
+            <td width="90">名称：</td>
+            <td><input class="easyui-validatebox" data-options="required:true" value="<{$info.name}>" type="text" name="info[name]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td width="90">歌手：</td>
+            <td><input class="easyui-validatebox" data-options="" value="<{$info.msg_music.singer}>" type="text" name="info[singer]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td width="90">专辑：</td>
+            <td><input class="easyui-validatebox" data-options="" value="<{$info.msg_music.album}>" type="text" name="info[album]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td width="90">备注：</td>
+            <td><textarea class="easyui-validatebox" data-options="validType:{length:[0,200]}" name="info[info]" style="width:220px;height:60px;font-size:12px"><{$info.info}></textarea></td>
+        </tr>
+        <tr>
+            <td>上传语音文件：</td>
+            <td>
+                <input id="music_upload" name="music_upload" type="file" multiple="false">
+                <input name="info[file_path]" type="hidden" value="<{$info.msg_music.file_path}>">
+            </td>
+        </tr>
+    </table>
+</form>

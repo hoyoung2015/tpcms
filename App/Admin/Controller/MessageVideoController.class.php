@@ -9,10 +9,10 @@
 namespace Admin\Controller;
 
 
-class MessageVoiceController extends CommonController {
+class MessageVideoController extends CommonController {
     public function index($page = 1, $rows = 10, $search = array(),$cat=array('type'=>1,'catid'=>0), $sort = 'create_time', $order = 'desc'){
         if(IS_POST){
-            $data = D('MessageVoice')->search($page, $rows, $search,$cat, $sort, $order);
+            $data = D('MessageVideo')->search($page, $rows, $search,$cat, $sort, $order);
 
             $this->ajaxReturn($data);
         }else{
@@ -27,12 +27,14 @@ class MessageVoiceController extends CommonController {
                 'cat_id'=>$data['cat_id'],
                 'info'=>$data['info'],
                 'create_time'=>time(),
-                'msg_type'=>'voice',
-                'msg_voice'=>array(
+                'msg_type'=>'video',
+                'msg_video'=>array(
                     'file_path'=>$data['file_path'],
+                    'singer'=>$data['singer'],
+                    'album'=>$data['album'],
                 )
             );
-            $id = D('MessageVoice')->relation(true)->add($msg);
+            $id = D('MessageVideo')->relation(true)->add($msg);
             if($id){
                 $this->success('添加成功');
             }else{
@@ -52,25 +54,25 @@ class MessageVoiceController extends CommonController {
             $config = array(
                 'maxSize'    =>    3145728,
                 'rootPath'	 =>    $rootPath,
-                'savePath'   =>    '/voice/',
+                'savePath'   =>    '/video/',
                 'saveName'   =>    array('uniqid',''),
-                'exts'       =>    array('mp3', 'wma', 'wav', 'amr'),
+                'exts'       =>    array('mp4', ),
                 'autoSub'    =>    false,
                 'subName'    =>    array('date','Ymd'),
             );
             $upload = new \Think\Upload($config);// 实例化上传类
-            $voices = $upload->upload();
+            $videos = $upload->upload();
             //判断是否有
-            if($voices){
-//                $info=$voices['Filedata']['savename'];
-                $info=$voices['Filedata'];
+            if($videos){
+//                $info=$videos['Filedata']['savename'];
+                $info=$videos['Filedata'];
                 //返回文件地址和名给JS作回调用
 
-                if(session('voice_file') && file_exist(session('voice_file'))){
+                if(session('video_file') && file_exist(session('video_file'))){
                     //删除
-                    file_delete(session('voice_file'));
+                    file_delete(session('video_file'));
                 }
-                session('voice_file',SITE_PATH.'/'.$rootPath.$info['savepath'].$info['savename']);
+                session('video_file',SITE_PATH.'/'.$rootPath.$info['savepath'].$info['savename']);
                 $this->ajaxReturn(array(
                     'title'=>pathinfo($info['name'])['filename'],//原始名称
                     'file_path'=>SCRIPT_DIR.'/'.$rootPath.$info['savepath'].$info['savename']
@@ -82,25 +84,27 @@ class MessageVoiceController extends CommonController {
         }
     }
     public function edit($id){
-        $m = D('MessageVoice');
+        $m = D('MessageVideo');
         if(IS_POST){
             $data = I('post.info');
 
-            $voice = M('msg_voice')->find($id);
+            $video = M('msg_video')->find($id);
 
             $msg = array(
                 'id'=>$id,
                 'name'=>$data['name'],
                 'info'=>$data['info'],
                 'cat_id'=>$data['cat_id'],
-                'msg_voice'=>array(
+                'msg_video'=>array(
                     'base_id'=>$id,
-                    'file_path'=>$data['file_path']
+                    'file_path'=>$data['file_path'],
+                    'singer'=>$data['singer'],
+                    'album'=>$data['album'],
                 )
             );
             $rs = $m->relation(true)->save($msg);
-            if($voice['file_path'] != $msg['msg_voice']['file_path']){
-                $file = $_SERVER['DOCUMENT_ROOT'].$voice['file_path'];
+            if($video['file_path'] != $msg['msg_video']['file_path']){
+                $file = $_SERVER['DOCUMENT_ROOT'].$video['file_path'];
                 if(file_exist($file)){
                     file_delete($file);//删除原来的语音
                 }
@@ -113,7 +117,7 @@ class MessageVoiceController extends CommonController {
         }
     }
     public function view($id){
-        $m = D('MessageVoice');
+        $m = D('MessageVideo');
             $info = $m->relation(true)->find($id);
             $this->assign('info', $info);
             $this->display();
@@ -121,12 +125,12 @@ class MessageVoiceController extends CommonController {
     public function delete($ids){
         $cannot_del = $this->cannotDelMsg($ids);
         if(count($ids) > 0){//删除
-            $db = D('MessageVoice');
+            $db = D('MessageVideo');
             //删除语音文件
             $messages = $db->where(array('id'=>array('IN',$ids)))->relation(true)->select();
             $rootPath = $_SERVER['DOCUMENT_ROOT'];
             foreach($messages as $msg){
-                file_delete($rootPath.$msg['msg_voice']['file_path']);
+                file_delete($rootPath.$msg['msg_video']['file_path']);
             }
             $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
         }

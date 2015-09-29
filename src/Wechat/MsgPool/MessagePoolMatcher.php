@@ -67,15 +67,30 @@ class MessagePoolMatcher {
         $msgBag = $msgBags[$index];
         $interval = $this->getInterval($msgBag['interval']);
 
-        $msg_bag_log = $this->db->select('msg_bag_log','*',array('AND'=>array('open_id'=>$open_id,'msg_bag_id'=>$msgBag['msg_bag_id'])));
+        $msg_bag_log = $this->db->select('msg_bag_log','*',array(
+            'AND'=>array(
+                'open_id'=>$open_id,
+                'msg_bag_id'=>$msgBag['msg_bag_id']
+            ),
+            'ORDER'=>array('create_time DESC'),
+            'LIMIT'=>1
+        ));
 
         if($msg_bag_log && $interval > 0 && count($probArr)>1){//防止陷入死循环
-            if(time()-$msg_bag_log['create_time']<$interval){//间隔时间还没到
+            if(time()-$msg_bag_log[0]['create_time']<$interval){//间隔时间还没到
                 //移除这个消息包和概率数组
                 unset($msgBags[$index]);
                 unset($probArr[$index]);
                 goto msg_bag_point;//重新抽取
             }
+        }
+
+        if($interval>0){
+            $this->db->insert('msg_bag_log',array(
+               'open_id'=>$open_id,
+                'msg_bag_id'=>$msgBag['msg_bag_id'],
+                'create_time'=>time()
+            ));
         }
         return $msgBags[$index];
     }

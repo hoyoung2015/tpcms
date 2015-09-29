@@ -11,11 +11,11 @@ namespace Admin\Model;
 
 use Think\Model\RelationModel;
 
-class MessageVoiceModel extends RelationModel{
+class MessageVideoModel extends RelationModel{
     protected $tableName = 'msg_base';
 
     protected $_link = array(
-        'msg_voice'=>array(
+        'msg_video'=>array(
             'mapping_type'=>self::HAS_ONE,
             'foreign_key'=>'base_id'
         )
@@ -36,7 +36,7 @@ class MessageVoiceModel extends RelationModel{
             $where .= ' and cat_id in ('.join(',',$catIds).') ';
             $arr[] = 'cat_id in ('.join(',',$catIds).')';
         }
-        $arr[] = "msg_type='voice'";
+        $arr[] = "msg_type='video'";
         $total = $this->where($arr)->count();//总数
 
         $order = ' order by '.$sort.' '.$order;
@@ -45,9 +45,9 @@ class MessageVoiceModel extends RelationModel{
 
 
         $sql = "select a.*,b.*,c.catname,a.id as opt_id from msg_base a "
-            ."left join msg_voice b on a.id=b.base_id "
+            ."left join msg_video b on a.id=b.base_id "
             ."left join category c on cat_id=c.catid "
-            ."where a.msg_type='voice' ".$where.$order.' limit '.$limit;
+            ."where a.msg_type='video' ".$where.$order.' limit '.$limit;
 //        echo $sql;
         $list =$total ? $this->query($sql):array();
 

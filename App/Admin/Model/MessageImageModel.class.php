@@ -36,7 +36,7 @@ class MessageImageModel extends RelationModel{
             $where .= ' and cat_id in ('.join(',',$catIds).') ';
             $arr[] = 'cat_id in ('.join(',',$catIds).')';
         }
-
+        $arr[] = "msg_type='image'";
         $total = $this->where($arr)->count();//总数
 
         $order = ' order by '.$sort.' '.$order;

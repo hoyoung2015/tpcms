@@ -1,0 +1,27 @@
+<form>
+    <input type="hidden" name="info[msg_type]" value="image"/>
+    <table cellspacing="5" width="100%">
+        <tr>
+            <td width="80">消息类别：</td>
+            <td><input class="easyui-combotree" value="<{$info.cat_id}>" data-options="
+			    url:'<{:U('Category/public_categoryTree')}>'
+			    ,queryParams:{type:1}
+			    " type="text" name="info[cat_id]" style="width:230px;height:24px" /></td>
+        </tr>
+        <tr>
+            <td width="90">标题：</td>
+            <td><input class="easyui-validatebox" data-options="required:true" value="<{$info.name}>" type="text" name="info[name]" style="width:220px" /></td>
+        </tr>
+        <tr>
+            <td width="90">描述：</td>
+            <td><textarea class="easyui-validatebox" data-options="validType:{length:[0,200]}" name="info[info]" style="width:220px;height:60px;font-size:12px"><{$info.info}></textarea></td>
+        </tr>
+        <tr>
+            <td>上传语音文件：</td>
+            <td>
+                <input id="video_upload" name="video_upload" type="file" multiple="false">
+                <input name="info[file_path]" type="hidden" value="<{$info.msg_video.file_path}>">
+            </td>
+        </tr>
+    </table>
+</form>
