@@ -3,7 +3,7 @@
         <form style="margin: 3px">
             名称:
             <input type="text" name="search[name]" style="width:200px;"/>
-            <a href="javascript:;" onclick="msgVoiceModule.search(this)" class="easyui-linkbutton" plain="true" iconCls="icon-search">搜索</a>
+            <a href="javascript:;" onclick="msgMusicModule.search(this)" class="easyui-linkbutton" plain="true" iconCls="icon-search">搜索</a>
         </form>
         </div>
     <div data-options="region:'west',split:true,title:'消息分类'" style="width:200px;">
@@ -12,9 +12,9 @@
     <div data-options="region:'center'">
         <div id="msgMusic_index_toolbar" style="padding:1px;height:auto">
             <div>
-                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgVoiceModule.add()">添加音乐</a>
-                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgVoiceModule.delete()">批量删除</a>
-                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgVoiceModule.refresh()">刷新</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="msgMusicModule.add()">添加音乐</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="msgMusicModule.delete()">批量删除</a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="msgMusicModule.refresh()">刷新</a>
             </div>
         </div>
         <div id="musicListModule" style="">
@@ -22,7 +22,7 @@
     </div>
 </div>
 <script type="application/javascript">
-    var msgVoiceModule = {
+    var msgMusicModule = {
         datagrid : '#musicListModule',
         dialog:   '#globel-dialog-div',
         addAction:"<{:U('MessageMusic/add')}>",
@@ -60,9 +60,9 @@
                     }},
                     {field:'catname',width:20,title:'分类'},
                     {field:'create_time',title:'录入时间',width:20,sortable:true,formatter:function(value,row,index){
-                        return msgVoiceModule.time(row.create_time);
+                        return msgMusicModule.time(row.create_time);
                     }},
-                    {field:'opt_id',width:30,title:'操作',formatter:msgVoiceModule.operate}
+                    {field:'opt_id',width:30,title:'操作',formatter:msgMusicModule.operate}
                 ]]
             });
         },
@@ -125,11 +125,11 @@
             var btn = [];
 
             if(row.media_id==undefined){
-                btn.push('<a href="javascript:;" onclick="msgVoiceModule.persistent(\''+row.image_url+'\')">永久化</a>');
+                btn.push('<a href="javascript:;" onclick="msgMusicModule.persistent(\''+row.image_url+'\')">永久化</a>');
             }
-            btn.push('<a href="javascript:;" onclick="msgVoiceModule.view('+row.id+')">播放</a>');
-            btn.push('<a href="javascript:;" onclick="msgVoiceModule.edit('+row.id+')">编辑</a>');
-            btn.push('<a href="javascript:;" onclick="msgVoiceModule.delete('+row.id+')">删除</a>');
+            btn.push('<a href="javascript:;" onclick="msgMusicModule.view('+row.id+')">播放</a>');
+            btn.push('<a href="javascript:;" onclick="msgMusicModule.edit('+row.id+')">编辑</a>');
+            btn.push('<a href="javascript:;" onclick="msgMusicModule.delete('+row.id+')">删除</a>');
             return btn.join(' | ');
         },
         persistent:function(path){
@@ -197,7 +197,7 @@
                 resizable: false,
                 maximizable: false,
                 onLoad:function(){
-                    $(that.dialog).find('form').find("input[name=voice_upload]").uploadify({
+                    $(that.dialog).find('form').find("input[name=music_upload]").uploadify({
 //                        auto          : false,
                         buttonText    :'选择音频文件',
                         height        : 30,
@@ -282,7 +282,7 @@
                 resizable: false,
                 maximizable: false,
                 onLoad:function(){
-                    $(that.dialog).find('form').find("input[name=voice_upload]").uploadify({
+                    $(that.dialog).find('form').find("input[name=music_upload]").uploadify({
                         buttonText    :'选择音频文件',
                         height        : 30,
                         swf           : '__STATIC__/plugins/uploadify/uploadify.swf',
@@ -346,5 +346,5 @@
             });
         }
     };
-msgVoiceModule.load();
+msgMusicModule.load();
 </script>

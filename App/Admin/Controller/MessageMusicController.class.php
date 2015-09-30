@@ -130,7 +130,9 @@ class MessageMusicController extends CommonController {
             $messages = $db->where(array('id'=>array('IN',$ids)))->relation(true)->select();
             $rootPath = $_SERVER['DOCUMENT_ROOT'];
             foreach($messages as $msg){
-                file_delete($rootPath.$msg['msg_music']['file_path']);
+                if(file_exist($rootPath.$msg['msg_music']['file_path'])){
+                    file_delete($rootPath.$msg['msg_music']['file_path']);
+                }
             }
             $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
         }
