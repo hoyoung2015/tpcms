@@ -16,7 +16,7 @@ class medoo
 
 	protected $charset = 'utf8';
 
-	protected $database_name = 'wd';
+	protected $database_name = 'wechat';
 
 	// For MySQL, MariaDB, MSSQL, Sybase, PostgreSQL, Oracle
 	protected $server = '127.0.0.1';

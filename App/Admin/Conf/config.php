@@ -42,8 +42,10 @@ return array(
 
     'ICON_DIR'=>'Public/static/plugins/icons/tabicons/',
     'MAX_MID_NUM' => 5000,//永久素材mediaid的最大量
-    'APP_ID'=>'wx350a0eb717f226f9',
-    'APP_SECRET'=>'42d60df83ab3016fe7ac69dbd8c55e63',
+//    'APP_ID'=>'wx350a0eb717f226f9',
+    'APP_ID'=>'wx769af7d3eebb889c',
+//    'APP_SECRET'=>'42d60df83ab3016fe7ac69dbd8c55e63',
+    'APP_SECRET'=>'5c4ace3f8d72647d782ec3df169f8b6e',
     'OPT_OPTIONS'=>array(
         'EQ'=>'等于',
         'NEQ'=>'不等于',
@@ -66,4 +68,5 @@ return array(
         'msg_bag'=>'消息包',
         'msg_pool'=>'消息池'
     ),
+    'MEDIA_LISTS_LIMIT' => 20
 );

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: wd
+-- Host: 127.0.0.1    Database: wechat
 -- ------------------------------------------------------
 -- Server version	5.6.26
 
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'admin','6af16a2c7485335013ff41a38dabe681',1,'AETsyO','0.0.0.0',1443428169,'admin@admin.com','');
+INSERT INTO `admin` VALUES (1,'admin','6af16a2c7485335013ff41a38dabe681',1,'AETsyO','0.0.0.0',1444352823,'admin@admin.com','');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `admin_log` (
   `type` varchar(30) NOT NULL,
   PRIMARY KEY (`logid`),
   KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `admin_log` (
 
 LOCK TABLES `admin_log` WRITE;
 /*!40000 ALTER TABLE `admin_log` DISABLE KEYS */;
-INSERT INTO `admin_log` VALUES (1,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','mrg5umq3i99aibpbg60g7r6ne1','127.0.0.1','2015-08-26 23:36:07','login'),(2,1,'admin','Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3)','r2ppc36nl8mrdha2jtj349ae21','127.0.0.1','2015-08-27 00:36:53','login'),(3,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36','8uug9348cl9sqnsd9c5rikq2b6','127.0.0.1','2015-08-27 09:01:24','login'),(4,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','uraqeiqahfphqog792g44ql5i6','127.0.0.1','2015-09-03 13:18:27','login'),(5,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','uraqeiqahfphqog792g44ql5i6','127.0.0.1','2015-09-03 18:20:39','login'),(6,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','uraqeiqahfphqog792g44ql5i6','127.0.0.1','2015-09-04 00:16:31','login'),(7,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','f13ves9nj5518c448hipuu94u7','127.0.0.1','2015-09-04 20:19:54','login'),(8,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','f13ves9nj5518c448hipuu94u7','127.0.0.1','2015-09-04 23:50:41','login'),(9,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','b9llmqogcpr74q4ns7jg57g9p3','127.0.0.1','2015-09-05 11:34:07','login'),(10,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','b9llmqogcpr74q4ns7jg57g9p3','127.0.0.1','2015-09-05 14:09:19','login'),(11,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','b9llmqogcpr74q4ns7jg57g9p3','127.0.0.1','2015-09-05 14:10:05','login'),(12,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','j3h9eaa45oikplc9uc3hd6gr94','127.0.0.1','2015-09-06 23:33:18','login'),(13,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','j3h9eaa45oikplc9uc3hd6gr94','127.0.0.1','2015-09-06 23:45:46','login'),(14,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','lhs3unpgpjthvrrfnuhtnvkui5','0.0.0.0','2015-09-07 13:40:09','login'),(15,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','cqk5cmua0tnphms4s7j738l272','0.0.0.0','2015-09-08 09:27:10','login'),(16,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','litnlim3e1ml1ev4bcuja5mgj5','0.0.0.0','2015-09-08 17:45:30','login'),(17,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','bhc7pbtngfki5sr3cleephq4n1','0.0.0.0','2015-09-09 08:59:06','login'),(18,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','p6eqma9i7ckcqsmuiessb23e74','0.0.0.0','2015-09-11 09:11:16','login'),(19,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','p6eqma9i7ckcqsmuiessb23e74','0.0.0.0','2015-09-11 10:28:04','login'),(20,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','57md3i6mnuasp86qk1c46n3bf1','0.0.0.0','2015-09-14 09:10:31','login'),(21,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','c35doo0hk9pq2f0n4efqo8j7i6','0.0.0.0','2015-09-15 10:46:57','login'),(22,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','5t15dm55ar4p9f45ju9aj9abn7','0.0.0.0','2015-09-15 16:24:35','login'),(23,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','orbk9d15irh5vqft696ssnk931','0.0.0.0','2015-09-16 08:50:27','login'),(24,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','6fg9l8fhjrq2ba0hsobsanq8f2','0.0.0.0','2015-09-17 09:51:25','login'),(25,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','sepnqk6ug244suu5314a6l9om1','0.0.0.0','2015-09-18 09:05:03','login'),(26,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','1a0b7e4qo32619h46b2o07g051','127.0.0.1','2015-09-18 19:46:03','login'),(27,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','7ejkj3gfk2o81idhe8kl731fv1','10.170.13.35','2015-09-18 22:42:25','login'),(28,1,'admin','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36 QQBrowser/3.7.3773.400','s34trm60j44ssubmv1sads7tv7','10.170.13.35','2015-09-18 22:48:58','login'),(29,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','7ejkj3gfk2o81idhe8kl731fv1','10.170.13.35','2015-09-18 22:49:48','login'),(30,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','ihnni06ko0pt5p2pur7c1nu7c7','127.0.0.1','2015-09-19 10:38:05','login'),(31,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','o5h73m2vsokref2dedkqj37067','127.0.0.1','2015-09-19 19:24:44','login'),(32,1,'admin','Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3)','ub3hfok60rs9ldvstii9latqa1','127.0.0.1','2015-09-19 19:27:27','login'),(33,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','k8t1hlc1dslgm6f4r2s4jebst0','127.0.0.1','2015-09-20 11:36:54','login'),(34,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','5j5vrf4ppg9urlii5r112jsng7','127.0.0.1','2015-09-20 15:30:28','login'),(35,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','opeuv724kqj0m8labh7o9l11b1','0.0.0.0','2015-09-21 08:59:03','login'),(36,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','apk5duqgdppfr5kbgfp50dv1f4','0.0.0.0','2015-09-24 16:04:15','login'),(37,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','qjjcfi8gv4vnmtpc66gqoalk27','0.0.0.0','2015-09-25 08:54:46','login'),(38,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','pbv6d208qiatocsgr47mac23d5','0.0.0.0','2015-09-28 08:50:45','login'),(39,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','pbv6d208qiatocsgr47mac23d5','0.0.0.0','2015-09-28 16:16:09','login');
+INSERT INTO `admin_log` VALUES (1,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','mrg5umq3i99aibpbg60g7r6ne1','127.0.0.1','2015-08-26 23:36:07','login'),(2,1,'admin','Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3)','r2ppc36nl8mrdha2jtj349ae21','127.0.0.1','2015-08-27 00:36:53','login'),(3,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36','8uug9348cl9sqnsd9c5rikq2b6','127.0.0.1','2015-08-27 09:01:24','login'),(4,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','uraqeiqahfphqog792g44ql5i6','127.0.0.1','2015-09-03 13:18:27','login'),(5,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','uraqeiqahfphqog792g44ql5i6','127.0.0.1','2015-09-03 18:20:39','login'),(6,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','uraqeiqahfphqog792g44ql5i6','127.0.0.1','2015-09-04 00:16:31','login'),(7,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','f13ves9nj5518c448hipuu94u7','127.0.0.1','2015-09-04 20:19:54','login'),(8,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','f13ves9nj5518c448hipuu94u7','127.0.0.1','2015-09-04 23:50:41','login'),(9,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','b9llmqogcpr74q4ns7jg57g9p3','127.0.0.1','2015-09-05 11:34:07','login'),(10,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','b9llmqogcpr74q4ns7jg57g9p3','127.0.0.1','2015-09-05 14:09:19','login'),(11,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','b9llmqogcpr74q4ns7jg57g9p3','127.0.0.1','2015-09-05 14:10:05','login'),(12,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','j3h9eaa45oikplc9uc3hd6gr94','127.0.0.1','2015-09-06 23:33:18','login'),(13,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','j3h9eaa45oikplc9uc3hd6gr94','127.0.0.1','2015-09-06 23:45:46','login'),(14,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','lhs3unpgpjthvrrfnuhtnvkui5','0.0.0.0','2015-09-07 13:40:09','login'),(15,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','cqk5cmua0tnphms4s7j738l272','0.0.0.0','2015-09-08 09:27:10','login'),(16,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','litnlim3e1ml1ev4bcuja5mgj5','0.0.0.0','2015-09-08 17:45:30','login'),(17,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','bhc7pbtngfki5sr3cleephq4n1','0.0.0.0','2015-09-09 08:59:06','login'),(18,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','p6eqma9i7ckcqsmuiessb23e74','0.0.0.0','2015-09-11 09:11:16','login'),(19,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','p6eqma9i7ckcqsmuiessb23e74','0.0.0.0','2015-09-11 10:28:04','login'),(20,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','57md3i6mnuasp86qk1c46n3bf1','0.0.0.0','2015-09-14 09:10:31','login'),(21,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','c35doo0hk9pq2f0n4efqo8j7i6','0.0.0.0','2015-09-15 10:46:57','login'),(22,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','5t15dm55ar4p9f45ju9aj9abn7','0.0.0.0','2015-09-15 16:24:35','login'),(23,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','orbk9d15irh5vqft696ssnk931','0.0.0.0','2015-09-16 08:50:27','login'),(24,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','6fg9l8fhjrq2ba0hsobsanq8f2','0.0.0.0','2015-09-17 09:51:25','login'),(25,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36','sepnqk6ug244suu5314a6l9om1','0.0.0.0','2015-09-18 09:05:03','login'),(26,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','1a0b7e4qo32619h46b2o07g051','127.0.0.1','2015-09-18 19:46:03','login'),(27,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','7ejkj3gfk2o81idhe8kl731fv1','10.170.13.35','2015-09-18 22:42:25','login'),(28,1,'admin','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36 QQBrowser/3.7.3773.400','s34trm60j44ssubmv1sads7tv7','10.170.13.35','2015-09-18 22:48:58','login'),(29,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','7ejkj3gfk2o81idhe8kl731fv1','10.170.13.35','2015-09-18 22:49:48','login'),(30,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','ihnni06ko0pt5p2pur7c1nu7c7','127.0.0.1','2015-09-19 10:38:05','login'),(31,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','o5h73m2vsokref2dedkqj37067','127.0.0.1','2015-09-19 19:24:44','login'),(32,1,'admin','Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; InfoPath.3)','ub3hfok60rs9ldvstii9latqa1','127.0.0.1','2015-09-19 19:27:27','login'),(33,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','k8t1hlc1dslgm6f4r2s4jebst0','127.0.0.1','2015-09-20 11:36:54','login'),(34,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36','5j5vrf4ppg9urlii5r112jsng7','127.0.0.1','2015-09-20 15:30:28','login'),(35,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','opeuv724kqj0m8labh7o9l11b1','0.0.0.0','2015-09-21 08:59:03','login'),(36,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','apk5duqgdppfr5kbgfp50dv1f4','0.0.0.0','2015-09-24 16:04:15','login'),(37,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','qjjcfi8gv4vnmtpc66gqoalk27','0.0.0.0','2015-09-25 08:54:46','login'),(38,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','pbv6d208qiatocsgr47mac23d5','0.0.0.0','2015-09-28 08:50:45','login'),(39,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','pbv6d208qiatocsgr47mac23d5','0.0.0.0','2015-09-28 16:16:09','login'),(40,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','1kllvi6bipot7c26aejuni47d1','0.0.0.0','2015-09-29 08:52:35','login'),(41,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','ovp32scqn56o259728s87craa0','0.0.0.0','2015-09-30 09:19:20','login'),(42,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','5mba3vsrt65dcnjlr307feiqj6','0.0.0.0','2015-10-08 09:10:44','login'),(43,1,'admin','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36','8d0cjftsldne9re8m1fdrpiqb0','0.0.0.0','2015-10-09 09:07:03','login');
 /*!40000 ALTER TABLE `admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,7 +314,7 @@ CREATE TABLE `media_id` (
   `created_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`mid`),
   KEY `ix_file_path` (`file_path`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,7 +323,7 @@ CREATE TABLE `media_id` (
 
 LOCK TABLES `media_id` WRITE;
 /*!40000 ALTER TABLE `media_id` DISABLE KEYS */;
-INSERT INTO `media_id` VALUES (2,'h6nvCJzFWtoupiKfXSsbunLMKqzJmj3KeT72onJn0JY','image','/wechat/Upload/files/Chrysanthemum.jpg',1,1442391447),(3,'h6nvCJzFWtoupiKfXSsbutKAUZlKXGQZQPdUT6QdWyk','image','/wechat/Upload/files/c2e63.jpg',1,1442391503);
+INSERT INTO `media_id` VALUES (109,'Fx6WCdCO_pP23wdVxWvrTC0aQMpaqGPhveIVb5L2_2s','image','/wechat/Upload/files/c2e63.jpg',1,1444372437),(110,'YQcnL74zciQxQZNVfto7zs2YwffuySvlK9SCrYOpASU','voice','匹配不到时女生语音0514',1,1431533274);
 /*!40000 ALTER TABLE `media_id` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -451,7 +451,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'首页',0,'Admin','top','',1,'1','icon-tabicons_12_11'),(2,'系统管理',0,'System','top','',2,'1','icon-tabicons_06_02'),(3,'微信管理',0,'Content','top','',3,'1','icon-tabicons_06_06'),(6,'安全记录',1,'Admin','userLeft','',0,'1','icon-tabicons_01_04'),(7,'登录日志',6,'Admin','loginLog','',1,'1','icon-tabicons_03_19'),(8,'删除登录日志',7,'Admin','loginLogDelete','',1,'1',NULL),(9,'系统设置',2,'System','settingLeft','',1,'1','icon-tabicons_04_17'),(10,'系统设置',9,'System','setting','',1,'1','icon-tabicons_08_01'),(11,'菜单设置',9,'System','menuList','',2,'1','icon-tabicons_05_07'),(12,'查看列表',11,'System','menuViewList','',0,'1',NULL),(13,'添加菜单',11,'System','menuAdd','',0,'1',NULL),(14,'修改菜单',11,'System','menuEdit','',0,'1',NULL),(15,'删除菜单',11,'System','menuDelete','',0,'1',NULL),(16,'菜单排序',11,'System','menuOrder','',0,'1',NULL),(17,'菜单导出',11,'System','menuExport','',0,'1',NULL),(18,'菜单导入',11,'System','menuImport','',0,'1',NULL),(19,'用户设置',2,'Admin','left','',2,'1','icon-tabicons_25_06'),(20,'用户管理',19,'Admin','memberList','',1,'1','icon-tabicons_25_13'),(21,'查看列表',20,'Admin','memberViewList','',0,'1',NULL),(22,'添加用户',20,'Admin','memberAdd','',0,'1',NULL),(23,'编辑用户',20,'Admin','memberEdit','',0,'1',NULL),(24,'删除用户',20,'Admin','memberDelete','',0,'1',NULL),(25,'角色管理',19,'Admin','roleList','',2,'1','icon-tabicons_11_19'),(26,'查看列表',25,'Admin','roleViewList','',0,'1',NULL),(27,'添加角色',25,'Admin','roleAdd','',0,'1',NULL),(28,'编辑角色',25,'Admin','roleEdit','',0,'1',NULL),(29,'删除角色',25,'Admin','roleDelete','',0,'1',NULL),(30,'角色排序',25,'Admin','roleOrder','',0,'1',NULL),(31,'权限设置',25,'Admin','rolePermission','',0,'1',NULL),(32,'栏目权限',25,'Admin','roleCategory','',0,'1',NULL),(33,'系统记录',2,'System','recordLeft','',3,'1','icon-tabicons_19_10'),(34,'日志管理',33,'System','logList','',3,'1','icon-tabicons_03_19'),(35,'查看列表',34,'System','logViewList','',0,'1',NULL),(36,'删除日志',34,'System','logDelete','',0,'1',NULL),(37,'缓存管理',33,'System','fileList','',1,'1','icon-tabicons_11_14'),(72,'消息素材',3,'Message','left','',0,'1','icon-tabicons_17_18'),(39,'内容管理',38,'Content','index','',0,'1',NULL),(40,'栏目管理',38,'Category','categoryList','',0,'1',NULL),(41,'查看列表',40,'Category','categoryViewList','',0,'1',NULL),(42,'添加栏目',40,'Category','categoryAdd','',0,'1',NULL),(43,'编辑栏目',40,'Category','categoryEdit','',0,'1',NULL),(44,'删除栏目',40,'Category','categoryDelete','',0,'1',NULL),(45,'栏目排序',40,'Category','categoryOrder','',0,'1',NULL),(46,'栏目导出',40,'Category','categoryExport','',0,'1',NULL),(47,'栏目导入',40,'Category','categoryImport','',0,'1',NULL),(49,'会员列表',48,'Member','memberList','',0,'1',NULL),(50,'会员分类',48,'Member','typeList','',0,'1',NULL),(51,'查看列表',49,'Member','memberViewList','',0,'1',NULL),(52,'添加会员',49,'Member','memberAdd','',0,'1',NULL),(53,'编辑用户',49,'Member','memberEdit','',0,'1',NULL),(54,'删除用户',49,'Member','memberDelete','',0,'1',NULL),(55,'用户详情',49,'Member','memberView','',0,'1',NULL),(56,'添加分类',50,'Member','typeAdd','',0,'1',NULL),(57,'编辑分类',50,'Member','typeEdit','',0,'1',NULL),(58,'删除分类',50,'Member','typeDelete','',0,'1',NULL),(59,'分类排序',50,'Member','typeOrder','',0,'1',NULL),(60,'查看列表',50,'Member','typeViewList','',0,'1',NULL),(61,'重置密码',20,'Admin','memberResetPassword','',0,'1',NULL),(62,'重置密码',49,'Member','memberResetPassword','',0,'1',NULL),(64,'模版添加',63,'System','emailAdd','',0,'1',NULL),(65,'模版编辑',63,'System','emailEdit','',0,'1',NULL),(66,'模版删除',63,'System','emailDelete','',0,'1',NULL),(67,'模版列表',63,'System','emailList','',0,'1',NULL),(68,'上传管理',38,'Storage','index','',0,'1',NULL),(69,'数据管理',2,'Database','exportlist','',0,'1','icon-tabicons_01_04'),(70,'备份数据库',69,'Database','exportlist','',0,'1','icon-tabicons_08_09'),(71,'还原数据库',69,'Database','importlist','',0,'1','icon-tabicons_03_07'),(73,'文本消息',72,'MessageText','index','',0,'1','icon-tabicons_13_06'),(75,'图片消息',72,'MessageImage','index','',1,'1','icon-tabicons_14_07'),(76,'图文消息',72,'MessageNews','index','',2,'1','icon-tabicons_13_14'),(77,'消息池管理',3,'MessagePool','null','',0,'1','icon-tabicons_04_14'),(78,'消息包管理',77,'MessageBag','index','',0,'1','icon-tabicons_01_18'),(79,'消息池配置',77,'MessagePool','index','',0,'1','icon-tabicons_02_15'),(87,'分类管理',83,'Category','categoryList','',0,'1','icon-tabicons_02_15'),(83,'全局管理',3,'Global','index','',0,'1','icon-tabicons_06_02'),(84,'素材池管理',83,'MediaId','index','',0,'1','icon-tabicons_08_01'),(86,'公众号配置',83,'WechatAccount','index','',0,'1','icon-tabicons_22_05'),(88,'音乐消息',72,'MessageMusic','index','',4,'1','icon-tabicons_15_01'),(89,'语音消息',72,'MessageVoice','index','',3,'1','icon-tabicons_21_11'),(90,'视频消息',72,'MessageVideo','index','',5,'1','icon-tabicons_11_10');
+INSERT INTO `menu` VALUES (1,'首页',0,'Admin','top','',1,'1','icon-tabicons_12_11'),(2,'系统管理',0,'System','top','',2,'1','icon-tabicons_06_02'),(3,'微信管理',0,'Content','top','',3,'1','icon-tabicons_06_06'),(6,'安全记录',1,'Admin','userLeft','',0,'1','icon-tabicons_01_04'),(7,'登录日志',6,'Admin','loginLog','',1,'1','icon-tabicons_03_19'),(8,'删除登录日志',7,'Admin','loginLogDelete','',1,'1',NULL),(9,'系统设置',2,'System','settingLeft','',1,'1','icon-tabicons_04_17'),(10,'系统设置',9,'System','setting','',1,'1','icon-tabicons_08_01'),(11,'菜单设置',9,'System','menuList','',2,'1','icon-tabicons_05_07'),(12,'查看列表',11,'System','menuViewList','',0,'1',NULL),(13,'添加菜单',11,'System','menuAdd','',0,'1',NULL),(14,'修改菜单',11,'System','menuEdit','',0,'1',NULL),(15,'删除菜单',11,'System','menuDelete','',0,'1',NULL),(16,'菜单排序',11,'System','menuOrder','',0,'1',NULL),(17,'菜单导出',11,'System','menuExport','',0,'1',NULL),(18,'菜单导入',11,'System','menuImport','',0,'1',NULL),(19,'用户设置',2,'Admin','left','',2,'1','icon-tabicons_25_06'),(20,'用户管理',19,'Admin','memberList','',1,'1','icon-tabicons_25_13'),(21,'查看列表',20,'Admin','memberViewList','',0,'1',NULL),(22,'添加用户',20,'Admin','memberAdd','',0,'1',NULL),(23,'编辑用户',20,'Admin','memberEdit','',0,'1',NULL),(24,'删除用户',20,'Admin','memberDelete','',0,'1',NULL),(25,'角色管理',19,'Admin','roleList','',2,'1','icon-tabicons_11_19'),(26,'查看列表',25,'Admin','roleViewList','',0,'1',NULL),(27,'添加角色',25,'Admin','roleAdd','',0,'1',NULL),(28,'编辑角色',25,'Admin','roleEdit','',0,'1',NULL),(29,'删除角色',25,'Admin','roleDelete','',0,'1',NULL),(30,'角色排序',25,'Admin','roleOrder','',0,'1',NULL),(31,'权限设置',25,'Admin','rolePermission','',0,'1',NULL),(32,'栏目权限',25,'Admin','roleCategory','',0,'1',NULL),(33,'系统记录',2,'System','recordLeft','',3,'1','icon-tabicons_19_10'),(34,'日志管理',33,'System','logList','',3,'1','icon-tabicons_03_19'),(35,'查看列表',34,'System','logViewList','',0,'1',NULL),(36,'删除日志',34,'System','logDelete','',0,'1',NULL),(37,'缓存管理',33,'System','fileList','',1,'1','icon-tabicons_11_14'),(72,'消息素材',3,'Message','left','',0,'1','icon-tabicons_17_18'),(39,'内容管理',38,'Content','index','',0,'1',NULL),(40,'栏目管理',38,'Category','categoryList','',0,'1',NULL),(41,'查看列表',40,'Category','categoryViewList','',0,'1',NULL),(42,'添加栏目',40,'Category','categoryAdd','',0,'1',NULL),(43,'编辑栏目',40,'Category','categoryEdit','',0,'1',NULL),(44,'删除栏目',40,'Category','categoryDelete','',0,'1',NULL),(45,'栏目排序',40,'Category','categoryOrder','',0,'1',NULL),(46,'栏目导出',40,'Category','categoryExport','',0,'1',NULL),(47,'栏目导入',40,'Category','categoryImport','',0,'1',NULL),(49,'会员列表',48,'Member','memberList','',0,'1',NULL),(50,'会员分类',48,'Member','typeList','',0,'1',NULL),(51,'查看列表',49,'Member','memberViewList','',0,'1',NULL),(52,'添加会员',49,'Member','memberAdd','',0,'1',NULL),(53,'编辑用户',49,'Member','memberEdit','',0,'1',NULL),(54,'删除用户',49,'Member','memberDelete','',0,'1',NULL),(55,'用户详情',49,'Member','memberView','',0,'1',NULL),(56,'添加分类',50,'Member','typeAdd','',0,'1',NULL),(57,'编辑分类',50,'Member','typeEdit','',0,'1',NULL),(58,'删除分类',50,'Member','typeDelete','',0,'1',NULL),(59,'分类排序',50,'Member','typeOrder','',0,'1',NULL),(60,'查看列表',50,'Member','typeViewList','',0,'1',NULL),(61,'重置密码',20,'Admin','memberResetPassword','',0,'1',NULL),(62,'重置密码',49,'Member','memberResetPassword','',0,'1',NULL),(64,'模版添加',63,'System','emailAdd','',0,'1',NULL),(65,'模版编辑',63,'System','emailEdit','',0,'1',NULL),(66,'模版删除',63,'System','emailDelete','',0,'1',NULL),(67,'模版列表',63,'System','emailList','',0,'1',NULL),(68,'上传管理',38,'Storage','index','',0,'1',NULL),(69,'数据管理',2,'Database','exportlist','',0,'1','icon-tabicons_01_04'),(70,'备份数据库',69,'Database','exportlist','',0,'1','icon-tabicons_08_09'),(71,'还原数据库',69,'Database','importlist','',0,'1','icon-tabicons_03_07'),(73,'文本消息',72,'MessageText','index','',0,'1','icon-tabicons_13_06'),(75,'图片消息',72,'MessageImage','index','',1,'1','icon-tabicons_14_07'),(76,'图文消息',72,'MessageNews','index','',2,'1','icon-tabicons_13_14'),(77,'消息池管理',3,'MessagePool','null','',0,'1','icon-tabicons_04_14'),(78,'消息包管理',77,'MessageBag','index','',0,'1','icon-tabicons_01_18'),(79,'消息池配置',77,'MessagePool','index','',0,'1','icon-tabicons_02_15'),(87,'分类管理',83,'Category','categoryList','',0,'1','icon-tabicons_02_15'),(83,'全局管理',3,'Global','index','',0,'1','icon-tabicons_06_02'),(84,'素材池管理',83,'MediaId','index','',0,'1','icon-tabicons_08_01'),(86,'公众号配置',83,'WechatAccount','index','',0,'0','icon-tabicons_22_05'),(88,'音乐消息',72,'MessageMusic','index','',4,'1','icon-tabicons_15_01'),(89,'语音消息',72,'MessageVoice','index','',3,'1','icon-tabicons_21_11'),(90,'视频消息',72,'MessageVideo','index','',5,'1','icon-tabicons_11_10');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -522,8 +522,9 @@ CREATE TABLE `msg_base` (
   `create_time` int(11) DEFAULT NULL,
   `msg_type` varchar(45) DEFAULT NULL,
   `cat_id` int(11) DEFAULT NULL,
+  `info` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -532,7 +533,7 @@ CREATE TABLE `msg_base` (
 
 LOCK TABLES `msg_base` WRITE;
 /*!40000 ALTER TABLE `msg_base` DISABLE KEYS */;
-INSERT INTO `msg_base` VALUES (87,'第一组文本',1442798735,'text',18),(89,'第一组图文',1442798852,'news',18),(88,'第一组图片',1442798759,'image',18),(90,'全局缺省消息',1443162784,'text',18);
+INSERT INTO `msg_base` VALUES (87,'第一组文本',1442798735,'text',18,NULL),(89,'第一组图文',1442798852,'news',18,NULL),(88,'第一组图片',1442798759,'image',18,NULL),(90,'全局缺省消息',1443162784,'text',18,NULL),(93,'guilaidian',1443507436,'voice',0,''),(100,'Iron.Girl.Ultimate.Weapon.2015.720p.BluRay.x264-WiKi.sample~1',1444267781,'video',18,'');
 /*!40000 ALTER TABLE `msg_base` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -559,6 +560,31 @@ LOCK TABLES `msg_image` WRITE;
 /*!40000 ALTER TABLE `msg_image` DISABLE KEYS */;
 INSERT INTO `msg_image` VALUES (88,'/wechat/Upload/files/c2e63.jpg','/wechat/Upload/thumbs/files/c2e63.jpg');
 /*!40000 ALTER TABLE `msg_image` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `msg_music`
+--
+
+DROP TABLE IF EXISTS `msg_music`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `msg_music` (
+  `base_id` int(11) NOT NULL,
+  `singer` varchar(255) DEFAULT NULL,
+  `album` varchar(255) DEFAULT NULL,
+  `file_path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`base_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `msg_music`
+--
+
+LOCK TABLES `msg_music` WRITE;
+/*!40000 ALTER TABLE `msg_music` DISABLE KEYS */;
+/*!40000 ALTER TABLE `msg_music` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -642,6 +668,30 @@ INSERT INTO `msg_text` VALUES (90,'没有匹配到任何合适的消息包'),(87
 UNLOCK TABLES;
 
 --
+-- Table structure for table `msg_video`
+--
+
+DROP TABLE IF EXISTS `msg_video`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `msg_video` (
+  `base_id` int(11) NOT NULL,
+  `file_path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`base_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `msg_video`
+--
+
+LOCK TABLES `msg_video` WRITE;
+/*!40000 ALTER TABLE `msg_video` DISABLE KEYS */;
+INSERT INTO `msg_video` VALUES (100,'/wechat/Upload/video/5615c703ea895.mp4');
+/*!40000 ALTER TABLE `msg_video` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `msg_voice`
 --
 
@@ -661,6 +711,7 @@ CREATE TABLE `msg_voice` (
 
 LOCK TABLES `msg_voice` WRITE;
 /*!40000 ALTER TABLE `msg_voice` DISABLE KEYS */;
+INSERT INTO `msg_voice` VALUES (93,'/wechat/Upload/voice/560a2d03602cc.mp3');
 /*!40000 ALTER TABLE `msg_voice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -802,7 +853,7 @@ LOCK TABLES `times` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'wd'
+-- Dumping routines for database 'wechat'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -814,4 +865,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-28 17:51:48
+-- Dump completed on 2015-10-09 17:06:20

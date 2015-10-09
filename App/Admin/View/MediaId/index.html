@@ -1,7 +1,7 @@
 <div id="mediaid-datagrid-toolbar" style="padding:1px;height:auto">
     <div>
         <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="mediaIdListModule.refresh()">本地刷新</a>
-        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="mediaIdListModule.mediaLists()">同步刷新</a>
+        <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="mediaIdListModule.mediaLists()">微信服务器同步刷新</a>
     </div>
 </div>
 <div id="MediaIdListModule">
@@ -15,7 +15,6 @@
         addAction:"<{:U('MediaId/add')}>",
         listAction:"<{:U('MediaId/index')}>",
         editAction:"<{:U('MediaId/edit')}>",
-        deleteAction:"<{:U('MediaId/delete')}>",
         msgTypeAlias:{
           'image':'图片',
             'voice':'语音'
@@ -38,7 +37,10 @@
                         return that.msgTypeAlias[row.type];
                     }},
                     {field:'file_path',width:100,title:'素材路径',sortable:true},
-                    {field:'opt_id',width:30,title:'操作',formatter:that.operate}
+                    {field:'created_at',width:40,title:'生成时间',formatter:function(value,row,index){
+                        return that.time(value);
+                    }},
+                    {field:'valid',width:30,title:'状态',formatter:that.operate}
                 ]]
             });
         },
@@ -58,52 +60,46 @@
             $(this.datagrid).datagrid({pageNumber: 1});
         },
         //操作格式化
-        operate: function(val){
+        operate: function(value,row,index){
             var btn = [];
-            btn.push('<a href="javascript:;" onclick="mediaIdListModule.edit('+val+')">编辑</a>');
+
+            if(value==0){
+                btn.push('<span style="color: red">本地不存在</span>');
+                btn.push('<a href="javascript:;" onclick="mediaIdListModule.del(\''+row.media_id+'\')">删除</a>');
+            }else{
+                btn.push('<span style="color: green">正常</span>');
+            }
             return btn.join(' | ');
         },
         mediaLists:function(){
+            var that = this;
+            $.messager.progress({text:'处理中，请稍候...'});
             $.post("<{:U('MediaId/mediaLists')}>",{},function(data){
-                console.log(data);
+                $.messager.progress('close');
+                if(data.success){
+                    $.app.method.tip('提示信息', data.info, 'info');
+                    that.refresh();
+                }else{
+                    $.app.method.tip('提示信息', data.info, 'error');
+                }
             });
         },
         //批量删除
-        delete: function(id){
-            var rows = $(this.datagrid).datagrid('getSelections');
-            if(!id && rows.length==0){//多选情况下
-                $.app.method.tip('提示信息', '请选择要删除的行', 'error');
-                return;
-            }
+        del: function(id){
             var that = this;
             $.messager.confirm('提示信息', '确定要删除吗？', function(result){
-                if(!result) return false;
-                var ids = [];
-                if(!id){
-                    rows.forEach(function(row){
-                        ids.push(row.id);
-                    });
-                }else{
-                    ids.push(id);
-                }
-                // console.log(ids);return;
+
+                var href = "<{:U('MediaId/delete')}>";
                 $.messager.progress({text:'处理中，请稍候...'});
-                $.post(that.deleteAction,{"ids":ids},function(res){
+                $.post(href,{id:id},function(res){
                     $.messager.progress('close');
-                    if(res.cannotDel.length > 0){//存在不能删除的
-                        var arr = new Array();
-                        arr.push('<ul style="padding-left: 50px">');
-                        $.each(res.cannotDel,function(index,val){
-                            arr.push('<li>'+val['msg_name']+'被'+'消息包'+val['msg_bag_name']+'使用</li>');
-                        });
-                        arr.push('</ul>');
-                        arr.push('<p style="padding-left: 40px;font-weight: bold">这些素材不能删除！</p>');
-                        $.messager.alert('删除提示',arr.join(''),'info');
+                    if(res.success){
+                        $.app.method.tip('提示信息', res.info, 'info');
+                        that.refresh();
                     }else{
-                        $.app.method.tip('提示信息', '删除成功', 'info');
+                        $.app.method.tip('提示信息', res.info, 'error');
                     }
-                    that.refresh();
-                }, 'json');
+                })
             });
         },
         add:function(){

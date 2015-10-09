@@ -13,7 +13,7 @@ $APP_SECRET = '5c4ace3f8d72647d782ec3df169f8b6e';
 $media = new \Overtrue\Wechat\Media($APP_ID,$APP_SECRET);
 //$list = $media->lists('image', 0 , 50);
 
-$path = "E:/huyang/local/xampp/htdocs/wechat/Upload/files/image/D0.jpg";
+$path = "E:/huyang/local/xampp/htdocs/wechat/Upload/files/image/u=3841157212,2135341815&fm=21&gp=0.jpg";
 
 $media = $media->forever();
 $type = 'image';

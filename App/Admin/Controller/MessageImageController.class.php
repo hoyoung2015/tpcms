@@ -28,8 +28,8 @@ class MessageImageController extends CommonController {
                 'create_time'=>time(),
                 'msg_type'=>'image',
                 'msg_image'=>array(
-                    'image_url'=>$data['image_url'],
-                    'image_url_lt'=>str_replace('files/','thumbs/files/',$data['image_url'])
+                    'image_url'=>urldecode($data['image_url']),//注意，kcfinder给的路径是真实路径经过了urlencode，这里要urldecode之后才能找到真实路径
+                    'image_url_lt'=>urldecode(str_replace('files/','thumbs/files/',$data['image_url']))
                 )
             );
             $id = D('MessageImage')->relation(true)->add($msg);

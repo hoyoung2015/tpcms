@@ -73,7 +73,7 @@
             $(that.dialog).dialog({
                 title:'播放视频',
                 width:514,
-                height:160,
+                height:300,
                 cache: false,
                 href: href,
                 modal: true,
@@ -197,9 +197,9 @@
                 resizable: false,
                 maximizable: false,
                 onLoad:function(){
-                    $(that.dialog).find('form').find("input[name=voice_upload]").uploadify({
+                    $(that.dialog).find('form').find("input[name=video_upload]").uploadify({
 //                        auto          : false,
-                        buttonText    :'选择音频文件',
+                        buttonText    :'选择视频文件',
                         height        : 30,
                         swf           : '__STATIC__/plugins/uploadify/uploadify.swf',
                         uploader      : "<{:U('MessageVideo/upload')}>",
@@ -282,16 +282,16 @@
                 resizable: false,
                 maximizable: false,
                 onLoad:function(){
-                    $(that.dialog).find('form').find("input[name=voice_upload]").uploadify({
-                        buttonText    :'选择音频文件',
+                    $(that.dialog).find('form').find("input[name=video_upload]").uploadify({
+                        buttonText    :'选择视频文件',
                         height        : 30,
                         swf           : '__STATIC__/plugins/uploadify/uploadify.swf',
                         uploader      : "<{:U('MessageVideo/upload')}>",
                         width         : 120,
                         'queueSizeLimit' : 1,
                         'fileSizeLimit' : '10120KB',
-                        'fileTypeDesc' : '大小不超过5M，长度不超过60秒，支持mp3/wma/wav/amr格式',
-                        'fileTypeExts' : '*.mp3; *.wma; *.wav; *.amr',
+                        'fileTypeDesc' : '大小不超过10M，支持mp4格式',
+                        'fileTypeExts' : '*.mp4',
                         'removeCompleted' : false,
                         'onUploadSuccess' : function(file, data, response) {
                             if(response){
@@ -347,4 +347,5 @@
         }
     };
 msgVoiceModule.load();
+
 </script>

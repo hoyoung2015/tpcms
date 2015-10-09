@@ -10,7 +10,7 @@ namespace Admin\Controller;
 
 
 class MediaIdController extends CommonController {
-    public function index($page = 1, $rows = 10, $search = array(), $sort = 'mid', $order = 'desc'){
+    public function index($page = 1, $rows = 10, $search = array(), $sort = 'mid', $order = 'asc'){
         if(IS_POST){
             $db = M('media_id');
             $where = array();
@@ -23,22 +23,20 @@ class MediaIdController extends CommonController {
             $order = $sort.' '.$order;
             $limit = ($page - 1) * $rows . "," . $rows;
             $list = $total ? $db->where($where)->order($order)->limit($limit)->select() : array();
-            for($i=0;$i<count($list);$i++){
-                $list[$i]['opt_id'] = $list[$i]['m_id'];
+            $root = $_SERVER['DOCUMENT_ROOT'];
+            foreach($list as &$item){
+                //检查路径是否存在
+                if(file_exists($root.$item['file_path'])){
+                    $item['valid'] = 1;
+                }else{
+                    $item['valid'] = 0;
+                }
             }
             $data = array('total'=>$total, 'rows'=>$list);
             $this->ajaxReturn($data);
         }else{
             $this->display();
         }
-    }
-    public function test(){
-        echo strlen("RyLh0DD2e1pAhJihY7QlsFPFMfRcKNKCNZ-lMLQbIaiAFQpS2Rc4MitF7cwZZpFL");
-    }
-    public function test2(){
-        echo $_SERVER['DOCUMENT_ROOT'].'<br>';
-        echo SCRIPT_DIR;
-//        echo strripos(SITE_DIR,SITE_PATH);
     }
 
     /**
@@ -53,10 +51,10 @@ class MediaIdController extends CommonController {
             $mediaId = null;
             $m = M('media_id');
             if(in_array($source['type'],array('image','video','voice'))){
-                $path = $_SERVER['DOCUMENT_ROOT'].$source['path'];
+                $path = $_SERVER['DOCUMENT_ROOT'].$source['path'];//绝对路径
+                $media->forever();
                 try{
-                    $media->forever();
-                    $mediaId = call_user_func(array($media,$source['type']),$source['path']);
+                    $mediaId = call_user_func(array($media,$source['type']),$path);
                     $mediaId['file_path'] = $source['path'];
                     $mediaId['is_use'] = 1;
                     $rs = $m->add(array(
@@ -75,24 +73,6 @@ class MediaIdController extends CommonController {
                     $this->error($e->getMessage());
                 }
             }
-            /*if($source['type']=='image'){
-                $path = $_SERVER['DOCUMENT_ROOT'].$source['path'];
-                $mediaId = $media->forever()->image($path);
-                $mediaId['file_path'] = $source['path'];
-                $mediaId['is_use'] = 1;
-                $rs = $m->add(array(
-                    'media_id'=>$mediaId['media_id'],
-                    'created_at'=>time(),
-                    'file_path'=>$source['path'],
-                    'is_use'=>1,
-                    'type'=>'image'
-                ));
-                if($rs){
-                    $this->success('永久化成功');
-                }else{
-                    $this->error('永久化失败');
-                }
-            }*/
         }
     }
     public function add(){
@@ -123,25 +103,86 @@ class MediaIdController extends CommonController {
         $media_types = array('video','image','voice');
 
         $db = M('media_id');
-//        $db->delete();//清空
+        $db->where('1')->delete();//清空
         $server_root = $_SERVER['DOCUMENT_ROOT'];
+
         foreach($media_types as $media_type){
-            $list = $media->lists($media_type, 0 , 5000);
-            foreach($list['item'] as $md){
-                $db->add(array(
-                   'media_id'=>$md['media_id'],
-                    'type'=>$media_type,
-                    'is_use'=>1,
-                    'created_at'=>$md['update_time'],
-                    'file_path'=>str_replace($server_root,'',$md['name'])
-                ));
-            }
+            $offset = 0;
+            $count = 20;
+            do{
+                $list = $media->lists($media_type, $offset , $count);
+                foreach($list['item'] as $md){
+
+
+
+
+                    $db->add(array(
+                        'media_id'=>$md['media_id'],
+                        'type'=>$media_type,
+                        'is_use'=>1,
+                        'created_at'=>$md['update_time'],
+                        'file_path'=>str_replace($server_root,'',$md['name'])
+                    ));
+                }
+                $offset += $count;
+            }while($list['item_count']>0);
         }
         $res = array(
             'success'=>true,
             'info'=>'刷新完成'
         );
         $this->ajaxReturn($res);
+    }//同步微信服务器的素材列表
+    public function mediaLists_temp(){
+
+        //判断已经调用的次数，此接口一天不能超过20次
+        $lastTimes = S('MEDIA_LISTS_RESIDUE_DEGREE')===false;
+        if($lastTimes===false){//剩余20次
+            $lastTimes = C('MEDIA_LISTS_LIMIT');
+        }
+        if($lastTimes <= 0){
+            $res = array(
+                'success'=>false,
+                'info'=>'该接口今日可调用次数已用完'
+            );
+            $this->ajaxReturn($res);
+        }else{
+            $expire = strtotime(date('Y-m-d', time())) + 24 * 60 * 60 - time();//计算有效期，到今日的24点
+            $lastTimes--;
+            S('MEDIA_LISTS_RESIDUE_DEGREE',$lastTimes,array('type'=>'file','expire'=>$expire));//放入缓存
+
+            $media = new \Overtrue\Wechat\Media(C('APP_ID'),C('APP_SECRET'));
+            $media_types = array('video','image','voice');
+
+            $db = M('media_id');
+            $db->where('1')->delete();//清空
+            $server_root = $_SERVER['DOCUMENT_ROOT'];
+
+
+
+            foreach($media_types as $media_type){
+                $offset = 0;
+                $count = 20;
+                do{
+                    $list = $media->lists($media_type, $offset , $count);
+                    foreach($list['item'] as $md){
+                        $db->add(array(
+                            'media_id'=>$md['media_id'],
+                            'type'=>$media_type,
+                            'is_use'=>1,
+                            'created_at'=>$md['update_time'],
+                            'file_path'=>str_replace($server_root,'',$md['name'])
+                        ));
+                    }
+                    $offset += $count;
+                }while($list['item_count']>0);
+            }
+            $res = array(
+                'success'=>true,
+                'info'=>'刷新完成'
+            );
+            $this->ajaxReturn($res);
+        }
     }
     public function edit($id){
         $m = D('MessageImage');
@@ -165,14 +206,28 @@ class MediaIdController extends CommonController {
             $this->display();
         }
     }
-    public function delete($ids){
-        $cannot_del = $this->cannotDelMsg($ids);
-        if(count($ids) > 0){//删除
-            $db = D('MessageImage');
-            $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
+    public function delete($id){
+        if(IS_POST){
+            $media = new \Overtrue\Wechat\Media(C('APP_ID'),C('APP_SECRET'));
+
+            $rs = array();
+
+            try{
+                $res = $media->delete($id);
+                if($res['errcode']==0){
+                    //删除本地
+                    M('media_id')->where(array('media_id'=>$id))->delete();
+                    $rs['info'] = '删除成功';
+                    $rs['success'] = true;
+                }else{
+                    $rs['info'] = $res['errmsg'];
+                    $rs['success'] = false;
+                }
+            }catch (\Overtrue\Wechat\Exception $e){
+                $rs['success'] = false;
+                $rs['info'] = $e->getMessage();
+            }
+            $this->ajaxReturn($rs);
         }
-        $this->ajaxReturn(array(
-            'cannotDel'=>$cannot_del
-        ));
     }
 }

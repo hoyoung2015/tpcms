@@ -29,9 +29,7 @@ class MessageVideoController extends CommonController {
                 'create_time'=>time(),
                 'msg_type'=>'video',
                 'msg_video'=>array(
-                    'file_path'=>$data['file_path'],
-                    'singer'=>$data['singer'],
-                    'album'=>$data['album'],
+                    'file_path'=>$data['file_path']
                 )
             );
             $id = D('MessageVideo')->relation(true)->add($msg);
@@ -52,7 +50,7 @@ class MessageVideoController extends CommonController {
             $rootPath = 'Upload';
             //图片上传设置
             $config = array(
-                'maxSize'    =>    3145728,
+                'maxSize'    =>    10*1024*1024,
                 'rootPath'	 =>    $rootPath,
                 'savePath'   =>    '/video/',
                 'saveName'   =>    array('uniqid',''),
@@ -97,15 +95,13 @@ class MessageVideoController extends CommonController {
                 'cat_id'=>$data['cat_id'],
                 'msg_video'=>array(
                     'base_id'=>$id,
-                    'file_path'=>$data['file_path'],
-                    'singer'=>$data['singer'],
-                    'album'=>$data['album'],
+                    'file_path'=>$data['file_path']
                 )
             );
             $rs = $m->relation(true)->save($msg);
             if($video['file_path'] != $msg['msg_video']['file_path']){
                 $file = $_SERVER['DOCUMENT_ROOT'].$video['file_path'];
-                if(file_exist($file)){
+                if(file_exists($file)){
                     file_delete($file);//删除原来的语音
                 }
             }
@@ -130,7 +126,9 @@ class MessageVideoController extends CommonController {
             $messages = $db->where(array('id'=>array('IN',$ids)))->relation(true)->select();
             $rootPath = $_SERVER['DOCUMENT_ROOT'];
             foreach($messages as $msg){
-                file_delete($rootPath.$msg['msg_video']['file_path']);
+                if(file_exists($rootPath.$msg['msg_video']['file_path'])){
+                    file_delete($rootPath.$msg['msg_video']['file_path']);
+                }
             }
             $result = $db->where(array('id'=>array('IN',$ids)))->relation(true)->delete();
         }

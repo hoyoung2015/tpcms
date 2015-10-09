@@ -53,12 +53,14 @@ class MessageImageModel extends RelationModel{
 
         $m = M('media_id');
 
-        for($i=0;$i<count($list);$i++){
+
+        foreach($list as &$image){
             //查询是否为永久素材，按照绝对路径匹配
-            $medias = $m->where(array('file_path'=>$list[$i]['image_url'],'is_use'=>1))->select();
+            $medias = $m->where(array('file_path'=>$image['image_url'],'is_use'=>1))->select();
             if(count($medias)>0){
-                $list[$i]['media_id'] = $medias[0]['media_id'];
+                $image['media_id'] = $medias[0]['media_id'];
             }
+//            $image['image_url'] = urlencode($image['image_url']);
         }
         return array(
             'total'=>$total,

@@ -52,7 +52,7 @@
                 columns:[[
                     {field:'id',checkbox:true},
                     {field:'image_url',width:20,title:'图片',align:'center',formatter:function(value,row,index){
-                        return '<img style="margin-top:5px;" src="/wechat/timthumb.php?w=60&h=45&q=90&zc=1&ct=1&src='+row.image_url+'"/>';
+                        return '<img style="margin-top:5px;" src="/wechat/timthumb.php?w=60&h=45&q=90&zc=1&ct=1&src='+encodeURIComponent(row.image_url)+'"/>';
                     }},
                     {field:'name',width:80,title:'名称(media_id)',sortable:true,formatter:function(value,row,index){
                         var name = row.name;
