@@ -125,7 +125,7 @@
             var btn = [];
 
             if(row.media_id==undefined){
-                btn.push('<a href="javascript:;" onclick="msgVoiceModule.persistent(\''+row.image_url+'\')">永久化</a>');
+                btn.push('<a href="javascript:;" onclick="msgVoiceModule.persistent(\''+row.file_path+'\')">永久化</a>');
             }
             btn.push('<a href="javascript:;" onclick="msgVoiceModule.view('+row.id+')">播放</a>');
             btn.push('<a href="javascript:;" onclick="msgVoiceModule.edit('+row.id+')">编辑</a>');
@@ -135,7 +135,7 @@
         persistent:function(path){
             var that = this;
             $.messager.progress({text:'处理中，请稍候...'});
-            $.post("<{:U('MediaId/forever')}>",{'path':path,'type':'image'},function(res){
+            $.post("<{:U('MediaId/forever')}>",{'path':path,'type':'video'},function(res){
                 $.messager.progress('close');
                 if(!res.status){
                     $.app.method.tip('提示信息', res.info, 'error');

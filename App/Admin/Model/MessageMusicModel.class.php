@@ -53,11 +53,11 @@ class MessageMusicModel extends RelationModel{
 
         $m = M('media_id');
 
-        for($i=0;$i<count($list);$i++){
-            //查询是否为永久素材，按照绝对路径匹配
-            $medias = $m->where(array('file_path'=>$list[$i]['file_path'],'is_use'=>1))->select();
+
+        foreach($list as &$music){
+            $medias = $m->where(array('file_path'=>$music['file_path'],'is_use'=>1))->select();
             if(count($medias)>0){
-                $list[$i]['media_id'] = $medias[0]['media_id'];
+                $music['media_id'] = $medias[0]['media_id'];
             }
         }
         return array(
